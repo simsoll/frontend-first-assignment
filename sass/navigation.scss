@@ -1,0 +1,85 @@
+
+$navigation-height: 70px;
+$navigation-buttons-width: 200px;
+$logo-margin-left: 5%;
+$logo-width: 200px; 
+$navigation-button-height: 30px;
+
+nav {
+    height: $navigation-height;
+}
+
+.logo {
+    margin-left: $logo-margin-left;
+    width: $logo-width;
+    float: left;
+}
+
+.navigation-links {
+    width: calc(100% - #{$navigation-buttons-width} - #{$logo-margin-left} - #{$logo-width});
+    text-align: center;
+    display: inline-block;
+    float: left;    
+}
+
+.navigation-links li {
+    display: inline;
+    line-height: $navigation-height;
+    padding: 0 60px;
+}
+
+.navigation-links a {
+    text-decoration: none; 
+    color: black;
+    font-size: 1.6rem;   
+}
+
+.navigation-buttons {
+    box-sizing: border-box;
+    float: right;
+    margin-top: $navigation-height/2 - $navigation-button-height/2;
+    width: $navigation-buttons-width;    
+}
+
+.navigation-buttons button {
+    height: $navigation-button-height;  
+    padding: 0 10px; 
+    margin: 0 5px; 
+}
+
+.panel {
+    height: 100vh;
+}
+
+.intro {
+    background-color: green;
+}
+
+.gallery {
+    background-color: purple;
+}
+
+.intro-container, .gallery-container {
+    padding-top: 100px;
+}
+
+.panel h1, .panel h3  {
+    text-align: center;
+}
+
+.intro-container button {
+    line-height: 2.5;
+    display: block;
+    margin: 20px auto;
+}
+
+.panel h1 {
+    font-size: 4rem;
+    color: white;
+    line-height: 10rem;
+}
+
+.intro h3 {
+    font-size: 2rem;
+    color: white;
+}
