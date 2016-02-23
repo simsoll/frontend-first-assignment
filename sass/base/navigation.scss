@@ -1,31 +1,30 @@
 
-$navigation-height: 70px;
+$navigation-height: 100px;
 $navigation-buttons-width: 200px;
-$logo-margin-left: 5%;
+$logo-margin-left:0%;
 $logo-width: 200px; 
 $navigation-button-height: 30px;
 
 nav {
     height: $navigation-height;
+    background-color:green;
 }
 
 .logo {
     margin-left: $logo-margin-left;
     width: $logo-width;
-    float: left;
 }
 
 .navigation-links {
     width: calc(100% - #{$navigation-buttons-width} - #{$logo-margin-left} - #{$logo-width});
     text-align: center;
     display: inline-block;
-    float: left;    
 }
 
 .navigation-links li {
     display: inline;
     line-height: $navigation-height;
-    padding: 0 60px;
+    padding: 0 30px;
 }
 
 .navigation-links a {
@@ -36,7 +35,6 @@ nav {
 
 .navigation-buttons {
     box-sizing: border-box;
-    float: right;
     margin-top: $navigation-height/2 - $navigation-button-height/2;
     width: $navigation-buttons-width;    
 }
@@ -47,39 +45,20 @@ nav {
     margin: 0 5px; 
 }
 
-.panel {
-    height: 100vh;
+@media screen and (min-width: #{$screen-sm}) {
+    nav {
+        background-color:  blue;
+    }
 }
 
-.intro {
-    background-color: green;
+@media screen and (min-width: #{$screen-md}) {
+    nav {
+        background-color:  yellow;
+    }
 }
 
-.gallery {
-    background-color: purple;
-}
-
-.intro-container, .gallery-container {
-    padding-top: 100px;
-}
-
-.panel h1, .panel h3  {
-    text-align: center;
-}
-
-.intro-container button {
-    line-height: 2.5;
-    display: block;
-    margin: 20px auto;
-}
-
-.panel h1 {
-    font-size: 4rem;
-    color: white;
-    line-height: 10rem;
-}
-
-.intro h3 {
-    font-size: 2rem;
-    color: white;
+@media screen and (min-width: #{$screen-lg}) {
+    nav {
+        background-color:  red;
+    }
 }

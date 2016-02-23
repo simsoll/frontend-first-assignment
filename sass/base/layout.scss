@@ -1,0 +1,48 @@
+.hidden-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+    display: none;
+}
+
+@media screen and (min-width: #{$screen-sm}) {
+    .hidden-xs,
+    .visible-sm {
+        display: block;
+    }
+    
+    .visible-xs,
+    .hidden-sm {
+        display: none;
+    }
+}
+
+@media screen and (min-width: #{$screen-md}) {
+    .hidden-sm,
+    .visible-md {
+        display: block;
+    }
+    
+    .hidden-md {
+        display: none;
+    }    
+}
+
+@media screen and (min-width: #{$screen-lg}) {
+    .hidden-md,
+    .visible-lg {
+        display: block;
+    }
+    
+    .hidden-lg {
+        display: none;
+    }
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}

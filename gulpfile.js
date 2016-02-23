@@ -22,9 +22,8 @@ gulp.task('scripts', function () {
 
 /* Sass task */
 gulp.task('sass', function () {
-    gulp.src('sass/**/*.scss')
+    gulp.src('sass/default.scss')
         .pipe(plumber())
-        .pipe(concat('main.scss'))
         .pipe(sass())
         .pipe(gulp.dest('./css/'))        
         .pipe(rename({ suffix: '.min' }))

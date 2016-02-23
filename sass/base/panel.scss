@@ -1,0 +1,36 @@
+.panel {
+    height: 100vh;
+}
+
+.intro {
+    background-color: green;
+}
+
+.gallery {
+    background-color: purple;
+}
+
+.intro-container, .gallery-container {
+    padding-top: 100px;
+}
+
+.panel h1, .panel h3  {
+    text-align: center;
+}
+
+.intro-container button {
+    line-height: 2.5;
+    display: block;
+    margin: 20px auto;
+}
+
+.panel h1 {
+    font-size: 4rem;
+    color: white;
+    line-height: 10rem;
+}
+
+.intro h3 {
+    font-size: 2rem;
+    color: white;
+}
