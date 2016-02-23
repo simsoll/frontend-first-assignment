@@ -50,34 +50,20 @@ nav {
   height: 100px;
   background-color: green; }
 
-.logo {
-  margin-left: 0%;
-  width: 200px; }
-
 .navigation-links {
-  width: calc(100% - 200px - 0% - 200px);
+  width: calc(100% - 300px + 100px);
   text-align: center;
   display: inline-block; }
 
 .navigation-links li {
-  display: inline;
-  line-height: 100px;
-  padding: 0 30px; }
+  display: inline; }
 
 .navigation-links a {
   text-decoration: none;
   color: black;
-  font-size: 1.6rem; }
-
-.navigation-buttons {
-  box-sizing: border-box;
-  margin-top: 35px;
-  width: 200px; }
-
-.navigation-buttons button {
-  height: 30px;
-  padding: 0 10px;
-  margin: 0 5px; }
+  line-height: 100px;
+  font-size: 1.6rem;
+  padding: 0 30px; }
 
 @media screen and (min-width: 768px) {
   nav {
@@ -91,34 +77,23 @@ nav {
   nav {
     background-color: red; } }
 
-.panel {
-  height: 100vh; }
+.product-gallery {
+  clear: both; }
 
-.intro {
-  background-color: green; }
+.product-container {
+  background-color: gray;
+  height: 400px;
+  width: 100%; }
 
-.gallery {
-  background-color: purple; }
+@media screen and (min-width: 768px) {
+  .product-container {
+    width: 50%;
+    float: left; } }
 
-.intro-container, .gallery-container {
-  padding-top: 100px; }
-
-.panel h1, .panel h3 {
-  text-align: center; }
-
-.intro-container button {
-  line-height: 2.5;
-  display: block;
-  margin: 20px auto; }
-
-.panel h1 {
-  font-size: 4rem;
-  color: white;
-  line-height: 10rem; }
-
-.intro h3 {
-  font-size: 2rem;
-  color: white; }
+@media screen and (min-width: 1201px) {
+  .product-container {
+    width: 25%;
+    float: left; } }
 
 .hidden-xs,
 .visible-sm,

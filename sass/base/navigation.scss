@@ -1,8 +1,7 @@
 
 $navigation-height: 100px;
-$navigation-buttons-width: 200px;
 $logo-margin-left:0%;
-$logo-width: 200px; 
+$logo-width: 300px; 
 $navigation-button-height: 30px;
 
 nav {
@@ -10,39 +9,22 @@ nav {
     background-color:green;
 }
 
-.logo {
-    margin-left: $logo-margin-left;
-    width: $logo-width;
-}
-
 .navigation-links {
-    width: calc(100% - #{$navigation-buttons-width} - #{$logo-margin-left} - #{$logo-width});
+    width: calc(100% - #{$logo-width} + 100px);
     text-align: center;
     display: inline-block;
 }
 
 .navigation-links li {
     display: inline;
-    line-height: $navigation-height;
-    padding: 0 30px;
 }
 
 .navigation-links a {
     text-decoration: none; 
     color: black;
+    line-height: $navigation-height;
     font-size: 1.6rem;   
-}
-
-.navigation-buttons {
-    box-sizing: border-box;
-    margin-top: $navigation-height/2 - $navigation-button-height/2;
-    width: $navigation-buttons-width;    
-}
-
-.navigation-buttons button {
-    height: $navigation-button-height;  
-    padding: 0 10px; 
-    margin: 0 5px; 
+    padding: 0 30px;    
 }
 
 @media screen and (min-width: #{$screen-sm}) {

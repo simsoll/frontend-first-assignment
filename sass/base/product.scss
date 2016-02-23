@@ -1,0 +1,23 @@
+.product-gallery {
+    clear: both;
+}
+
+.product-container {
+    background-color: gray;
+    height: 400px;
+    width: 100%;
+}
+
+@media screen and (min-width: #{$screen-sm}) {
+    .product-container {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media screen and (min-width: #{$screen-lg}) {
+    .product-container {
+        width: 25%;    
+        float: left;    
+    }
+}
