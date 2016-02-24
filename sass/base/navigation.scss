@@ -10,7 +10,7 @@ nav {
 }
 
 .navigation-links {
-    width: calc(100% - #{$logo-width} + 100px);
+    width: calc(100% - #{$logo-width});
     text-align: center;
     display: inline-block;
 }
