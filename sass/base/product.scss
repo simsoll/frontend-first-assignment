@@ -5,19 +5,20 @@
 .product-container {
     background-color: gray;
     height: 400px;
-    width: 100%;
+    margin: 2% 0 0 2%;
+    width: 96%; /** (100 - (columns + 1)*margin-left) / columns **/
 }
 
 @media screen and (min-width: #{$screen-sm}) {
     .product-container {
-        width: 50%;
+        width: 47%; /** (100 - (columns + 1)*margin-left) / columns **/
         float: left;
     }
 }
 
 @media screen and (min-width: #{$screen-lg}) {
     .product-container {
-        width: 25%;    
+        width: 22.5%; /** (100 - (columns + 1)*margin-left) / columns **/
         float: left;    
     }
 }
