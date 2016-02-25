@@ -7,6 +7,8 @@
     height: 400px;
     margin: 2% 0 0 2%;
     width: 96%; /** (100 - (columns + 1)*margin-left) / columns **/
+    overflow: hidden;
+    text-align: center;
 }
 
 .product__image {
