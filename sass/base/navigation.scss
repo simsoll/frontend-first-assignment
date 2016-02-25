@@ -2,11 +2,14 @@
 $navigation-height: 100px;
 $logo-margin-left:0%;
 $logo-width: 300px; 
-$navigation-button-height: 30px;
 
 nav {
     height: $navigation-height;
     background-color:green;
+    
+    .button {
+        margin-right: 20%;
+    }
 }
 
 .navigation-links {
