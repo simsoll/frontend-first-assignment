@@ -3,17 +3,29 @@
 }
 
 .product {
-    background-color: gray;
+    background-color: $product-background-color;
     height: 400px;
     margin: 2% 0 0 2%;
     width: 96%; /** (100 - (columns + 1)*margin-left) / columns **/
     overflow: hidden;
+    position: relative;
     text-align: center;
 }
 
 .product__image {
     max-width: 100%;
     height: auto;
+}
+
+.product__description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $product-background-color;
+    color: white;
+    height: 50px;
+    line-height: 50px;
 }
 
 @media screen and (min-width: #{$screen-sm}) {
