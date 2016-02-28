@@ -1,11 +1,12 @@
-@import "variables";
+@import "modules/variables";
+@import "modules/utility";
 
-@import "base/reset";
+@import "partials/reset";
 
-@import "base/navigation";
+@import "partials/navigation";
 
-@import "base/product";
+@import "partials/product";
 
-@import "base/button";
+@import "partials/button";
 
-@import "base/layout";
+@import "partials/layout";

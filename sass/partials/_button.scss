@@ -1,0 +1,15 @@
+.button {
+    height: 2.5rem;
+    padding: 0 1.5rem;
+    background-color: inherit;
+    border: 1px solid black;
+    
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+.menu {
+    cursor: pointer;
+}
