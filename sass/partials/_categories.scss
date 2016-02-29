@@ -1,0 +1,17 @@
+.categories {
+    background-color: $navigation-background-color;
+    float: left;    
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    
+    & h1 {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: #{$screen-md}) {
+    .categories {
+        width: $logo-width;
+    }
+}

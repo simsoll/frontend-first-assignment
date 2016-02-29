@@ -1,5 +1,6 @@
-.product-gallery {
-    clear: both;
+.products {
+    width: 100%;
+    float: right;
 }
 
 .product {
@@ -34,6 +35,13 @@
         float: left;
     }
 }
+
+@media screen and (min-width: #{$screen-md}) {
+    .products {
+        width: calc(100% - #{$logo-width});        
+    }
+}
+
 
 @media screen and (min-width: #{$screen-lg}) {
     .product {
