@@ -18,7 +18,8 @@
 
     
     .visible-xs,
-    .hidden-sm {
+    .hidden-sm,
+    .hidden-sm-inline {
         display: none;
     }
 }
@@ -33,7 +34,8 @@
         display: inline-block;
     }
     
-    .hidden-md {
+    .hidden-md,
+    .hidden-md-inline {
         display: none;
     }    
 }
@@ -48,7 +50,8 @@
         display: inline-block;
     }
     
-    .hidden-lg {
+    .hidden-lg,
+    .hidden-lg-inline {
         display: none;
     }
 }
