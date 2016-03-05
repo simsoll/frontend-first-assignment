@@ -21,7 +21,7 @@
             </ul>
             <div class="simple-navigation hidden-md hidden-lg">
                 <i class="fa fa-bars fa-2x menu pull-right"></i>
-                <button class="button -primary pull-right">Category</button>
+                <button class="button category -primary pull-right">Category</button>
             </div>
             <div class="utility-navigation hidden-xs-inline hidden-sm-inline">
                 <button class="button -primary pull-right">Register</button>
@@ -33,15 +33,19 @@
         <aside class="categories pull-left hidden-xs hidden-sm">
             <h1>Categories</h1>
             <ul>
-                <li> Materials
-                    <ul>
+                <li class="toggleable"> Materials
+                    <i class="fa fa-plus-square-o expanded"></i>
+                    <i class="fa fa-minus-square-o collapsed"></i>
+                    <ul class="collapsed">
                         <li>Wood planks</li>
                         <li>Metal nails</li>
                         <li>Wall plugs</li>
                     </ul>
                 </li>                
-                <li> Tools
-                    <ul>
+                <li class="toggleable"> Tools
+                    <i class="fa fa-plus-square-o expanded"></i>
+                    <i class="fa fa-minus-square-o collapsed"></i>
+                    <ul class="collapsed">
                         <li>Saws</li>
                         <li>Power drills</li>
                         <li>Grinders</li>
@@ -89,7 +93,7 @@
     <footer>
 
     </footer>
-    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
