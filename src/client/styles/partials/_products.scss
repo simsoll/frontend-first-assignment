@@ -7,10 +7,11 @@
     background-color: $product-background-color;
     height: 400px;
     margin: 2% 0 0 2%;
-    width: 96%; /** (100 - (columns + 1)*margin-left) / columns **/
+    width: 96%; /** (100 - (columns + 1)*margin-left) / columns, columns = 1 **/
     overflow: hidden;
     position: relative;
     text-align: center;
+    float: left;    
 }
 
 .product__image {
@@ -29,14 +30,17 @@
     line-height: 50px;
 }
 
-@media screen and (min-width: #{$screen-sm}) {
+@media screen and (min-width: 480px) {
     .product {
-        width: 47%; /** (100 - (columns + 1)*margin-left) / columns **/
-        float: left;
+        width: 47%; /** (100 - (columns + 1)*margin-left) / columns, columns = 2 **/
     }
 }
 
 @media screen and (min-width: #{$screen-md}) {
+    .product {
+        width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
+    }    
+    
     .products {
         width: calc(100% - #{$logo-width});        
     }
@@ -45,7 +49,6 @@
 
 @media screen and (min-width: #{$screen-lg}) {
     .product {
-        width: 22.5%; /** (100 - (columns + 1)*margin-left) / columns **/
-        float: left;    
+        width: 22.5%; /** (100 - (columns + 1)*margin-left) / columns, columns = 4 **/
     }
 }

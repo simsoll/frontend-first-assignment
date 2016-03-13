@@ -9,7 +9,7 @@ var myNP = myNP || {};
      * on-click function for toggleable elements
      */
     $('.toggleable').each(function(index, value) {
-        value.onclick = toggleElements($(value).find('.expanded, .collapsed'));
+        value.onclick = toggle($(value).find('.expanded, .collapsed'));
     });
     
     /**
@@ -22,7 +22,7 @@ var myNP = myNP || {};
         });
     };
 
-    function toggleElements(elements) {
+    function toggle(elements) {
         return function() {
             $(elements).each(function(index, value) {
                 switchClass(value, 'collapsed', 'expanded');
