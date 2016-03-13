@@ -2,14 +2,11 @@ var gulp = require('gulp');
 
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
-var concat = require('gulp-concat');
+var eslint = require('gulp-eslint');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
 var plumber = require('gulp-plumber');
-var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var taskListing = require('gulp-task-listing');
 var uglify = require('gulp-uglify');
@@ -20,21 +17,18 @@ var del = require('del');
 var wiredep = require('wiredep').stream;
 
 var browserSync = require('browser-sync');
-var reload = browserSync.reload;
 
 gulp.task('help', taskListing);
 gulp.task('default', ['help']);
 
-gulp.task('vet', function () {
+gulp.task('lint', function() {
     return gulp.src(config.js)
-        .pipe(plumber())
-        .pipe(jscs())
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish', { verbose: true }))
-        .pipe(jshint.reporter('fail'));
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
-gulp.task('styles', ['clean-styles'], function () {
+gulp.task('styles', ['clean-styles'], function() {
     gulp.src(config.styles)
         .pipe(plumber())
         .pipe(sass())
@@ -42,33 +36,33 @@ gulp.task('styles', ['clean-styles'], function () {
         .pipe(gulp.dest(config.temp))
 });
 
-gulp.task('fonts', ['clean-fonts'], function () {
+gulp.task('fonts', ['clean-fonts'], function() {
     return gulp.src(config.fonts)
         .pipe(gulp.dest(config.build + 'fonts'));
 });
 
-gulp.task('images', ['clean-images'], function () {
+gulp.task('images', ['clean-images'], function() {
     return gulp.src(config.images)
-        .pipe(imagemin({ optimizationLevel: 4 }))
+        .pipe(imagemin({optimizationLevel: 4}))
         .pipe(gulp.dest(config.build + 'images'));
 })
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
     var files = [].concat(config.build, config.temp);
     return clean(files);
 });
 
-gulp.task('clean-styles', function () {
+gulp.task('clean-styles', function() {
     var files = config.temp + '**/*.css';
     return clean(files);
 });
 
-gulp.task('clean-fonts', function () {
+gulp.task('clean-fonts', function() {
     var files = config.build + 'fonts/**/*.*';
     return clean(files);
 });
 
-gulp.task('clean-images', function () {
+gulp.task('clean-images', function() {
     var files = config.build + 'images/**/*.*';
     return clean(files);
 });
@@ -77,7 +71,7 @@ function clean(path) {
     return del(path);
 }
 
-gulp.task('wiredep', function () {
+gulp.task('wiredep', function() {
     var options = config.getWiredepDefaultOptions();
 
     return gulp.src(config.index)
@@ -86,13 +80,13 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles'], function () {
+gulp.task('inject', ['wiredep', 'styles'], function() {
     return gulp.src(config.index)
         .pipe(inject(gulp.src(config.css)))
-        .pipe(gulp.dest(config.client))   
+        .pipe(gulp.dest(config.client));
 });
 
-gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
+gulp.task('optimize', ['inject', 'fonts', 'images'], function() {
     return gulp.src(config.index)
         .pipe(plumber())
         .pipe(useref({ searchPath: './' }))
@@ -101,13 +95,13 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
         .pipe(gulp.dest(config.build));
 });
 
-gulp.task('bs-reload', ['inject'], function () {
+gulp.task('bs-reload', ['inject'], function() {
     browserSync.reload();
 });
 
-gulp.task('dev', ['inject', 'vet'], function () {
+gulp.task('dev', ['inject', 'lint'], function() {
     gulp.watch(config.styles, ['bs-reload']);
-    gulp.watch(config.js, ['vet']);
+    gulp.watch(config.js, ['lint']);
 
     var files = [
         config.index,
@@ -117,7 +111,7 @@ gulp.task('dev', ['inject', 'vet'], function () {
 
     browserSync.init({
         server: {
-            baseDir: [].concat(['./'], config.client),
+            baseDir: [].concat(['./'], config.client)
         },
         files: files
     });
