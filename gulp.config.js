@@ -1,9 +1,9 @@
-module.exports = function () {
+module.exports = function() {
     var build = './build/';
-    var client = './src/client/'
+    var client = './src/client/';
     var clientApp = client + 'app/';
     var temp = './.tmp/';
-    
+
     var config = {
         /**
          * files paths
@@ -25,7 +25,7 @@ module.exports = function () {
         index: client + 'index.html',
         styles: client + 'styles/**/*.scss',
         temp: temp,
-        
+
         /**
          * bower configurations
          */
@@ -35,8 +35,8 @@ module.exports = function () {
             ignorePath: '../..'
         }
     };
-    
-    /** 
+
+    /**
      * wiredep configurations
      */
     config.getWiredepDefaultOptions = function() {
@@ -45,9 +45,9 @@ module.exports = function () {
             directory: config.bower.directory,
             ignorePath: config.bower.ignorePath
         };
-        
+
         return options;
-    }
-    
+    };
+
     return config;
-}
+};

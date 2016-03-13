@@ -29,11 +29,11 @@ gulp.task('lint', function() {
 });
 
 gulp.task('styles', ['clean-styles'], function() {
-    gulp.src(config.styles)
+    return gulp.src(config.styles)
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
-        .pipe(gulp.dest(config.temp))
+        .pipe(gulp.dest(config.temp));
 });
 
 gulp.task('fonts', ['clean-fonts'], function() {
@@ -47,28 +47,28 @@ gulp.task('images', ['clean-images'], function() {
         .pipe(gulp.dest(config.build + 'images'));
 })
 
-gulp.task('clean', function() {
+gulp.task('clean', function(cb) {
     var files = [].concat(config.build, config.temp);
-    return clean(files);
+    return clean(files, cb);
 });
 
-gulp.task('clean-styles', function() {
+gulp.task('clean-styles', function(cb) {
     var files = config.temp + '**/*.css';
-    return clean(files);
+    return clean(files, cb);
 });
 
-gulp.task('clean-fonts', function() {
+gulp.task('clean-fonts', function(cb) {
     var files = config.build + 'fonts/**/*.*';
-    return clean(files);
+    return clean(files, cb);
 });
 
-gulp.task('clean-images', function() {
+gulp.task('clean-images', function(cb) {
     var files = config.build + 'images/**/*.*';
-    return clean(files);
+    return clean(files, cb);
 });
 
-function clean(path) {
-    return del(path);
+function clean(path, cb) {
+    return del(path, cb);
 }
 
 gulp.task('wiredep', function() {
