@@ -10,6 +10,10 @@
     display: none;
 }
 
+.visible-xs {
+    display: block;
+}
+
 .pull-left {
     float: left;
 }
@@ -24,6 +28,10 @@
 }
 
 @media screen and (min-width: #{$screen-sm}) {
+    .visible-xs {
+        display: none;
+    }
+
     .hidden-xs,
     .visible-sm {
         display: block;
@@ -33,7 +41,6 @@
         display: inline-block;
     }
 
-    .visible-xs,
     .hidden-sm,
     .hidden-sm-inline {
         display: none;

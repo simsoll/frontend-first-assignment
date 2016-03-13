@@ -2,11 +2,6 @@
     background-color: $navigation-background-color;
     float: left;    
     width: 100%;
-    position: absolute;
-    top:0;
-    right: 0;
-    bottom: 0;
-    left: 0; 
     
     & h1 {
         text-align: center;
@@ -16,5 +11,10 @@
 @media screen and (min-width: #{$screen-md}) {
     .categories {
         width: $logo-width;
+        position: absolute;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;         
     }
 }

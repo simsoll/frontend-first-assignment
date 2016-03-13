@@ -2,43 +2,56 @@ var myNP = myNP || {};
 
 //apply revealing prototype pattern
 
-(function () {
-    "use strict";
+(function() {
+    'use strict';
 
-    var toggleables = document.getElementsByClassName("toggleable");
-
-    for (var i = 0; i < toggleables.length; i++) {
-        var toggleable = toggleables[i];
-        var expandables = concatenate(toggleable.getElementsByClassName("expanded"), 
-                                      toggleable.getElementsByClassName("collapsed"));
-
-        toggleable.onclick = toggleElements(expandables);
-    }
-
-    function concatenate(a, b) {
-        return Array.prototype.slice.call(a).concat(Array.prototype.slice.call(b));
-    }
+    /**
+     * on-click function for toggleable elements
+     */
+    $('.toggleable').each(function(index, value) {
+        value.onclick = toggleElements($(value).find('.expanded, .collapsed'));
+    });
+    
+    /**
+     * on-click function for categories button
+     */
+    $('#category-button')[0].onclick = function() {
+        $('.categories').each(function(index, value) {
+            switchClass(value, 'hidden-xs', 'visible-xs');
+            switchClass(value, 'hidden-sm', 'visible-sm');
+        });
+    };
 
     function toggleElements(elements) {
-        //create function scope by using a wrapping function, so element is bound to this
-        //particular value and not reset in each loop iteration 
-        //TODO: can this be simplified by using bind?         
-        return function () {
-            for (var j = 0; j < elements.length; j++) {
-                toggle(elements[j]);
-            }
+        return function() {
+            $(elements).each(function(index, value) {
+                switchClass(value, 'collapsed', 'expanded');
+            });
         };
     }
 
-    function toggle(element) {
-        var collapsed = "collapsed";
-        var expanded = "expanded";
+    function switchClass(element, first, second) {
+        if (hasClass(element, first)) {
+            replaceClass(element, first, second);
+        }
+        else if (hasClass(element, second)) {
+            replaceClass(element, second, first);
+        }
+    }
 
-        if (element.className.indexOf(collapsed) > -1) {
-            element.className = element.className.replace(collapsed, expanded);
-        }
-        else if (element.className.indexOf(expanded) > -1) {
-            element.className = element.className.replace(expanded, collapsed);
-        }
+    function addClass(element, className) {
+        element.className += ' ' + className;
+    }
+    
+    function removeClass(element, className) {
+        replaceClass(element, className, '');
+    }
+
+    function replaceClass(element, from, to) {
+        element.className = element.className.replace(from, to);
+    }
+
+    function hasClass(element, className) {
+        return element.className.indexOf(className) > -1;
     }
 })();
