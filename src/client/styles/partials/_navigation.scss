@@ -34,14 +34,20 @@ nav {
 }
 
 .navigation-links a {
+    display: inline-block;
+    height: 100%;
     text-decoration: none; 
     color: rgba(0, 0, 0, 1);
     line-height: $navigation-height;
     font-size: 1.4rem;   
-    padding: 0 30px;    
+    padding: 0 30px;
     
     &:hover {
         color: rgba(255, 255, 255, 0.5);
+    }
+    
+    &.-current {
+        background-color: $base-background-color;        
     }
 }
 
