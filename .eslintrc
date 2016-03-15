@@ -1,6 +1,7 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "amd": true
   },
   "globals": {
     "jQuery": false,
@@ -65,7 +66,6 @@
     "no-caller": 2,
     "no-div-regex": 2,
     "no-else-return": 2,
-    "no-empty-label": 2,
     "no-eq-null": 2,
     "no-eval": 2,
     "no-extend-native": 2,
@@ -140,7 +140,7 @@
     "no-restricted-syntax": 0,
     "no-spaced-func": 1,
     "no-ternary": 0,
-    "no-trailing-spaces": [1, {"skipBlankLines": false}],
+    "no-trailing-spaces": [1, {"skipBlankLines": true}],
     "no-underscore-dangle": 0,
     "no-unneeded-ternary": [1, {"defaultAssignment": true}],
     "object-curly-spacing": [1, "never"],
@@ -154,13 +154,10 @@
     "semi-spacing": [1, {"before": false, "after": true}],
     "semi": [1, "always"],
     "sort-vars": 0,
-    "space-after-keywords": [1, "always"],
-    "space-before-keywords": [1, "always"],
     "space-before-blocks": [1, "always"],
     "space-before-function-paren": [1, "never"],
     "space-in-parens": [1, "never"],
     "space-infix-ops": [1, {"int32Hint": false}],
-    "space-return-throw-case": 1,
     "space-unary-ops": [1, {"words": true, "nonwords": false}],
     "spaced-comment": [1, "always", {"exceptions": ["/"]}],
     "wrap-regex": 1,
