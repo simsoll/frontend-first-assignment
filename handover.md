@@ -7,7 +7,7 @@ The site must be responsive and must include:
 * A purchase history which allows for each retrieval of information of earlier purchases and popular products.
 * Scanning function (mobile version) of barcodes or products serial numbers which allows for quick order and delivery. The site is made with a one-time-set-up function (like Apple or Steam) which means the users dos not have to fill out account information on every purchase. 
 
-# Styleguide
+# Style guide
 Purpose?
 * Informative
 * Easy accessible: Should work on mobile 
@@ -92,11 +92,10 @@ Should include
 * Book: Designing Web Navigation
 * Inspiration: www.awwwards.com
 * Use tabs instead of a navigation bar
+ * Why? Found out where in [Krug] this is mentioned!
 * Fonts
  * http://www.1001fonts.com/
  * Adobe typekit
-
-
 
 
 
