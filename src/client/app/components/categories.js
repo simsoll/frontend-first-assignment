@@ -11,10 +11,16 @@ appComponents.Categories.prototype = function() {
     };
     
     function setup() {
-        $('.toggleable').each(function(index, element) {
+        $('.category-header').each(function(index, element) {
             element.onclick = function() {
                 $('.' + element.id).toggleClass('-collapsed');
             };
+        });
+        
+        $('.filter').each(function(index, element) {
+            element.onclick = function() {
+                $(this).toggleClass('-active');
+            }
         });
     }
 }();
