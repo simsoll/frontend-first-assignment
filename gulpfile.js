@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 var autoprefixer = require('gulp-autoprefixer');
@@ -14,6 +16,7 @@ var useref = require('gulp-useref');
 
 var config = require('./gulp.config')();
 var del = require('del');
+var series = require('stream-series');
 var wiredep = require('wiredep').stream;
 
 var browserSync = require('browser-sync');
@@ -73,10 +76,14 @@ function clean(path, cb) {
 
 gulp.task('wiredep', function() {
     var options = config.getWiredepDefaultOptions();
+    
+    var app = gulp.src(config.jsApp, {read: false});
+    var components = gulp.src(config.jsComponents, {read: false});
+    var modules = gulp.src(config.jsModules, {read: false});
 
     return gulp.src(config.index)
         .pipe(wiredep(options))
-        .pipe(inject(gulp.src(config.js)))
+        .pipe(inject(series(modules, components, app)))
         .pipe(gulp.dest(config.client));
 });
 

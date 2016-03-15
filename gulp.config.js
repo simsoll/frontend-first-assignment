@@ -2,6 +2,9 @@ module.exports = function() {
     var build = './build/';
     var client = './src/client/';
     var clientApp = client + 'app/';
+    var jsApp = clientApp + '**/app.js';
+    var jsComponents =  clientApp + '**/components/*.js';
+    var jsModules =  clientApp + '**/modules/*.js';
     var temp = './.tmp/';
 
     var config = {
@@ -17,10 +20,14 @@ module.exports = function() {
         css: temp + 'styles.css',
         fonts: './bower_components/font-awesome/fonts/**/*.*',
         js: [
-            clientApp + '**/*.module.js',
-            clientApp + '**/*.js',
+            jsModules,
+            jsComponents,
+            jsApp,
             '!' + clientApp + '**/*.spec.js'
         ],
+        jsApp: jsApp,
+        jsComponents: jsComponents,
+        jsModules: jsModules,
         images: client + 'images/**/*.*',
         index: client + 'index.html',
         styles: client + 'styles/**/*.scss',
