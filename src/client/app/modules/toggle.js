@@ -8,24 +8,24 @@ var myNP = myNP || {};
     /**
      * on-click function for toggleable elements
      */
-    $('.toggleable').each(function(index, value) {
-        value.onclick = toggle($(value).find('.expanded, .collapsed'));
+    $('.toggleable').each(function(index, element) {
+        element.onclick = toggle($('.' + element.id));
     });
     
     /**
      * on-click function for categories button
      */
     $('#category-button')[0].onclick = function() {
-        $('.categories').each(function(index, value) {
-            switchClass(value, 'hidden-xs', 'visible-xs');
-            switchClass(value, 'hidden-sm', 'visible-sm');
+        $('.categories').each(function(index, element) {
+            switchClass(element, 'hidden-xs', 'visible-xs');
+            switchClass(element, 'hidden-sm', 'visible-sm');
         });
     };
 
     function toggle(elements) {
         return function() {
-            $(elements).each(function(index, value) {
-                switchClass(value, 'collapsed', 'expanded');
+            $(elements).each(function(index, element) {
+                switchClass(element, '-collapsed', '-expanded');
             });
         };
     }
