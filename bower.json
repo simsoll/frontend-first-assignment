@@ -1,18 +1,27 @@
 {
-  "name": "frontendfirstassignment",
-  "version": "1.0.0",
-  "description": "Frontend first assignment",
-  "author": "Simon Soellingvraa",
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.1",
-    "bootstrap": "~3.3.1",
-    "font-awesome": "~4.2.0",
-    "lodash": "^4.6.1"
-  }
+    "name": "frontendfirstassignment",
+    "version": "1.0.0",
+    "description": "Frontend first assignment",
+    "author": "Simon Soellingvraa",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "jquery": "~2.1.1",
+        "bootstrap": "~3.3.1",
+        "font-awesome": "~4.2.0",
+        "lodash": "^4.6.1"
+    },
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "dist/js/bootstrap.js",
+                "dist/css/bootstrap.css",
+                "less/bootstrap.less"
+            ]
+        }
+    }
 }

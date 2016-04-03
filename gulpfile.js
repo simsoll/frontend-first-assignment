@@ -8,6 +8,7 @@ var eslint = require('gulp-eslint');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
+var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var taskListing = require('gulp-task-listing');
@@ -122,4 +123,20 @@ gulp.task('dev', ['inject', 'lint'], function() {
         },
         files: files
     });
+});
+
+gulp.task('serve-dev', ['inject', 'lint'], function() {
+    var options = {
+        script: config.nodeServer,
+        delayTime: 1,
+        env: {
+            'PORT': 3000
+        },
+        watch: [config.server]
+    };
+
+    return nodemon(options)
+        .on('restart', function(ev) {
+            console.log('Restarting...');
+        });
 });
