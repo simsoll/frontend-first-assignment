@@ -1,13 +1,40 @@
 # Project description
-A quick and easy purchasing website for Construction workers. The site will be used in the office and in the field, by workers and managers. 
+Develop a prototype of a website for construction workers and reflect upon the design
+decisions made. The prototype shall work on both mobile phones, tablets, and
+desktop computers. The construction worker should be able to purchase from the mobile phone or
+tablet and rapidly find products while working in the field. The target user for the desktop version is
+administration peaople in an office who needs to verify and approve purchases. 
 
+## Functional requirements
+The website shall contain the following pages and features:
 The site must be responsive and must include: 
-* A FrontPage
-* A product catalogue with 2 pages including at least 16 products on each page arranged as you see fit.
-* A purchase history which allows for each retrieval of information of earlier purchases and popular products.
-* Scanning function (mobile version) of barcodes or products serial numbers which allows for quick order and delivery. The site is made with a one-time-set-up function (like Apple or Steam) which means the users dos not have to fill out account information on every purchase. 
+* Frontpage.
+* Product catalogue with a gallery/list of minimum 32 products. The product page can hold 16
+products, so there has to be at least two pages with products.
+* Purchase history that lists ealier purchases.
+* Scanning function (on the mobile version) of barcodes or products serial numbers which allow
+for quick order and delivery. You may fake this feature through the camera on the mobile phone,
+or you may try out libraries that supports this functionality.
 
-# Style guide
+# Design part
+
+
+
+## Style guide
+
+### Headline
+
+### B-head
+
+### Navigation
+
+### Body
+
+### Byline
+
+### Color palette
+
+## Styleguide considerations
 Purpose?
 * Informative
 * Easy accessible: Should work on mobile 
@@ -55,25 +82,16 @@ Should include
 * Layout and grids
 * Icons
 
-## Headline
+## Design choices and composition
+*The construction worker should be able to purchase from t he mobile phone or tablet and rapidly find products while working in the field.* 
 
-## B-head
+When logged in as a worker the product pages should be in focus. However, the order history should still be visible for the worker to see what have previously been ordered and if the orders have been approved. 
 
-## Navigation
-
-## Body
-
-## Byline
-
-## Color palette
-
-
-
-# Ideas
-* Create the styleguide as a separate application as for Connect
- * https://www.mozilla.org/en-US/styleguide/websites/sandstone/typefaces/
- * Include mark-up, styling and description/explanation sections
-* Navigation ([Krug])
+*The target user for the desktop version is administration peaople in an office who needs to verify and approve purchases.*
+ - focus: purchase history (orders need to have states: ordered, confirmed)
+ - purchase still needs to be possible
+ 
+### Navigation
  * Search box, as some people will only use search boxes for navigation (or if they are in a hurry)
     * Don’t make it hard for the user – stick to the formula
  * Users should always have a sense of where they are
@@ -89,6 +107,36 @@ Should include
     * What are my options at this level?  (Local navigation)
     * Where am I in the scheme of things? (“You are here” indicators)
     * How can I search?
+
+## Choice of colours and fonts
+
+How can we use the color to enhance user experience 
+* in the field?
+* in the office?
+ 
+# Technical part
+
+## Technical considerations
+* JSON files are used instead of a database with the following entities
+ * Products
+ * Orders
+ * Users
+* A simple barcode detection algorithm is used by just choosing a random product among the available/filtered products 
+
+## Used technologies, libraries and frameworks
+* Handlebars
+
+## Setting up
+
+
+## Build process
+
+
+# Ideas
+* Create the styleguide as a separate application as for Connect
+ * https://www.mozilla.org/en-US/styleguide/websites/sandstone/typefaces/
+ * Include mark-up, styling and description/explanation sections
+
 * Book: Designing Web Navigation
 * Inspiration: www.awwwards.com
 * Use tabs instead of a navigation bar
