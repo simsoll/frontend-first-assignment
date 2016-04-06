@@ -17,7 +17,7 @@ for quick order and delivery. You may fake this feature through the camera on th
 or you may try out libraries that supports this functionality.
 
 # General considerations
-As the construction workers will be using the website while working in the field the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to work as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place orders and to quickly get an overview of already placed orders, which haven't yet been approved. 
+As the construction workers will be using the website while working in the field and mainly when missing some spare parts, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place orders and to quickly get an overview of already placed orders, which haven't yet been approved. 
 
 For the administration people in the office it should be easy to get an overview of yet to be approved orders, approve or reject these orders and to see the order history for accounting purposes.
 
@@ -25,26 +25,14 @@ Taking both the construction workers and the administration people into account 
 
 Both the design and the technical implementation will try to address these considerations.
 
-What do you think the message, language and tone and content should be?
-* Message: Our product is safe. Your baby will be safe. We understand that this is your baby’s safety we’re talking about.
-* Language: Simple, no jargon and clear. Active voice.
-Tone: Reassuring, informative and understanding. Relatable and sincere.
-* Content: Testimonials from other mums, reviews from parenting magazines and a video to showcase simplicity of using the car seat.
-* Voice: Trusted experts who understand what it’s like to be a parent.
-
-The audience, mothers and parents in general, are looking for;
-* Information: Clear and professional. Fact-driven and confirmed by industry bodies.
-* Reassurance: This is their child’s safety so they need to feel an affinity and sincerity.
-* Validation They want to know that other parents have used and trust this product.
-
 # Design part
 Based on the target audience and the primary use of the site, the goal of the design should be to have a simple and intuitive navigation, which enables the user to be productive and quickly solve the task at hand. The design should not draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should take a very short period of time. 
 
 The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers. 
 
-As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. 
+As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. The design will not be adressing these challenges by having different designs for construction workers and administration people, but will be a cohesive across users and devices. However, this will but some constraints on the design possibilities. 
 
-The website should 
+The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple and clear and in an informative tone. 
 
 
 Tone?

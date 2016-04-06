@@ -6,28 +6,35 @@ appComponents.Navigation = function() {
 };
 
 appComponents.Navigation.prototype = function() {
+    var isInitialized = false;
+
     return {
-        setup: setup
+        initialize: initialize
     };
 
-    function setup() {
-        setupNavigationLinks();
-        setupNavigationButtons();
+    function initialize() {
+        if (isInitialized) {
+            return;
+        }
+        
+        initializeNavigationLinks();
+        initializeNavigationButtons();
+        isInitialized = true;
     }
-    
-    function setupNavigationLinks() {
+
+    function initializeNavigationLinks() {
         $('.navigation-link').each(function(index, element) {
             element.onclick = function() {
                 $('.navigation-link').each(function(innerIndex, innerElement) {
                     $(innerElement).removeClass('-current');
                 });
-                
+
                 $(this).addClass('-current');
             };
-        });        
+        });
     }
-    
-    function setupNavigationButtons() {
+
+    function initializeNavigationButtons() {
         $('#category-button')[0].onclick = function() {
             $(this).toggleClass('-pressed');
 
@@ -35,6 +42,6 @@ appComponents.Navigation.prototype = function() {
                 $(element).toggleClass('hidden-xs visible-xs');
                 $(element).toggleClass('hidden-sm visible-sm');
             });
-        };        
+        };
     }
 } ();

@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:css styles/app.css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/.tmp/styles.css">
-    <!-- endinject -->      
+    <!-- endinject -->
     <!-- endbuild -->
 </head>
 
@@ -25,9 +25,9 @@
             <img class="logo pull-left hidden-xs" src="http://placehold.it/300x100?text=build.it" alt="build.it logo" />
             <img class="logo pull-left visible-xs" src="http://placehold.it/100x100?text=build.it" alt="build.it logo" />
             <ul class="navigation-links pull-left hidden-xs hidden-sm">
-                <li><a href="#" class="navigation-link -current">Home</a></li>
-                <li><a href="#" class="navigation-link">Products</a></li>
-                <li><a href="#" class="navigation-link">About us</a></li>
+                <li><a href="#" class="navigation-link home-link -current">Home</a></li>
+                <li><a href="#" class="navigation-link products-link">Products</a></li>
+                <li><a href="#" class="navigation-link about-link">About us</a></li>
             </ul>
             <div class="simple-navigation hidden-md hidden-lg">
                 <i class="fa fa-bars fa-2x menu pull-right"></i>
@@ -39,71 +39,34 @@
             </div>
         </nav>
     </header>
-    <div class="content">
-        <aside class="categories pull-left hidden-xs hidden-sm visible-md visible-lg">
-            <h1>Categories</h1>
-            <ul>
-                <li class="category-header toggleable" id="materials"> Materials
-                    <i class="fa fa-plus-square-o materials"></i>
-                    <i class="fa fa-minus-square-o materials -collapsed"></i>
-                </li>
-                <li>
-                    <ul class="category-list -collapsed materials">
-                        <li class="filter">Wood planks</li>
-                        <li class="filter">Metal nails</li>
-                        <li class="filter">Wall plugs</li>
-                    </ul>
-                </li>                
-                <li class="category-header toggleable" id="tools"> Tools
-                    <i class="fa fa-plus-square-o tools"></i>
-                    <i class="fa fa-minus-square-o tools -collapsed"></i>
-                </li>
-                <li>
-                    <ul class="category-list -collapsed tools">
-                        <li class="filter">Saws</li>
-                        <li class="filter">Power drills</li>
-                        <li class="filter">Grinders</li>
-                        <li class="filter">Hammers</li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-        <main class="products pull-right">
-            <h1>Products</h1>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-            <div class="product">
-                <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-                <p class="product__description">Product description</p>
-            </div>
-        </main>
+    <div id="content">
     </div>
+    <h1>Products</h1>
+    <div id="catalog">
+
+    </div>
+    <div id="pagination">
+
+    </div>
+    <script id="product-page-template">
+        {{#each products}}
+            {{> product}} 
+        {{/each}}
+    </script>
+    <script id="product-template">
+        <div class="product">
+            <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
+            <p class="product__description">{{description}}</p>
+        </div>
+    </script>
+    <script id="page-template">
+        <ul>
+            {{#each (generatePages products)}}
+                <li><a href="{{link}}">{{number}}</a></li>
+            {{/each}}
+        </ul>
+    </script>
+
     <footer>
 
     </footer>
@@ -112,16 +75,20 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/lodash/lodash.js"></script>
-    <!-- endbower -->    
+    <script src="/bower_components/handlebars/handlebars.js"></script>
+    <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
+    <script src="/src/client/app/helpers/helpers.js"></script>
     <script src="/src/client/app/modules/toggle.js"></script>
     <script src="/src/client/app/components/categories.js"></script>
+    <script src="/src/client/app/components/content-loader.js"></script>
     <script src="/src/client/app/components/navigation.js"></script>
+    <script src="/src/client/app/components/productCatalog.js"></script>
     <script src="/src/client/app/app.js"></script>
-    <!-- endinject -->    
+    <!-- endinject -->
     <!-- endbuild -->
 </body>
 

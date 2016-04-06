@@ -5,6 +5,7 @@ module.exports = function() {
     var clientApp = client + 'app/';
     var jsApp = clientApp + '**/app.js';
     var jsComponents =  clientApp + '**/components/*.js';
+    var jsHelpers = clientApp + '**/helpers/*.js';
     var jsModules =  clientApp + '**/modules/*.js';
     var temp = './.tmp/';
 
@@ -28,6 +29,7 @@ module.exports = function() {
         ],
         jsApp: jsApp,
         jsComponents: jsComponents,
+        jsHelpers: jsHelpers,
         jsModules: jsModules,
         images: client + 'images/**/*.*',
         index: client + 'index.html',

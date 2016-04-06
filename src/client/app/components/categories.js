@@ -6,11 +6,17 @@ appComponents.Categories = function() {
 };
 
 appComponents.Categories.prototype = function() {
+    var isInitialized = false;
+
     return {
-        setup: setup
+        initialize: initialize
     };
     
-    function setup() {
+    function initialize() {
+        if (isInitialized) {
+            return;
+        }
+        
         $('.category-header').each(function(index, element) {
             element.onclick = function() {
                 $('.' + element.id).toggleClass('-collapsed');
@@ -20,7 +26,9 @@ appComponents.Categories.prototype = function() {
         $('.filter').each(function(index, element) {
             element.onclick = function() {
                 $(this).toggleClass('-active');
-            }
+            };
         });
+        
+        // isInitialized = true;
     }
 }();
