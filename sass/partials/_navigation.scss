@@ -30,7 +30,7 @@ nav {
 }
 
 .navigation-links li {
-    display: inline;
+    display: inline;    
 }
 
 .navigation-links a {
@@ -44,11 +44,11 @@ nav {
     
     &:hover {
         color: rgba(255, 255, 255, 0.5);
-    }
+    }   
     
-    &.-current {
+    &.-active {
         background-color: $base-background-color;        
-    }
+    }        
 }
 
 .simple-navigation {
