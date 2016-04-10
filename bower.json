@@ -24,5 +24,8 @@
         "less/bootstrap.less"
       ]
     }
+  },
+  "devDependencies": {
+    "handlebars": "3.0.0"
   }
 }

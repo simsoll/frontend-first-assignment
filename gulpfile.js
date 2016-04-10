@@ -3,9 +3,12 @@
 var gulp = require('gulp');
 
 var autoprefixer = require('gulp-autoprefixer');
+var concat = require('gulp-concat');
 var csso = require('gulp-csso');
+var declare = require('gulp-declare');
 var eslint = require('gulp-eslint');
 var gulpif = require('gulp-if');
+var handlebars = require('gulp-handlebars');
 var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
 var nodemon = require('gulp-nodemon');
@@ -14,9 +17,13 @@ var sass = require('gulp-sass');
 var taskListing = require('gulp-task-listing');
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
+var wrap = require('gulp-wrap');
 
 var config = require('./gulp.config')();
 var del = require('del');
+var mainBowerFiles = require('main-bower-files');
+var merge = require('merge-stream');
+var path = require('path');
 var series = require('stream-series');
 var wiredep = require('wiredep').stream;
 
@@ -26,18 +33,40 @@ gulp.task('help', taskListing);
 gulp.task('default', ['help']);
 
 gulp.task('lint', function() {
-    return gulp.src(config.js)
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+    // return gulp.src(config.js)
+    //     .pipe(eslint())
+    //     .pipe(eslint.format())
+    //     .pipe(eslint.failAfterError());
 });
 
-gulp.task('styles', ['clean-styles'], function() {
-    return gulp.src(config.styles)
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
-        .pipe(gulp.dest(config.temp));
+gulp.task('templates', function() {
+    var partials = gulp.src(config.jsHandlebarsPartials)
+        .pipe(handlebars({
+            handlebars: require('handlebars')
+        }))
+        .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
+            imports: {
+                processPartialName: function(fileName) {
+                    // Strip the extension and the underscore 
+                    // Escape the output with JSON.stringify 
+                    return JSON.stringify(path.basename(fileName, '.js').substr(1));
+                }
+            }
+        }));
+
+    var templates = gulp.src(config.jsHandlebarsTemplates) //'./templates/[^_]*.hbs'
+        .pipe(handlebars({
+            handlebars: require('handlebars')
+        }))
+        .pipe(wrap('Handlebars.template(<%= contents %>)'))
+        .pipe(declare({
+            namespace: 'App.templates',
+            noRedeclare: true
+        }));
+
+    return merge(partials, templates)
+        .pipe(concat('templates.js'))
+        .pipe(gulp.dest(config.templates));
 });
 
 gulp.task('fonts', ['clean-fonts'], function() {
@@ -47,17 +76,12 @@ gulp.task('fonts', ['clean-fonts'], function() {
 
 gulp.task('images', ['clean-images'], function() {
     return gulp.src(config.images)
-        .pipe(imagemin({optimizationLevel: 4}))
+        .pipe(imagemin({ optimizationLevel: 4 }))
         .pipe(gulp.dest(config.build + 'images'));
 })
 
 gulp.task('clean', function(cb) {
-    var files = [].concat(config.build, config.temp);
-    return clean(files, cb);
-});
-
-gulp.task('clean-styles', function(cb) {
-    var files = config.temp + '**/*.css';
+    var files = [].concat(config.build);
     return clean(files, cb);
 });
 
@@ -75,24 +99,33 @@ function clean(path, cb) {
     return del(path, cb);
 }
 
-gulp.task('wiredep', function() {
-    var options = config.getWiredepDefaultOptions();
+gulp.task('bower-to-vendor', function() {
+    return gulp.src(mainBowerFiles(), { base: './bower_components' })
+        .pipe(gulp.dest(config.vendor));
+});
+
+gulp.task('inject-js', ['templates'], function() {
+    var jsVendor = gulp.src(config.jsVendor, { read: false }); 
+    var app = gulp.src(config.jsApp, { read: false });
+    var components = gulp.src(config.jsComponents, { read: false });
+    var templates = gulp.src(config.jsTemplates, { read: false });
+    var modules = gulp.src(config.jsModules, { read: false });
+
+    return gulp.src(config.index)
+        .pipe(inject(series(jsVendor, templates, modules, components, app)))
+        .pipe(gulp.dest(config.layouts));
+});
+
+gulp.task('inject-css', function() {
+    var css = gulp.src(config.css, { read: false });
+    var cssVendor = gulp.src(config.cssVendor, { read: false });
     
-    var app = gulp.src(config.jsApp, {read: false});
-    var components = gulp.src(config.jsComponents, {read: false});
-    var modules = gulp.src(config.jsModules, {read: false});
-
     return gulp.src(config.index)
-        .pipe(wiredep(options))
-        .pipe(inject(series(modules, components, app)))
-        .pipe(gulp.dest(config.client));
+        .pipe(inject(series(css, cssVendor)))
+        .pipe(gulp.dest(config.layouts));
 });
 
-gulp.task('inject', ['wiredep', 'styles'], function() {
-    return gulp.src(config.index)
-        .pipe(inject(gulp.src(config.css)))
-        .pipe(gulp.dest(config.client));
-});
+gulp.task('inject', ['inject-css', 'inject-js']);
 
 gulp.task('optimize', ['inject', 'fonts', 'images'], function() {
     return gulp.src(config.index)
@@ -103,13 +136,16 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function() {
         .pipe(gulp.dest(config.build));
 });
 
-gulp.task('bs-reload', ['inject'], function() {
+gulp.task('bs-reload', function() {
     browserSync.reload();
 });
 
-gulp.task('dev', ['inject', 'lint'], function() {
-    gulp.watch(config.styles, ['bs-reload']);
-    gulp.watch(config.js, ['lint']);
+// gulp.task('dev', ['inject', 'lint'], function() {
+gulp.task('dev', ['inject'], function() {
+    gulp.watch(config.css, ['bs-reload']);
+    gulp.watch(config.js, ['bs-reload']);
+    gulp.watch(config.jsHandlebarsTemplates, ['templates']);
+    gulp.watch(config.jsHandlebarsPartials, ['templates']);
 
     var files = [
         config.index,
@@ -132,7 +168,7 @@ gulp.task('serve-dev', ['inject', 'lint'], function() {
         env: {
             'PORT': 3000
         },
-        watch: [config.server]
+        watch: [].concat('public/', 'sass/')
     };
 
     return nodemon(options)

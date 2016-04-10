@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title goes here</title>
+    
+    <!-- build:css styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public/styles/styles.css">
+    <link rel="stylesheet" href="/public/vendor/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header>
+        {{> navigation}}
+    </header>
+
+    {{{body}}}
+
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+    <script src="/public/vendor/handlebars/handlebars.js"></script>
+    <script src="/public/vendor/lodash/lodash.js"></script>
+    <script src="/public/vendor/jquery/dist/jquery.js"></script>
+    <script src="/public/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/public/app/templates/templates.js"></script>
+    <script src="/public/app/modules/toggle.js"></script>
+    <script src="/public/app/components/categories.js"></script>
+    <script src="/public/app/components/content-loader.js"></script>
+    <script src="/public/app/components/navigation.js"></script>
+    <script src="/public/app/components/productCatalog.js"></script>
+    <script src="/public/app/app.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+
+</html>
