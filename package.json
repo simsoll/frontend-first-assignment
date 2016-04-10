@@ -13,10 +13,9 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "browser-sync": "^2.11.1",
-    "del": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
     "gulp-bower-files": "^0.2.7",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^1.1.0",
     "gulp-declare": "^0.3.0",
@@ -27,7 +26,6 @@
     "gulp-inject": "^3.0.0",
     "gulp-nodemon": "^2.0.6",
     "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.2.0",
     "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^1.5.1",
     "gulp-useref": "^3.0.7",
@@ -38,8 +36,7 @@
     "jshint-stylish": "^2.1.0",
     "main-bower-files": "^2.11.1",
     "merge-stream": "^1.0.0",
-    "stream-series": "^0.1.1",
-    "wiredep": "^3.0.0"
+    "stream-series": "^0.1.1"
   },
   "scripts": {
     "test": "gulp test",

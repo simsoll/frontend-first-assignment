@@ -2,8 +2,8 @@
 
 var gulp = require('gulp');
 
-var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
+var clean = require('gulp-clean');
 var csso = require('gulp-csso');
 var declare = require('gulp-declare');
 var eslint = require('gulp-eslint');
@@ -13,19 +13,16 @@ var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
 var taskListing = require('gulp-task-listing');
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
 var wrap = require('gulp-wrap');
 
 var config = require('./gulp.config')();
-var del = require('del');
 var mainBowerFiles = require('main-bower-files');
 var merge = require('merge-stream');
 var path = require('path');
 var series = require('stream-series');
-var wiredep = require('wiredep').stream;
 
 var browserSync = require('browser-sync');
 
@@ -80,32 +77,36 @@ gulp.task('images', ['clean-images'], function() {
         .pipe(gulp.dest(config.build + 'images'));
 })
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', function() {
     var files = [].concat(config.build);
-    return clean(files, cb);
+    return gulp.src(files, { read: false })
+        .pipe(clean());
 });
 
-gulp.task('clean-fonts', function(cb) {
+gulp.task('clean-vendor-files', function() {
+    return gulp.src(config.vendor, { read: false })
+        .pipe(clean());
+});
+
+gulp.task('clean-fonts', function() {
     var files = config.build + 'fonts/**/*.*';
-    return clean(files, cb);
+    return gulp.src(files, { read: false })
+        .pipe(clean());
 });
 
-gulp.task('clean-images', function(cb) {
+gulp.task('clean-images', function() {
     var files = config.build + 'images/**/*.*';
-    return clean(files, cb);
+    return gulp.src(files, { read: false })
+        .pipe(clean());
 });
 
-function clean(path, cb) {
-    return del(path, cb);
-}
-
-gulp.task('bower-to-vendor', function() {
+gulp.task('bower-to-vendor', ['clean-vendor-files'], function() {
     return gulp.src(mainBowerFiles(), { base: './bower_components' })
         .pipe(gulp.dest(config.vendor));
 });
 
-gulp.task('inject-js', ['templates'], function() {
-    var jsVendor = gulp.src(config.jsVendor, { read: false }); 
+gulp.task('inject-js', ['templates', 'bower-to-vendor'], function() {
+    var jsVendor = gulp.src(config.jsVendor, { read: false });
     var app = gulp.src(config.jsApp, { read: false });
     var components = gulp.src(config.jsComponents, { read: false });
     var templates = gulp.src(config.jsTemplates, { read: false });
@@ -116,10 +117,10 @@ gulp.task('inject-js', ['templates'], function() {
         .pipe(gulp.dest(config.layouts));
 });
 
-gulp.task('inject-css', function() {
+gulp.task('inject-css', ['bower-to-vendor'], function() {
     var css = gulp.src(config.css, { read: false });
     var cssVendor = gulp.src(config.cssVendor, { read: false });
-    
+
     return gulp.src(config.index)
         .pipe(inject(series(css, cssVendor)))
         .pipe(gulp.dest(config.layouts));
