@@ -11,5 +11,11 @@ appComponents.ContentLoader.prototype = function() {
         loadPage: loadPage
     };
     
-
+    function setup() {
+        
+    }
+    
+    function loadPage() {
+        
+    }
 }();
