@@ -1,0 +1,20 @@
+<div class="order">
+    <p>Ordered by: {{creator}}</p>
+    <p>Ordered at: {{timestamp}}</p>
+    <p>Approved: 
+        {{#if approved}}
+        <span class="-warning">Not yet!</span>
+        {{else}}
+        <span class="-completed">Done!</span>        
+        {{/if}}
+         </p>
+    <h3>Products</h3>
+    <ul>
+        {{#each products}}
+            <li>Product description: {{description}}</li>
+        {{/each}}
+    </ul>
+    {{#unless approved}}
+    <button>Approve</button>
+    {{/unless}}
+</div>
