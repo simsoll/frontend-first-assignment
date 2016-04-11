@@ -1,4 +1,24 @@
-<div class="product">
-    <img class="product__image" src="http://lorempixel.com/g/600/600/technics" />
-    <p class="product__description">{{description}}</p>
+<div class="product-container">
+    <div class="product">
+        <img class="product__image" src="{{image}}" />
+        <p class="product__name">{{name}}</p>
+        <p class="product__producer">by {{producer}}</p>
+        <p class="product__description">{{description}}</p>
+        {{#ifGreaterThan stock 5}}
+            <p class="product__stock">{{stock}} in stock</p>
+        {{else}}
+            {{#ifGreaterThan stock 0}}
+                <p class="product__stock -warning">Only {{stock}} in stock</p>        
+            {{else}}
+                <p class="product__stock -alert">Out of stock</p>                
+            {{/ifGreaterThan}}
+        {{/ifGreaterThan}}
+        <p class="product__price">€ {{price}}</p>
+        {{#if isInCart}} 
+            <button class="product__order-button -info">Placed in Cart</button>        
+        {{else}}
+            <button class="product__order-button -action">Add to Cart</button>
+        {{/if}}
+    </div>
 </div>
+            

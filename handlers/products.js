@@ -1,6 +1,6 @@
 'use strict';
 
-var itemsPerPage = 3; //TODO: move to global config object
+var itemsPerPage = 4; //TODO: move to global config object
 
 exports.list = function(req, res) {
     var pageNumber = req.query.page || 1;
@@ -13,6 +13,12 @@ exports.list = function(req, res) {
         helpers: {
             generatePages: function(elements) {
                 return generatePages(req.url, elements, itemsPerPage);
+            },
+            ifGreaterThan: function(a, b, options) {
+                if (a > b) {
+                    return options.fn(this);
+                }
+                return options.inverse(this);
             }
         },
         products: getProducts(),
@@ -82,7 +88,7 @@ function getFiltered(elements) {
 }
 
 function isFiltered(element) {
-    return element.filtered;
+    return element.isFiltered;
 }
 
 function getProducts() {
@@ -90,38 +96,156 @@ function getProducts() {
         {
             description: 'Product description 1',
             filters: ['tool', 'specialOffer'],
-            filtered: true,
-            image: 'asdf',
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 1',
             price: 50.3,
+            producer: 'Craftsman',
             stock: 15
         },
         {
-            filtered: true,
-            description: 'Product description 2'
+            description: 'Product description 2',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 2',
+            price: 45.3,
+            producer: 'Craftsman',
+            stock: 1
         },
         {
-            filtered: true,
-            description: 'Product description 3'
+            description: 'Product description 3',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 3',
+            price: 13.0,
+            producer: 'Craftsman',
+            stock: 0
         },
         {
-            filtered: true,
-            description: 'Product description 4'
+            description: 'Product description 4',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 4',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
         },
         {
-            filtered: true,
-            description: 'Product description 5'
+            description: 'Product description 5',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 5',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
         },
         {
-            filtered: true,
-            description: 'Product description 6'
+            description: 'Product description 6',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 6',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
         },
         {
-            filtered: true,
-            description: 'Product description 7'
+            description: 'Product description 7',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 7',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
         },
         {
-            filtered: true,
-            description: 'Product description 8'
+            description: 'Product description 8',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 8',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 9',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 9',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 10',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 10',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 11',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 11',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 12',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 12',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 13',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 13',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
+        },
+        {
+            description: 'Product description 14',
+            filters: ['tool', 'specialOffer'],
+            image: 'http://lorempixel.com/g/600/600/technics',
+            isFiltered: true,
+            isInCart: false,
+            name: 'Product 14',
+            price: 50.3,
+            producer: 'Craftsman',
+            stock: 15
         }
     ];
 }
