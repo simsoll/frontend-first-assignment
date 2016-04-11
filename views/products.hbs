@@ -1,3 +1,9 @@
-{{#each products}}
+{{#each paginatedProducts}}
     {{> product}}
 {{/each}}
+
+<ul class="page-links">
+    {{#each (generatePages products)}}
+        <li><a href="{{link}}">{{number}}</a></li>
+    {{/each}}
+</ul>
