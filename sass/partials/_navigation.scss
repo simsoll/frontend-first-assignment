@@ -1,12 +1,13 @@
 $navigation-height: 100px;
+$navigation-font-size: 1.4rem;
 
-$utility-navigation-width: 250px;
+$utility-navigation-width: 575px;
 
 nav {
     background-color: $navigation-background-color;
     height: $navigation-height;
     
-    .button, .menu {
+    .button, .menu, .search  {
         @include vertical-align();        
     }
     
@@ -14,8 +15,12 @@ nav {
         margin-right: 5%;
     }
     
-    .button {
+    .button, .search {
         margin-right: 10px;
+    }   
+    
+    .button, .search-input {
+        font-size: $navigation-font-size;                
     }
 }
 
@@ -39,7 +44,7 @@ nav {
     text-decoration: none; 
     color: rgba(0, 0, 0, 1);
     line-height: $navigation-height;
-    font-size: 1.4rem;   
+    font-size: $navigation-font-size;   
     padding: 0 30px;
     
     &:hover {
