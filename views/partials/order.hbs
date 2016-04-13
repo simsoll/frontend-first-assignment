@@ -11,7 +11,7 @@
     <h3>Products</h3>
     <ul>
         {{#each products}}
-            <li>Product description: {{description}}</li>
+            <li>Amount: {{amount}}, Product description: {{product.description}}</li>
         {{/each}}
     </ul>
     {{#unless approved}}
