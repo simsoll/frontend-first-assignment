@@ -6,5 +6,6 @@ var appModules = appModules || {};
     var categories = new appComponents.Categories();
 
     (new appComponents.Navigation()).initialize();
+    (new appComponents.ProductCatalog()).initialize();
 
 })();

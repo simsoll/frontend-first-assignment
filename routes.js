@@ -10,6 +10,8 @@ module.exports = function(app) {
     // product routes
     app.get('/products', product.list);
     app.get('/product/:product', product.detail);
+    app.post('/add', product.add);
+    app.post('/remove', product.remove);
     
     // order routes
     app.get('/orders', order.list);

@@ -7,7 +7,7 @@ nav {
     background-color: $navigation-background-color;
     height: $navigation-height;
     
-    .button, .menu, .search  {
+    .button, .menu, .search, .cart  {
         @include vertical-align();        
     }
     
@@ -19,9 +19,33 @@ nav {
         margin-right: 10px;
     }   
     
+    .cart {
+        margin-right: 15px;
+    }
+    
     .button, .search-input {
         font-size: $navigation-font-size;                
     }
+}
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart__items-container {
+    position: absolute;
+    top: -5px;
+    right: -7.5px;
+    background: red;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.cart__items {
+    line-height: 20px;
+    text-align: center;
 }
 
 .logo {

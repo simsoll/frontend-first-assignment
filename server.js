@@ -1,4 +1,5 @@
 'use strict';
+var bodyParser = require('body-parser');
 var express = require('express');
 var path = require('path');
 var handlebars = require('express-handlebars');
@@ -6,6 +7,7 @@ var handlebars = require('express-handlebars');
 var sass = require('node-sass-middleware');
 var postcss = require('postcss-middleware');
 var autoprefixer = require('autoprefixer');
+
 
 var app = express();
 
@@ -17,6 +19,8 @@ app.set('port', process.env.PORT || 5000);
 
 var destPath = path.join(__dirname, '/public/styles/');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
     sass({
         src: path.join(__dirname, 'sass'),

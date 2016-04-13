@@ -1,7 +1,15 @@
-.products {
+.productCatalog {
     background-color: $base-background-color;
     width: 100%;
     float: right;
+}
+
+.products {
+    &:after {
+        clear: both;
+        display: block;
+        content: "";
+    }    
 }
 
 .product-container {
@@ -43,7 +51,7 @@
     }
 }
 
-.product__order-button {
+.product__button {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -53,9 +61,10 @@
     height: 50px;
     line-height: 50px;    
     width: 100%;    
+    cursor: pointer;
     
     &.-action {
-        background-color: deepskyblue;
+        background-color: mediumseagreen;
     }
     
     &.-info {
@@ -73,6 +82,23 @@
     font-size: 1.5rem;
 }
 
+.pagination {
+    display: block;
+    text-align: center;
+    
+    & li {
+        display: inline;
+    }
+    
+    &.-top {
+        margin-top: 2%;        
+    }
+    
+    &.-bottom {
+        margin: 2% 0;
+    }
+}
+
 @media screen and (min-width: 480px) {
     .product-container {
         width: 47%; /** (100 - (columns + 1)*margin-left) / columns, columns = 2 **/
@@ -84,7 +110,7 @@
         width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
     }    
     
-    .products {
+    .productCatalog {
         width: calc(100% - #{$logo-width});        
     }
 }

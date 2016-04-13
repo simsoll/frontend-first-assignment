@@ -1,11 +1,26 @@
-<div class="products">
-{{#each paginatedProducts}}
-    {{> product}}
-{{/each}}
+<header>
+    {{> navigation}}
+</header>
 
-<ul class="page-links">
-    {{#each (generatePages products)}}
-        <li><a href="{{link}}">{{number}}</a></li>
-    {{/each}}
-</ul>
+<div class="productCatalog">
+    <ul class="pagination -top">
+            <!--<li><a href="{{products.[0].link}}">First</a></li>-->
+            {{#each (generatePages products)}}
+                <li><a href="{{link}}">{{number}}</a></li>
+            {{/each}}
+            <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
+   </ul>
+   <div class="products">
+        {{#each paginatedProducts}}
+            {{> product}}
+        {{/each}}
+   </div>
+    
+   <ul class="pagination -bottom">
+        <!--<li><a href="{{products.[0].link}}">First</a></li>-->
+        {{#each (generatePages products)}}
+            <li><a href="{{link}}">{{number}}</a></li>
+        {{/each}}
+        <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
+    </ul>
 </div>

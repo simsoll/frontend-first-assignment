@@ -14,11 +14,8 @@
             {{/ifGreaterThan}}
         {{/ifGreaterThan}}
         <p class="product__price">€ {{price}}</p>
-        {{#if isInCart}} 
-            <button class="product__order-button -info">Placed in Cart</button>        
-        {{else}}
-            <button class="product__order-button -action">Add to Cart</button>
-        {{/if}}
+        <button class="product__button -info remove {{#unless isInCart}}hide{{/unless}}" data-id="{{id}}">Remove from Cart</button>        
+        <button class="product__button -action add {{#if isInCart}}hide{{/if}}" data-id="{{id}}">Add to Cart</button>
     </div>
 </div>
             
