@@ -14,8 +14,15 @@
             {{/ifGreaterThan}}
         {{/ifGreaterThan}}
         <p class="product__price">€ {{price}}</p>
-        <button class="product__button -info remove {{#unless isInCart}}hide{{/unless}}" data-id="{{id}}">Remove from Cart</button>        
-        <button class="product__button -action add {{#if isInCart}}hide{{/if}}" data-id="{{id}}">Add to Cart</button>
+        <button class="product__button -undo remove {{#unless isInPendingOrder}}hide{{/unless}}" data-id="{{id}}">Remove from Cart</button> 
+        <select class="product__button -option option {{#if isInPendingOrder}}hide{{/if}}"name="quantityOption" id="quantityOption" data-id="{{id}}">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button class="product__button -action add {{#if isInPendingOrder}}hide{{/if}}" data-id="{{id}}">Add to Cart</button>
     </div>
 </div>
             

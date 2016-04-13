@@ -10,11 +10,12 @@ module.exports.list = function(req, res) {
 };
 
 module.exports.add = function(req, res) {
+    var amount = Number(req.body.amount);
     var id = Number(req.body.id);
     var product = productRepository.getById(id); 
 
-    orderRepository.addToPending(product);
-    product.isInCart = true;
+    orderRepository.addToPending(product, amount);
+    product.isInPendingOrder = true;
 
     res.end(req.body.id);
 };
@@ -24,7 +25,7 @@ module.exports.remove = function(req, res) {
     var product = productRepository.getById(id); 
 
     orderRepository.removeFromPending(product);
-    product.isInCart = false;
+    product.isInPendingOrder = false;
 
     res.end(req.body.id);
 };

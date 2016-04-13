@@ -66,7 +66,7 @@ module.exports = (function() {
         removeFromPending: removeFromPending
     };
 
-    function addToPending(product) {
+    function addToPending(product, amount) {
         var order = getByStatus('pending')[0];
         var isNewOrder = !order;
         
@@ -78,7 +78,10 @@ module.exports = (function() {
             };
         }
         
-        order.products.push(product);
+        order.products.push({
+            amount: amount,
+            product: product
+        });
         
         if (isNewOrder) {
             orders.push(order);
@@ -95,7 +98,7 @@ module.exports = (function() {
         var products = order.products;
         
         var index = products.map(function(item) {
-            return item.id;
+            return item.product.id;
         }).indexOf(product.id);
 
         if (index > -1) {
