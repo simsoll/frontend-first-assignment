@@ -19,16 +19,16 @@ appComponents.ProductCatalog.prototype = function() {
 
     function initializeButtons() {
         $('.product__button.add').click(function() {
-
-            var e = document.getElementById('quantityOption');
-            var amount = Number(e.options[e.selectedIndex].value);
+            var id = $(this).data('id');
+            
+            var amount = Number($('#quantityOption-' + id + ' :selected').text());
 
             $.ajax({
                 type: 'post',
                 url: '/add',
                 data: {
                     amount: amount,
-                    id: $(this).data('id')
+                    id: id
                 }
             }).done(function(id) {
                 $('.product__button.add').filter(function(index, element) {

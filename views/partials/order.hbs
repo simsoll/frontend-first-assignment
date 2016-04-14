@@ -2,13 +2,7 @@
     {{#if products.length}}
         <p>Ordered by: {{creator}}</p>
         <p>Ordered at: {{timestamp}}</p>
-        <p>Approved: 
-            {{#if approved}}
-            <span class="-warning">Done!</span>
-            {{else}}
-            <span class="-completed">Not yet!</span>        
-            {{/if}}
-            </p>
+        <p>Status: {{status}}</p>
         <h3>Products</h3>
         <ul>
             {{#each products}}

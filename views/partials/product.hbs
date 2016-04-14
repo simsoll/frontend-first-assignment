@@ -15,7 +15,7 @@
         {{/ifGreaterThan}}
         <p class="product__price">€ {{price}}</p>
         <button class="product__button -undo remove {{#unless isInPendingOrder}}hide{{/unless}}" data-id="{{id}}">Remove from Cart</button> 
-        <select class="product__button -option option {{#if isInPendingOrder}}hide{{/if}}"name="quantityOption" id="quantityOption" data-id="{{id}}">
+        <select class="product__button -option option {{#if isInPendingOrder}}hide{{/if}}"name="quantityOption-{{id}}" id="quantityOption-{{id}}" data-id="{{id}}">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

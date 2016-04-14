@@ -2,6 +2,20 @@
     {{> navigation}}
 </header>
 
-{{#each orders}}
-    {{> order}}
-{{/each}}
+<div class='pending-orders'>
+    {{#each pendingOrders}}
+        {{> order}}
+    {{/each}}    
+</div>
+
+<div class='submitted-orders'>
+    {{#each submittedOrders}}
+        {{> order}}
+    {{/each}}    
+</div>
+
+<div class='approved-orders'>
+    {{#each approvedOrders}}
+        {{> order}}
+    {{/each}}    
+</div>
