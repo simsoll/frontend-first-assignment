@@ -5,7 +5,7 @@ module.exports = (function() {
         {
             id: 1,
             creator: 'Simon',
-            timestamp: new Date(),
+            createdAt: new Date(),
             status: 'submitted',
             products: [
                 {
@@ -33,7 +33,9 @@ module.exports = (function() {
         {
             id: 2,
             creator: 'John',
-            timestamp: new Date(),
+            createdAt: new Date(),
+            approver: 'Admin',
+            approvedAt: new Date(),
             status: 'approved',
             products: [
                 {

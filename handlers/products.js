@@ -1,6 +1,6 @@
 'use strict';
-var productRepository = require('../repositories/productRepository.js');
-var orderRepository = require('../repositories/orderRepository.js');
+var productService = require('../services/productService.js');
+var orderService = require('../services/orderService.js');
 
 var itemsPerPage = 8; //TODO: move to global config object
 
@@ -12,9 +12,9 @@ module.exports.list = function(req, res) {
 module.exports.add = function(req, res) {
     var amount = Number(req.body.amount);
     var id = Number(req.body.id);
-    var product = productRepository.getById(id); 
+    var product = productService.getById(id);
 
-    orderRepository.addToPending(product, amount);
+    orderService.addToPending(product, amount);
     product.isInPendingOrder = true;
 
     res.end(req.body.id);
@@ -22,9 +22,9 @@ module.exports.add = function(req, res) {
 
 module.exports.remove = function(req, res) {
     var id = Number(req.body.id);
-    var product = productRepository.getById(id); 
+    var product = productService.getById(id);
 
-    orderRepository.removeFromPending(product);
+    orderService.removeFromPending(product);
     product.isInPendingOrder = false;
 
     res.end(req.body.id);
@@ -37,11 +37,11 @@ module.exports.detail = function(req, res) {
 function generateContext(req) {
     var pageNumber = req.query.page || 1;
 
-    var products = productRepository.getAll();
+    var products = productService.getAll();
     var filteredProducts = getFiltered(products);
     var paginatedProducts = getPaginated(filteredProducts, pageNumber, itemsPerPage);
 
-    var pendingOrder = orderRepository.getByStatus('pending')[0] ? orderRepository.getByStatus('pending')[0].products : [];
+    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0].products : [];
 
     return {
         active: { products: true },
