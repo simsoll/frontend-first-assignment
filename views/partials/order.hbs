@@ -1,12 +1,15 @@
 <div class="order">
-    {{#if products.length}}
-        <p>Ordered by: {{creator}}</p>
-        <p>Ordered at: {{createdAt}}</p>
+    {{#if products.length}}            
+        {{#isEqual status 'submitted'}}
+            <p>Ordered by: {{creator}}</p>
+            <p>Ordered at: {{createdAt}}</p>        
+        {{/isEqual}}
         {{#isEqual status 'approved'}}
+            <p>Ordered by: {{creator}}</p>
+            <p>Ordered at: {{createdAt}}</p>
             <p>Approved by: {{approver}}</p>
             <p>Approved at: {{approvedAt}}</p>            
         {{/isEqual}}
-        <p>Status: {{status}}</p>
         <h3>Products</h3>
         <ul>
             {{#each products}}
