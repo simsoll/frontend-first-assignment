@@ -1,9 +1,9 @@
 'use strict';
 var orderService = require('../services/orderService.js');
 
-module.exports.list = function(req, res) {
+module.exports.list = function (req, res) {
     var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
-    
+
     var context = {
         active: { orders: true },
         approvedOrders: orderService.getByStatus('approved'),
@@ -16,6 +16,14 @@ module.exports.list = function(req, res) {
 
     res.render('orders', context);
 };
+
+module.exports.submit = function (req, res) {
+    var amounts = JSON.parse(req.body.amounts);
+    
+    orderService.submitOrder(amounts, { name: 'Tester' });
+
+    res.end();
+}
 
 function isEqual(a, b, options) {
     if (a === b) {

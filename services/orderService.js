@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (function() {
+module.exports = (function () {
     var orders = [
         {
             id: 1,
@@ -102,7 +102,7 @@ module.exports = (function() {
 
         var products = order.products;
 
-        var index = products.map(function(item) {
+        var index = products.map(function (item) {
             return item.product.id;
         }).indexOf(productId);
 
@@ -111,25 +111,39 @@ module.exports = (function() {
         }
     }
 
-    function submitOrder(id, amounts, user) {
-        var order = getById(id);
-        
+    function submitOrder(amounts, user) {
+        var order = getByStatus('pending')[0];
+
+        if (!order) {
+            return;
+        }
+
         if (order.status !== 'pending') {
             return;
         }
-        
+
+        for (var i = 0; i < order.products.length; i++) {
+            var productItem = order.products[i];
+
+            var amount = amounts.filter(function (element) {
+                return element.id === productItem.product.id;
+            })[0].amount;
+
+            productItem.amount = amount;
+        }
+
         order.status = 'submitted';
         order.creator = user.name;
         order.createdAt = new Date();
     }
-    
+
     function approveOrder(id, user) {
         var order = getById(id);
-        
+
         if (order.status !== 'submitted') {
             return;
         }
-        
+
         order.status = 'approved';
         order.approver = user.name;
         order.approvedAt = new Date();
@@ -140,15 +154,15 @@ module.exports = (function() {
     }
 
     function getByStatus(status) {
-        return orders.filter(function(order) {
+        return orders.filter(function (order) {
             return order.status === status;
         });
     }
 
     function getById(id) {
-        return orders.filter(function(order) {
+        return orders.filter(function (order) {
             return order.id === id;
-        })[0];       
+        })[0];
     }
 
     function generateId() {
