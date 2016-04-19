@@ -2,12 +2,12 @@
     {{> navigation}}
 </header>
 
-<div class='pending-orders'>
-    <h2>Orders to be Submitted</h2>
-    {{#each pendingOrders}}
-        {{> order}}
-    {{/each}}    
-</div>
+{{#if pendingOrder.products}}
+    <div class='pending-orders'>
+        <h2>Orders to be Submitted</h2>
+        {{> order pendingOrder}}
+    </div>
+{{/if}}
 
 <div class='submitted-orders'>
     <h2>Orders to be Approved</h2>

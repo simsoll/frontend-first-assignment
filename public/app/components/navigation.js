@@ -1,11 +1,11 @@
 'use strict';
 var appComponents = appComponents || {};
 
-appComponents.Navigation = function() {
+appComponents.Navigation = function () {
 
 };
 
-appComponents.Navigation.prototype = function() {
+appComponents.Navigation.prototype = function () {
     var isInitialized = false;
 
     return {
@@ -16,16 +16,16 @@ appComponents.Navigation.prototype = function() {
         if (isInitialized) {
             return;
         }
-        
+
         initializeNavigationLinks();
         initializeNavigationButtons();
         isInitialized = true;
     }
 
     function initializeNavigationLinks() {
-        $('.navigation-link').each(function(index, element) {
-            element.onclick = function() {
-                $('.navigation-link').each(function(innerIndex, innerElement) {
+        $('.navigation-link').each(function (index, element) {
+            element.onclick = function () {
+                $('.navigation-link').each(function (innerIndex, innerElement) {
                     $(innerElement).removeClass('-current');
                 });
 
@@ -35,13 +35,17 @@ appComponents.Navigation.prototype = function() {
     }
 
     function initializeNavigationButtons() {
-        $('#category-button')[0].onclick = function() {
+        $('#category-button')[0].onclick = function () {
             $(this).toggleClass('-pressed');
 
-            $('.categories').each(function(index, element) {
+            $('.categories').each(function (index, element) {
                 $(element).toggleClass('hidden-xs visible-xs');
                 $(element).toggleClass('hidden-sm visible-sm');
             });
         };
+
+        $('.checkout-button').click(function () {
+            window.location.href = '/orders';
+        })
     }
 } ();

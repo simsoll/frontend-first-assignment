@@ -2,10 +2,12 @@
 var orderService = require('../services/orderService.js');
 
 module.exports.list = function(req, res) {
+    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
+    
     var context = {
         active: { orders: true },
         approvedOrders: orderService.getByStatus('approved'),
-        pendingOrders: orderService.getByStatus('pending'),
+        pendingOrder: pendingOrder,
         submittedOrders: orderService.getByStatus('submitted'),
         helpers: {
             isEqual: isEqual

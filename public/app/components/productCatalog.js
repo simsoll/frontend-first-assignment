@@ -44,6 +44,7 @@ appComponents.ProductCatalog.prototype = function() {
                 }).removeClass('hide');
 
                 addToElement('.cart__items', 1);
+                updateCheckoutButtonDisabledState();
             });
         });
 
@@ -68,6 +69,7 @@ appComponents.ProductCatalog.prototype = function() {
                 }).addClass('hide');
 
                 addToElement('.cart__items', -1);
+                updateCheckoutButtonDisabledState();
             });
         });
     }
@@ -79,5 +81,14 @@ appComponents.ProductCatalog.prototype = function() {
     function addToElement(element, number) {
         var $element = $(element);
         $element.text(Number($element.html()) + number);
+    }
+    
+    function updateCheckoutButtonDisabledState() {
+        if (Number($('.cart__items').html()) === 0) {
+            $('.checkout-button').prop('disabled', true);
+        }
+        else {
+            $('.checkout-button').prop('disabled', false);
+        }
     }
 } ();

@@ -7,5 +7,6 @@ var appModules = appModules || {};
 
     (new appComponents.Navigation()).initialize();
     (new appComponents.ProductCatalog()).initialize();
+    (new appComponents.OrderCatalog()).initialize();
 
 })();

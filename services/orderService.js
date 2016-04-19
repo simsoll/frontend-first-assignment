@@ -59,19 +59,22 @@ module.exports = (function() {
                         description: 'Product description 9'
                     }
                 }]
-        }];
+        }
+    ];
 
     return {
         addToPending: addToPending,
+        approveOrder: approveOrder,
         getAll: getAll,
         getByStatus: getByStatus,
-        removeFromPending: removeFromPending
+        removeFromPending: removeFromPending,
+        submitOrder: submitOrder
     };
 
     function addToPending(product, amount) {
         var order = getByStatus('pending')[0];
         var isNewOrder = !order;
-        
+
         if (isNewOrder) {
             order = {
                 id: generateId(),
@@ -79,33 +82,57 @@ module.exports = (function() {
                 status: 'pending'
             };
         }
-        
+
         order.products.push({
             amount: amount,
             product: product
         });
-        
+
         if (isNewOrder) {
             orders.push(order);
         }
     }
-    
-    function removeFromPending(product) {
+
+    function removeFromPending(productId) {
         var order = getByStatus('pending')[0];
-        
+
         if (!order) {
             return;
         }
-        
+
         var products = order.products;
-        
+
         var index = products.map(function(item) {
             return item.product.id;
-        }).indexOf(product.id);
+        }).indexOf(productId);
 
         if (index > -1) {
             products.splice(index, 1);
         }
+    }
+
+    function submitOrder(id, amounts, user) {
+        var order = getById(id);
+        
+        if (order.status !== 'pending') {
+            return;
+        }
+        
+        order.status = 'submitted';
+        order.creator = user.name;
+        order.createdAt = new Date();
+    }
+    
+    function approveOrder(id, user) {
+        var order = getById(id);
+        
+        if (order.status !== 'submitted') {
+            return;
+        }
+        
+        order.status = 'approved';
+        order.approver = user.name;
+        order.approvedAt = new Date();
     }
 
     function getAll() {
@@ -117,19 +144,25 @@ module.exports = (function() {
             return order.status === status;
         });
     }
-    
+
+    function getById(id) {
+        return orders.filter(function(order) {
+            return order.id === id;
+        })[0];       
+    }
+
     function generateId() {
         if (orders.length === 0) {
             return 1;
         }
         var maxId = orders[0].id;
-        
+
         for (var i = 1; i < orders.length; i++) {
             if (maxId < orders[i].id) {
                 maxId = orders[i].id;
             }
         }
-        
+
         return maxId + 1;
     }
 })();

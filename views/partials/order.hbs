@@ -11,14 +11,14 @@
             <p>Approved at: {{approvedAt}}</p>            
         {{/isEqual}}
         <h3>Products</h3>
-        <ul>
+        <ul class="order__products">
             {{#each products}}
-                <li><p>Product description: {{product.description}},</p> 
+                <li class="order__products-item"><p>Product description: {{product.description}},</p> 
                 {{#isEqual ../status 'pending'}}                    
                     <p>
                         Amount: 
                         <input type="number" min="0" value="{{amount}}"></input>
-                        <button><i class="fa fa-times"></i></button>
+                        <button class="order__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                     </p>
                 {{else}}
                     <p>Amount: {{amount}}</p> 

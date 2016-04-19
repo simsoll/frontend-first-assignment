@@ -24,7 +24,7 @@ module.exports.remove = function(req, res) {
     var id = Number(req.body.id);
     var product = productService.getById(id);
 
-    orderService.removeFromPending(product);
+    orderService.removeFromPending(product.id);
     product.isInPendingOrder = false;
 
     res.end(req.body.id);
@@ -41,7 +41,7 @@ function generateContext(req) {
     var filteredProducts = getFiltered(products);
     var paginatedProducts = getPaginated(filteredProducts, pageNumber, itemsPerPage);
 
-    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0].products : [];
+    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
 
     return {
         active: { products: true },
