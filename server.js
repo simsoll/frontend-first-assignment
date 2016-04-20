@@ -2,7 +2,7 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 var path = require('path');
-var handlebars = require('express-handlebars');
+var exphbs = require('express-handlebars');
 
 var sass = require('node-sass-middleware');
 var postcss = require('postcss-middleware');
@@ -11,7 +11,11 @@ var autoprefixer = require('autoprefixer');
 
 var app = express();
 
-app.engine('.hbs', handlebars({ defaultLayout: 'main', extname: '.hbs' }));
+var defaultLayout = 'main';
+var extname = '.hbs'; 
+var handlebars = require('./helpers/handlebars')(exphbs, defaultLayout, extname);
+
+app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 
 app.set('environment', 'development');

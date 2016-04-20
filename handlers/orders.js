@@ -8,10 +8,7 @@ module.exports.list = function (req, res) {
         active: { orders: true },
         approvedOrders: orderService.getByStatus('approved'),
         pendingOrder: pendingOrder,
-        submittedOrders: orderService.getByStatus('submitted'),
-        helpers: {
-            isEqual: isEqual
-        }
+        submittedOrders: orderService.getByStatus('submitted')
     };
 
     res.render('orders', context);
@@ -50,10 +47,3 @@ module.exports.approve = function (req, res) {
         });
 }
 
-function isEqual(a, b, options) {
-    if (a === b) {
-        return options.fn(this);
-    }
-
-    return options.inverse(this);
-}

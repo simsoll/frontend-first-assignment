@@ -1,0 +1,49 @@
+.widget {
+    height: 16rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    border: 1px solid black;
+    
+    & .button {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    & p {
+        margin: 1.5rem 0;
+    }        
+}
+
+@mixin font-awesome-background {
+    position: absolute;
+    font-family: 'FontAwesome';
+    left: -4rem;
+    bottom: -4rem;
+    font-size: 15rem;   
+    opacity: 0.25;    
+}
+
+.widget-content-container {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    position: relative;    
+    box-sizing: border-box;
+    overflow: hidden;   
+    
+    &.-products:before {
+        @include font-awesome-background;
+        content: "\f291";
+    }    
+    
+    &.-orders:before {
+        @include font-awesome-background;
+        content: "\f15c";        
+    }
+    
+    &.-barcode:before {
+        @include font-awesome-background;
+        content: "\f02a";        
+    }
+}
