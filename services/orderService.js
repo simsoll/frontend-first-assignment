@@ -135,6 +135,7 @@ module.exports = (function () {
                 return element.id === productItem.product.id;
             })[0].amount;
 
+            productItem.product.isInPendingOrder = false;
             productItem.amount = amount;
         }
 
