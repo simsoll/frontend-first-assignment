@@ -15,14 +15,14 @@
             {{#each products}}
                 <li class="order__products-item"><p>Product description: {{product.description}},</p> 
                 {{#isEqual ../status 'pending'}}                    
-                    <p>
-                        Amount: 
-                        <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
+                    <div>
+                        Amount: <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
                         <button class="order__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
-                    </p>
+                    </div>
                 {{else}}
-                    <p>Amount: {{amount}}</p> 
-                {{/isEqual}}                        
+                    <div>Amount: {{amount}}</div> 
+                {{/isEqual}}      
+                <div>Price: {{product.price}}</div>                  
                 </li>
             {{/each}}
         </ul>

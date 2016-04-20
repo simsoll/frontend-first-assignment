@@ -12,21 +12,24 @@ module.exports = (function () {
                     amount: 3,
                     product: {
                         filtered: true,
-                        description: 'Product description 1'
+                        description: 'Product description 1',
+                        price: 39.95
                     }
                 },
                 {
                     amount: 2,
                     product: {
                         filtered: true,
-                        description: 'Product description 4'
+                        description: 'Product description 4',
+                        price: 9.75
                     }
                 },
                 {
                     amount: 6,
                     product: {
                         filtered: true,
-                        description: 'Product description 5'
+                        description: 'Product description 5',
+                        price: 10.25
                     }
                 }]
         },
@@ -42,21 +45,24 @@ module.exports = (function () {
                     amount: 1,
                     product: {
                         filtered: true,
-                        description: 'Product description 1'
+                        description: 'Product description 1',
+                        price: 12.25
                     }
                 },
                 {
                     amount: 4,
                     product: {
                         filtered: true,
-                        description: 'Product description 3'
+                        description: 'Product description 3',
+                        price: 59.95
                     }
                 },
                 {
                     amount: 2,
                     product: {
                         filtered: true,
-                        description: 'Product description 9'
+                        description: 'Product description 9',
+                        price: 45.25
                     }
                 }]
         }
