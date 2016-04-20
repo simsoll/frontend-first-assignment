@@ -1,5 +1,5 @@
 .widget {
-    height: 16rem;
+    height: 22.5rem;
     margin-top: 5rem;
     margin-bottom: 3rem;
     border: 1px solid black;
@@ -18,10 +18,10 @@
 @mixin font-awesome-background {
     position: absolute;
     font-family: 'FontAwesome';
-    left: -4rem;
-    bottom: -4rem;
     font-size: 15rem;   
     opacity: 0.25;    
+    left: -3rem;
+    bottom: -4rem;
 }
 
 .widget-content-container {

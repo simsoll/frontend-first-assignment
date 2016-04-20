@@ -4,14 +4,14 @@ var productService = require('../services/productService.js');
 
 module.exports.home = function(req, res) {
     var products = productService.getAll();
-    var pendingOrders = orderService.getByStatus('pending');
+    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
     var submittedOrders = orderService.getByStatus('submitted');
     var approvedOrders = orderService.getByStatus('approved');
     
     var context = {
         active: { home: true },
         approvedOrders: approvedOrders,
-        pendingOrders: pendingOrders,
+        pendingOrder: pendingOrder,
         products: products,
         submittedOrders: submittedOrders
     };
