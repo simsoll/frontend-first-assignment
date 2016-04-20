@@ -73,3 +73,4 @@ Thumbs.db
 src.old/
 public/styles/styles.css
 .vscode/
+jsconfig.json

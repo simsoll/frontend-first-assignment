@@ -24,3 +24,19 @@
         <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
     </ul>
 </div>
+
+<div class="camera-input visible-xs">
+    <div class="barcode-scanner">
+        <input class="barcode-scanner__input" type="file" id="barcode-scanner" accept="image/*">
+        <label class="barcode-scanner__label button -full-width" for="barcode-scanner">Scan barcode</label>
+    </div>
+
+    <div class="modal-overlay" data-modal-class=".modal-barcode">
+
+    </div>
+
+    <div class="modal-barcode">
+        {{> product randomProduct}}    
+        <button class="barcode-scanner__close-button button -full-width" for="barcode-scanner">Close scanned product</button>
+    </div>
+</div>

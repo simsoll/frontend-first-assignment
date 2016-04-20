@@ -4,12 +4,12 @@ var orderService = require('../services/orderService.js');
 
 var itemsPerPage = 8; //TODO: move to global config object
 
-module.exports.list = function(req, res) {
+module.exports.list = function (req, res) {
     var context = generateContext(req);
     res.render('products', context);
 };
 
-module.exports.add = function(req, res) {
+module.exports.add = function (req, res) {
     var amount = Number(req.body.amount);
     var id = Number(req.body.id);
     var product = productService.getById(id);
@@ -20,7 +20,7 @@ module.exports.add = function(req, res) {
     res.end(req.body.id);
 };
 
-module.exports.remove = function(req, res) {
+module.exports.remove = function (req, res) {
     var id = Number(req.body.id);
     var product = productService.getById(id);
 
@@ -30,7 +30,7 @@ module.exports.remove = function(req, res) {
     res.end(req.body.id);
 };
 
-module.exports.detail = function(req, res) {
+module.exports.detail = function (req, res) {
     res.render('products');
 };
 
@@ -47,10 +47,10 @@ function generateContext(req) {
         active: { products: true },
         pendingOrder: pendingOrder,
         helpers: {
-            generatePages: function(elements) {
+            generatePages: function (elements) {
                 return generatePages(req.url, elements, itemsPerPage);
             },
-            ifGreaterThan: function(a, b, options) {
+            ifGreaterThan: function (a, b, options) {
                 if (a > b) {
                     return options.fn(this);
                 }
@@ -58,7 +58,8 @@ function generateContext(req) {
             }
         },
         products: products,
-        paginatedProducts: paginatedProducts
+        paginatedProducts: paginatedProducts,
+        randomProduct: products[getRandomIntInclusive(0, products.length - 1)]
     };
 }
 
@@ -118,4 +119,8 @@ function getFiltered(elements) {
 
 function isFiltered(element) {
     return element.isFiltered;
+}
+
+function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

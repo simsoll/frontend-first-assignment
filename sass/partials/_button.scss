@@ -1,24 +1,26 @@
 .button {
     height: 2.5rem;
-    padding: 0 1.5rem;
     background-color: inherit;
-    border: 1px solid black;
     cursor: pointer;
     
-    &:hover {
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-    }
+    // &:hover {
+    //     background-color: rgba(0,0,0,0.5);
+    //     color: white;
+    // }
     
-    &.-pressed {
-        background-color: rgba(0,0,0,1);
-        color: white;
+    // &.-pressed {
+    //     background-color: rgba(0,0,0,1);
+    //     color: white;
         
-        &:hover {
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-        }        
-    }    
+    //     &:hover {
+    //         background-color: rgba(0,0,0,0.5);
+    //         color: white;
+    //     }        
+    // }    
+    
+    &.-full-width {
+        width: 100%;
+    }
 }
 
 .menu {

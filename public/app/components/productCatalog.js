@@ -2,11 +2,11 @@
 
 var appComponents = appComponents || {};
 
-appComponents.ProductCatalog = function() {
+appComponents.ProductCatalog = function () {
 
 };
 
-appComponents.ProductCatalog.prototype = function() {
+appComponents.ProductCatalog.prototype = function () {
     var isInitialized = false;
 
     return {
@@ -14,13 +14,15 @@ appComponents.ProductCatalog.prototype = function() {
     };
 
     function initialize() {
-        initializeButtons();
+        initializeAddButtons();
+        initializeRemoveButtons();
+        initializeBarCodeScannerCloseButton();
     }
 
-    function initializeButtons() {
-        $('.product__button.add').click(function() {
+    function initializeAddButtons() {
+        $('.product__button.add').click(function () {
             var id = $(this).data('id');
-            
+
             var amount = Number($('#quantityOption-' + id + ' :selected').text());
 
             $.ajax({
@@ -30,16 +32,16 @@ appComponents.ProductCatalog.prototype = function() {
                     amount: amount,
                     id: id
                 }
-            }).done(function(id) {
-                $('.product__button.add').filter(function(index, element) {
+            }).done(function (id) {
+                $('.product__button.add').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
-                $('.product__button.option').filter(function(index, element) {
+                $('.product__button.option').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
-                $('.product__button.remove').filter(function(index, element) {
+                $('.product__button.remove').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
@@ -47,24 +49,26 @@ appComponents.ProductCatalog.prototype = function() {
                 updateCheckoutButtonDisabledState();
             });
         });
+    }
 
-        $('.product__button.remove').click(function() {
+    function initializeRemoveButtons() {
+        $('.product__button.remove').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/remove',
                 data: {
                     id: $(this).data('id')
                 }
-            }).done(function(id) {
-                $('.product__button.add').filter(function(index, element) {
+            }).done(function (id) {
+                $('.product__button.add').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
-                $('.product__button.option').filter(function(index, element) {
+                $('.product__button.option').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
-                $('.product__button.remove').filter(function(index, element) {
+                $('.product__button.remove').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
@@ -82,7 +86,7 @@ appComponents.ProductCatalog.prototype = function() {
         var $element = $(element);
         $element.text(Number($element.html()) + number);
     }
-    
+
     function updateCheckoutButtonDisabledState() {
         if (Number($('.cart__items').html()) === 0) {
             $('.checkout-button').prop('disabled', true);
@@ -90,5 +94,12 @@ appComponents.ProductCatalog.prototype = function() {
         else {
             $('.checkout-button').prop('disabled', false);
         }
+    }
+
+    function initializeBarCodeScannerCloseButton() {
+        $('.barcode-scanner__close-button').click(function () {
+            $('.modal-overlay').removeClass('show');
+            $('.modal-barcode').removeClass('show');
+        });
     }
 } ();

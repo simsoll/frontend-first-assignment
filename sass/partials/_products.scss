@@ -1,7 +1,10 @@
+$barcode-scanner-height: 4.4rem;
+
 .productCatalog {
     background-color: $base-background-color;
     width: 100%;
     float: right;
+    margin-bottom: $barcode-scanner-height;    
 }
 
 .products {
@@ -21,8 +24,10 @@
     float: left;    
     transition: background-color 0.5s;
     
-    &:hover {
-        background-color: white;
+    .modal-barcode & {
+        height: 100%;
+        width: 100%;
+        margin: 0;
     }
 }
 
@@ -66,10 +71,19 @@
         margin-left: 15%;
         width: 85%;    
         background-color: mediumseagreen;
+        
+        .modal-barcode & {
+            margin-left: 40%;
+            width: 60%;             
+        }
     }
     
     &.-option {
-        width: 15%;            
+        width: 15%;
+                    
+        .modal-barcode & {
+            width: 40%;             
+        }
     }    
     
     &.-undo {
@@ -105,13 +119,44 @@
     }
 }
 
+.barcode-scanner__input {
+    display: none;
+}
+
+.barcode-scanner__close-button,
+.barcode-scanner__label {
+    display: inline-block;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $barcode-scanner-height;
+    line-height: $barcode-scanner-height;
+    color: white;
+}
+
+.barcode-scanner__close-button {
+    background-color: red;
+}
+
+.barcode-scanner__label {
+    background-color: blue;    
+}
+
 @media screen and (min-width: 480px) {
     .product-container {
         width: 47%; /** (100 - (columns + 1)*margin-left) / columns, columns = 2 **/
     }
 }
 
-@media screen and (min-width: #{$screen-md}) {
+@media screen and (min-width: #{$screen-sm}) {
+    .productCatalog {
+        margin-bottom: 0;        
+    }
+}
+
+@media screen and (min-width: #{$screen-md}) {   
     .product-container {
         width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
     }    
