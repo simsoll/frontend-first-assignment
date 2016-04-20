@@ -95,6 +95,9 @@ Should include
 * Icons
 
 ## Design choices and composition
+*Commented gestalt sketch that arguments for the choices made for the composition. Choice of
+navigation possibilities related to literature from Frost, Krug, etc.*
+
 *The construction worker should be able to purchase from t he mobile phone or tablet and rapidly find products while working in the field.* 
 
 When logged in as a worker the product pages should be in focus. However, the order history should still be visible for the worker to see what have previously been ordered and if the orders have been approved. 
@@ -129,6 +132,8 @@ Use tabs instead of a navigation bar. Why? Found out where in [Krug] this is men
 ### User variety
 
 ## Choice of colours and fonts
+*You have to balance these elements and your choices shall spring from a knowledge of user
+profile, context of use, and content.*
 
 How can we use the color to enhance user experience 
 * in the field?
@@ -142,6 +147,8 @@ How can we use the color to enhance user experience
  * Orders
  * Users
 * A simple barcode detection algorithm is used by just choosing a random product among the available/filtered products 
+* Interaction triggers both ajax post against back-end and front-end logic to enhance user experience (more fluid experience instead of reloading the page for every interaction)
+** server roundtrip vs instant update in UI
 
 ## Technologies, libraries and frameworks
 * Handlebars
@@ -150,4 +157,4 @@ How can we use the color to enhance user experience
 
 
 ## Build process
-
+Be cautious when updating font-awesome as it might break the build process as the appropiate css and font files are not copied to the ./public/vendor folder.
