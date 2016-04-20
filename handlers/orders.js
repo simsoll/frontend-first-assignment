@@ -18,24 +18,42 @@ module.exports.list = function (req, res) {
 };
 
 module.exports.submit = function (req, res) {
+    var id = Number(req.body.id);
     var amounts = JSON.parse(req.body.amounts);
     var meta = {
         user: {
-            name: 'Tester'
+            name: 'Worker 1'
         },
         timestamp: new Date()
     };
 
-    orderService.submitOrder(amounts, meta);
+    orderService.submitOrder(id, amounts, meta);
 
     res.json(meta);
+}
+
+module.exports.approve = function (req, res) {
+    var id = Number(req.body.id);
+    var meta = {
+        user: {
+            name: 'Admin 1'
+        },
+        timestamp: new Date()
+    };
+
+    orderService.approveOrder(id, meta);
+
+    res.json(
+        {
+            meta: meta,
+            id: id
+        });
 }
 
 function isEqual(a, b, options) {
     if (a === b) {
         return options.fn(this);
     }
-    else {
-        return options.inverse(this);
-    }
+
+    return options.inverse(this);
 }

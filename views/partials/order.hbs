@@ -5,10 +5,10 @@
             <p>Ordered at: {{createdAt}}</p>        
         {{/isEqual}}
         {{#isEqual status 'approved'}}
-            <p>Ordered by: {{creator}}</p>
-            <p>Ordered at: {{createdAt}}</p>
             <p>Approved by: {{approver}}</p>
             <p>Approved at: {{approvedAt}}</p>            
+            <p>Ordered by: {{creator}}</p>
+            <p>Ordered at: {{createdAt}}</p>            
         {{/isEqual}}
         <h3>Products</h3>
         <ul class="order__products">
@@ -27,10 +27,10 @@
             {{/each}}
         </ul>
         {{#isEqual status 'pending'}}
-            <button class="order__submit-button">Submit</button>
+            <button class="order__submit-button" data-id={{id}}>Submit</button>
         {{/isEqual}}        
         {{#isEqual status 'submitted'}}
-            <button class="order__approve-button">Approve</button>
+            <button class="order__approve-button" data-id={{id}}>Approve</button>
         {{/isEqual}}
     {{/if}}
 </div>

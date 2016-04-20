@@ -16,4 +16,5 @@ module.exports = function(app) {
     // order routes
     app.get('/orders', order.list);
     app.post('/submit', order.submit);
+    app.post('/approve', order.approve);
 };

@@ -20,6 +20,28 @@ appComponents.OrderCatalog.prototype = function () {
         initializeApproveButtons();
     }
 
+    function initilizeRemoveButtons() {
+        $('.order__remove-button').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/remove',
+                data: {
+                    id: $(this).data('id')
+                }
+            }).done(function (id) {
+                if (productsIn('pending-orders') === 1) {
+                    $('.pending-orders').remove();
+                }
+                else {
+                    $('.pending-orders').find('[data-id=' + id + ']').closest('.order__products-item').remove();
+                }
+
+                addToElement('.cart__items', -1);
+                updateCheckoutButtonDisabledState();
+            });
+        });
+    }
+    
     function initializeSubmitButton() {
         $('.order__submit-button').click(function () {
             var amounts = [];
@@ -37,45 +59,44 @@ appComponents.OrderCatalog.prototype = function () {
                 type: 'post',
                 url: '/submit',
                 data: {
+                    id: $(this).data('id'),
                     amounts: JSON.stringify(amounts)
                 }
             }).done(function (meta) {
-                //move pending-orders to approved orders instead of...
-                // $('.pending-orders').remove();
-                convertPendingOrderToApprovedOrder(meta);
-                movePendingOrderListToApprovedOrderList();
-                removePendingOrderSection();
+                var $order = $('.pending-orders .order');
+
+                convertPendingOrderToSubmittedOrder($order, meta);
+                moveOrderToSection($order, 'submitted-orders', 'Orders to be Approved');
+
+                if (ordersIn('pending-orders') === 0) {
+                    $('.pending-orders').remove();
+                }
 
                 $('.cart__items').text('0');
                 updateCheckoutButtonDisabledState();
             });
         });
-    }
+    }    
 
-    function initilizeRemoveButtons() {
-        $('.order__remove-button').click(function () {
+    function initializeApproveButtons() {
+        $('.order__approve-button').click(function () {
             $.ajax({
                 type: 'post',
-                url: '/remove',
+                url: '/approve',
                 data: {
                     id: $(this).data('id')
                 }
-            }).done(function (id) {
-                if (productsInPendingOrder() === 1) {
-                    $('.pending-orders').remove();
-                }
-                else {
-                    $('.pending-orders').find("[data-id='" + id + "']").closest('.order__products-item').remove();
-                }
+            }).done(function (data) {
+                var $order = $('.order__approve-button[data-id=' + data.id + ']').closest('.order');
 
-                addToElement('.cart__items', -1);
-                updateCheckoutButtonDisabledState();
+                convertSubmittedOrderToApprovedOrder($order, data.meta);
+                moveOrderToSection($order, 'approved-orders', 'Approved Orders');
+
+                if (ordersIn('submitted-orders') === 0) {
+                    $('.submitted-orders').remove();
+                }
             });
         });
-    }
-
-    function initializeApproveButtons() {
-
     }
 
     function addToElement(element, number) {
@@ -92,36 +113,68 @@ appComponents.OrderCatalog.prototype = function () {
         }
     }
 
-    function productsInPendingOrder() {
-        return $('.pending-orders .order__products-item').length;
+    function productsIn(section) {
+        return $('.' + section + ' .order__products-item').length;
     }
 
-    function movePendingOrderListToApprovedOrderList() {
-        $('.submitted-orders h2').after($('.pending-orders .order'));
+    function ordersIn(section) {
+        return $('.' + section + ' .order').length;
+    }
+
+    function moveOrderToSection(order, section, headline) {
+        if (!$('.' + section).length) {
+            $('.' + previousSection(section)).after('<div class="' + section + '"><h2>' + headline + '</h2></div>');
+        }
+        
+        $('.' + section + ' h2').after($(order));
     }
     
-    function removePendingOrderSection() {
-        $('.pending-orders').remove();
+    function previousSection(section) {
+        if (section === 'submitted-orders') {
+            return 'pending-orders';
+        }
+        if (section === 'approved-orders') {
+            return 'submitted-orders';
+        }
+        
+        return null;
     }
 
-    function convertPendingOrderToApprovedOrder(meta) {
+    function convertPendingOrderToSubmittedOrder(order, meta) {
         //add timestamp and user name
-        $('.pending-orders .order')
+        $(order)
             .prepend('<p>Ordered at: ' + meta.timestamp + '</p>')
             .prepend('<p>Ordered by: ' + meta.user.name + '</p>');
 
         //replace input box with number
-        $('.pending-orders .order__products-item-amount').each(function (index, element) {
-            var amount = $(element).find('input').val();
-            $(element).html('Amount: ' + amount);
-        });
+        $(order)
+            .find('.order__products-item-amount')
+            .each(function (index, element) {
+                var amount = $(element).find('input').val();
+                $(element).html('Amount: ' + amount);
+            });
 
         //change submit button to approve button
-        $('.pending-orders .order__submit-button')
+        $(order)
+            .find('.order__submit-button')
             .unbind('click')
             .removeClass('order__submit-button')
             .addClass('order__approve-button')
             .html('Approve');
         initializeApproveButtons();
+    }
+
+    function convertSubmittedOrderToApprovedOrder(order, meta) {
+        //add timestamp and user name
+        $(order)
+            .prepend('<p>Approved at: ' + meta.timestamp + '</p>')
+            .prepend('<p>Approved by: ' + meta.user.name + '</p>');
+
+        //remove approve button
+        $(order)
+            .find('.order__approve-button')
+            .unbind('click')
+            .remove();
+
     }
 } ();

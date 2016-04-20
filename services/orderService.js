@@ -117,8 +117,8 @@ module.exports = (function () {
         }
     }
 
-    function submitOrder(amounts, meta) {
-        var order = getByStatus('pending')[0];
+    function submitOrder(id, amounts, meta) {
+        var order = getById(id);
 
         if (!order) {
             return;
@@ -144,16 +144,20 @@ module.exports = (function () {
         order.createdAt = meta.timestamp;
     }
 
-    function approveOrder(id, user) {
+    function approveOrder(id, meta) {
         var order = getById(id);
+
+        if (!order) {
+            return;
+        }
 
         if (order.status !== 'submitted') {
             return;
         }
 
         order.status = 'approved';
-        order.approver = user;
-        order.approvedAt = user;
+        order.approver = meta.user.name;
+        order.approvedAt = meta.timestamp;
     }
 
     function getAll() {

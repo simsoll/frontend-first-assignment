@@ -2,23 +2,29 @@
     {{> navigation}}
 </header>
 
-{{#if pendingOrder.products}}
-    <div class='pending-orders'>
-        <h2>Orders to be Submitted</h2>
-        {{> order pendingOrder}}
-    </div>
-{{/if}}
+<div class="orderCatalog">
+    {{#if pendingOrder.products}}
+        <div class="pending-orders">
+            <h2>Orders to be Submitted</h2>
+            {{> order pendingOrder}}
+        </div>
+    {{/if}}
 
-<div class='submitted-orders'>
-    <h2>Orders to be Approved</h2>
-    {{#each submittedOrders}}
-        {{> order}}
-    {{/each}}    
-</div>
+    {{#if submittedOrders.length}}
+        <div class="submitted-orders">
+            <h2>Orders to be Approved</h2>
+            {{#each submittedOrders}}
+                {{> order}}
+            {{/each}}    
+        </div>
+    {{/if}}
 
-<div class='approved-orders'>
-    <h2>Approved Orders</h2>
-    {{#each approvedOrders}}
-        {{> order}}
-    {{/each}}    
+    {{#if approvedOrders.length}}
+        <div class="approved-orders">
+            <h2>Approved Orders</h2>
+            {{#each approvedOrders}}
+                {{> order}}
+            {{/each}}    
+        </div>
+    {{/if}}
 </div>
