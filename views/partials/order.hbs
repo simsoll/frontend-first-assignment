@@ -15,7 +15,7 @@
             {{#each products}}
                 <li class="order__products-item"><p>Product description: {{product.description}},</p> 
                 {{#isEqual ../status 'pending'}}                    
-                    <div>
+                    <div class="order__products-item-amount">
                         Amount: <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
                         <button class="order__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                     </div>
@@ -30,7 +30,7 @@
             <button class="order__submit-button">Submit</button>
         {{/isEqual}}        
         {{#isEqual status 'submitted'}}
-            <button>Approve</button>
+            <button class="order__approve-button">Approve</button>
         {{/isEqual}}
     {{/if}}
 </div>

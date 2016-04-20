@@ -5,7 +5,7 @@
         <p class="product__producer">by {{producer}}</p>
         <p class="product__description">{{description}}</p>
         {{#ifGreaterThan stock 5}}
-            <p class="product__stock">{{stock}} in stock</p>
+            <p class="product__stock">In stock</p>
         {{else}}
             {{#ifGreaterThan stock 0}}
                 <p class="product__stock -warning">Only {{stock}} in stock</p>        

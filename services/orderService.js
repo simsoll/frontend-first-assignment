@@ -117,7 +117,7 @@ module.exports = (function () {
         }
     }
 
-    function submitOrder(amounts, user) {
+    function submitOrder(amounts, meta) {
         var order = getByStatus('pending')[0];
 
         if (!order) {
@@ -140,8 +140,8 @@ module.exports = (function () {
         }
 
         order.status = 'submitted';
-        order.creator = user.name;
-        order.createdAt = new Date();
+        order.creator = meta.user.name;
+        order.createdAt = meta.timestamp;
     }
 
     function approveOrder(id, user) {
@@ -152,8 +152,8 @@ module.exports = (function () {
         }
 
         order.status = 'approved';
-        order.approver = user.name;
-        order.approvedAt = new Date();
+        order.approver = user;
+        order.approvedAt = user;
     }
 
     function getAll() {
@@ -163,7 +163,7 @@ module.exports = (function () {
     function getByStatus(status) {
         return orders.filter(function (order) {
             return order.status === status;
-        });
+        }).sort(compareByCreatedAtDesc);
     }
 
     function getById(id) {
@@ -185,5 +185,16 @@ module.exports = (function () {
         }
 
         return maxId + 1;
+    }
+
+    function compareByCreatedAtDesc(a, b) {
+        if (a.createdAt < b.createdAt) {
+            return 1;
+        }
+        else if (a.createdAt > b.createdAt) {
+            return -1;
+        }
+
+        return 0;
     }
 })();

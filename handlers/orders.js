@@ -19,10 +19,16 @@ module.exports.list = function (req, res) {
 
 module.exports.submit = function (req, res) {
     var amounts = JSON.parse(req.body.amounts);
-    
-    orderService.submitOrder(amounts, { name: 'Tester' });
+    var meta = {
+        user: {
+            name: 'Tester'
+        },
+        timestamp: new Date()
+    };
 
-    res.end();
+    orderService.submitOrder(amounts, meta);
+
+    res.json(meta);
 }
 
 function isEqual(a, b, options) {

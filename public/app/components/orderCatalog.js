@@ -15,6 +15,44 @@ appComponents.OrderCatalog.prototype = function () {
     }
 
     function initializeButtons() {
+        initializeSubmitButton();
+        initilizeRemoveButtons();
+        initializeApproveButtons();
+    }
+
+    function initializeSubmitButton() {
+        $('.order__submit-button').click(function () {
+            var amounts = [];
+
+            $('.pending-orders .order__products-item').each(function (index, element) {
+                var inputElement = $(element).find('input');
+                amounts.push(
+                    {
+                        id: inputElement.data('id'),
+                        amount: Number(inputElement.val())
+                    });
+            });
+
+            $.ajax({
+                type: 'post',
+                url: '/submit',
+                data: {
+                    amounts: JSON.stringify(amounts)
+                }
+            }).done(function (meta) {
+                //move pending-orders to approved orders instead of...
+                // $('.pending-orders').remove();
+                convertPendingOrderToApprovedOrder(meta);
+                movePendingOrderListToApprovedOrderList();
+                removePendingOrderSection();
+
+                $('.cart__items').text('0');
+                updateCheckoutButtonDisabledState();
+            });
+        });
+    }
+
+    function initilizeRemoveButtons() {
         $('.order__remove-button').click(function () {
             $.ajax({
                 type: 'post',
@@ -34,35 +72,10 @@ appComponents.OrderCatalog.prototype = function () {
                 updateCheckoutButtonDisabledState();
             });
         });
+    }
 
-        $('.order__submit-button').click(function () {
-            var amounts = [];
+    function initializeApproveButtons() {
 
-            $('.pending-orders .order__products-item').each(function (index, element) {
-                var inputElement = $(element).find('input');
-                amounts.push(
-                    {
-                        id: inputElement.data('id'),
-                        amount: Number(inputElement.val())
-                    });
-            });
-
-            $.ajax({
-                type: 'post',
-                url: '/submit',
-                data: {
-                    amounts: JSON.stringify(amounts)
-                }
-            }).done(function (id) {
-                //move pending-orders to approved orders instead of...
-                // $('.pending-orders').remove();
-
-
-
-                $('.cart__items').text('0');
-                updateCheckoutButtonDisabledState();
-            });
-        });
     }
 
     function addToElement(element, number) {
@@ -81,5 +94,34 @@ appComponents.OrderCatalog.prototype = function () {
 
     function productsInPendingOrder() {
         return $('.pending-orders .order__products-item').length;
+    }
+
+    function movePendingOrderListToApprovedOrderList() {
+        $('.submitted-orders h2').after($('.pending-orders .order'));
+    }
+    
+    function removePendingOrderSection() {
+        $('.pending-orders').remove();
+    }
+
+    function convertPendingOrderToApprovedOrder(meta) {
+        //add timestamp and user name
+        $('.pending-orders .order')
+            .prepend('<p>Ordered at: ' + meta.timestamp + '</p>')
+            .prepend('<p>Ordered by: ' + meta.user.name + '</p>');
+
+        //replace input box with number
+        $('.pending-orders .order__products-item-amount').each(function (index, element) {
+            var amount = $(element).find('input').val();
+            $(element).html('Amount: ' + amount);
+        });
+
+        //change submit button to approve button
+        $('.pending-orders .order__submit-button')
+            .unbind('click')
+            .removeClass('order__submit-button')
+            .addClass('order__approve-button')
+            .html('Approve');
+        initializeApproveButtons();
     }
 } ();
