@@ -106,24 +106,21 @@ The website uses the Open Sans typeface - a humanist sans-serif typeface - as it
 #### Body text
 The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
 
-??? Add body + lorem text
+??? Add body + lorem text + css selector
 
 #### Headings
 As the hierarchical structure of the site is rather shallow only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
 
-??? Add h1, h2, small/byline    
+??? Add h1, h2, small/byline + css selectors
 
 
 #### Navigation
 The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines.
 
-??? Add .navigation
+??? Add .navigation + css selector
 
 ### Colors
-The following two subsections will discuss the choice of typeface color along with the overall color scheme for the site. The color scheme will be applied in later sections presenting buttons, widgets, navigation, etc.
-
-#### Typeface
-* Black text on whit is difficult to read. Text with a boarder can be read on any background (never use black)
+The following two subsections will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation, etc.
 
 #### Color scheme
 http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
@@ -181,8 +178,14 @@ To offset the primary cold blue monochromatic colors a complementary brown color
 	</tr>
 </tbody></table>
 
-Consider the following:
- * \#code + CMYK-code
+#### Typeface
+As black text is difficult to read on a light background the default typeface color will be gray.
+
+??? Body + lorem + css selector
+
+In situations where the background color is a dark blue or brown color, a light brown or light blue color will be used instead to increase the contract between the background color and the typeface color.
+
+??? Examples
 
 ### Buttons
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/buttons/
@@ -283,7 +286,14 @@ How can we use the color to enhance user experience
 
 
 ## Build process
-Be cautious when updating font-awesome as it might break the build process as the appropiate css and font files are not copied to the ./public/vendor folder.
+Be cautious when updating font-awesome as it might break the build process as the appropiate css and font files are not copied to the ./public/vendor folder. The "main" property in .bower.json file should look like the following to insure with css and font files are copied correctly to the ./public/vendor/ folder
+
+'''javascript
+  "main": [
+    "css/font-awesome.css",
+    "fonts/*.*"
+  ],
+'''
 
 ## Further development
 * Add order states: reject submitted bids. 
