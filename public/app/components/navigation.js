@@ -39,8 +39,8 @@ appComponents.Navigation.prototype = function () {
             $(this).toggleClass('-pressed');
 
             $('.categories').each(function (index, element) {
-                $(element).toggleClass('hidden-xs visible-xs');
-                $(element).toggleClass('hidden-sm visible-sm');
+                $(element).toggleClass('hide-x-small show-x-small');
+                $(element).toggleClass('hide-small show-small');
             });
         };
 
