@@ -7,7 +7,7 @@
 
 <div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 show-x-small show-small">
     <div class="widget -barcode">   
-        <h2>Want to scan a barcode?</h2>
+        <h2>Scan a barcode?</h2>
         <p>If you have that barcode for the product you need, you can take advantage of the easy-to-use Barcode Scanner.</p>
         <div class="button-placement-container">
             <div class="button-container">        
@@ -17,9 +17,9 @@
     </div>        
 </div>
 
-<div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-large-3 col-large-offset-2">
+<div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-medium-6 col-medium-offset-3 col-x-large-3 col-x-large-offset-2">
     <div class="widget -products">
-        <h2>Want to place a new order?</h2>    
+        <h2>Place an order?</h2>    
         <p>{{products.length}} {{#isEqual products.length 1}}product{{else}}products{{/isEqual}} in the product catalog.</p>
         <div class="button-placement-container">
             <div class="button-container">
@@ -30,9 +30,9 @@
     </div>
 </div>
 
-<div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-large-3 col-large-offset-2">
+<div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-medium-6 col-medium-offset-3 col-x-large-3 col-x-large-offset-2">
     <div class="widget -orders">
-        <h2>Want to see the current order status and order history?</h2>
+        <h2>See all orders?</h2>
         <p>{{pendingOrder.length}} {{#isEqual pendingOrder.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be submitted.</p>
         <p>{{submittedOrders.length}} {{#isEqual submittedOrders.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be approved.</p>
         <p>{{approvedOrders.length}} {{#isEqual approvedOrders.length 1}}order has{{else}}orders have{{/isEqual}} been approved.</p>        

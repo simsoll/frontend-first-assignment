@@ -8,7 +8,7 @@ $widget-padding: 1rem;
     margin-bottom: 4rem;
       
     & p {
-        margin: 1.5rem 0;
+        margin: 1.2rem 0;
     }        
 }
 
@@ -17,8 +17,6 @@ $widget-padding: 1rem;
     font-family: 'FontAwesome';
     font-size: 15rem;   
     opacity: 0.25;    
-    left: -3rem;
-    bottom: -4rem;
 }
 
 .widget {
@@ -32,18 +30,22 @@ $widget-padding: 1rem;
     
     &.-products:before {
         @include font-awesome-background;
+        right: -5rem;
+        bottom: -2rem;        
         content: "\f291";
     }    
     
     &.-orders:before {
         @include font-awesome-background;
-        left: -1.25rem;
-        bottom: -4.5rem;
+        right: -2rem;
+        bottom: -2rem;
         content: "\f15c";        
     }
     
     &.-barcode:before {
         @include font-awesome-background;
+        right: -5rem;
+        bottom: -2rem;
         content: "\f02a";        
     }
 }
@@ -52,8 +54,19 @@ $widget-padding: 1rem;
 
 }
 
-@media screen and (min-width: #{$screen-breakpoint-medium}) {   
-
+@media screen and (min-width: #{$screen-breakpoint-medium}) {  
+    .widget { 
+        &.-products:before,
+        &.-barcode:before {
+            left: -3rem;
+            bottom: -4rem;        
+        }    
+        
+        &.-orders:before {
+            left: -1.25rem;
+            bottom: -4.5rem;
+        }
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {

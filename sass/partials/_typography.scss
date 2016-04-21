@@ -21,34 +21,38 @@ small {
 }
 
 h2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.2rem;
+    font-size: 0.7rem;
+    line-height: 1.6rem;
+    
     &.centered {
         text-align: center;
-    }
-    
-    .widget & {
-        font-size: 1rem;
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
+    p {
+        font-size: 1rem;    
+        line-height: 2rem;
+    }
+}
+
+@media screen and (min-width: #{$screen-breakpoint-medium}) {   
     h1 {
         margin: 10rem 0 1rem;
         font-size: 4rem;        
     }
     
+    h2 {
+        font-size: 1.7rem;
+    }    
+    
     small {
         margin-bottom: 4rem;
-    }    
-}
-
-@media screen and (min-width: #{$screen-breakpoint-medium}) {   
-
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
