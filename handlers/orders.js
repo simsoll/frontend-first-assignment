@@ -17,11 +17,13 @@ module.exports.list = function (req, res) {
 module.exports.submit = function (req, res) {
     var id = Number(req.body.id);
     var amounts = JSON.parse(req.body.amounts);
+    var timestamp = req.body.timestamp;
+    
     var meta = {
         user: {
             name: 'Worker 1'
         },
-        timestamp: new Date()
+        timestamp: timestamp
     };
 
     orderService.submitOrder(id, amounts, meta);
@@ -31,11 +33,13 @@ module.exports.submit = function (req, res) {
 
 module.exports.approve = function (req, res) {
     var id = Number(req.body.id);
+    var timestamp = req.body.timestamp;
+    
     var meta = {
         user: {
             name: 'Admin 1'
         },
-        timestamp: new Date()
+        timestamp: timestamp
     };
 
     orderService.approveOrder(id, meta);

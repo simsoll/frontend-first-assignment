@@ -5,7 +5,7 @@ module.exports = (function () {
         {
             id: 1,
             creator: 'Simon',
-            createdAt: new Date(),
+            createdAt: 'Thursday 21st April 2016 - 02:57:42 PM',
             status: 'submitted',
             products: [
                 {
@@ -36,9 +36,9 @@ module.exports = (function () {
         {
             id: 2,
             creator: 'John',
-            createdAt: new Date(),
+            createdAt: 'Thursday 16th April 2016 - 09:42:13 AM',
             approver: 'Admin',
-            approvedAt: new Date(),
+            approvedAt: 'Thursday 16th April 2016 - 03:17:19 PM',
             status: 'approved',
             products: [
                 {

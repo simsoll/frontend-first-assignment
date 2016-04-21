@@ -41,7 +41,7 @@ appComponents.OrderCatalog.prototype = function () {
             });
         });
     }
-    
+
     function initializeSubmitButton() {
         $('.order__submit-button').click(function () {
             var amounts = [];
@@ -60,7 +60,8 @@ appComponents.OrderCatalog.prototype = function () {
                 url: '/submit',
                 data: {
                     id: $(this).data('id'),
-                    amounts: JSON.stringify(amounts)
+                    amounts: JSON.stringify(amounts),
+                    timestamp: formatDate(new Date())
                 }
             }).done(function (meta) {
                 var $order = $('.pending-orders .order');
@@ -76,7 +77,7 @@ appComponents.OrderCatalog.prototype = function () {
                 updateCheckoutButtonDisabledState();
             });
         });
-    }    
+    }
 
     function initializeApproveButtons() {
         $('.order__approve-button').click(function () {
@@ -84,7 +85,8 @@ appComponents.OrderCatalog.prototype = function () {
                 type: 'post',
                 url: '/approve',
                 data: {
-                    id: $(this).data('id')
+                    id: $(this).data('id'),
+                    timestamp: formatDate(new Date())
                 }
             }).done(function (data) {
                 var $order = $('.order__approve-button[data-id=' + data.id + ']').closest('.order');
@@ -125,10 +127,10 @@ appComponents.OrderCatalog.prototype = function () {
         if (!$('.' + section).length) {
             $('.' + previousSection(section)).after('<div class="' + section + '"><h2>' + headline + '</h2></div>');
         }
-        
+
         $('.' + section + ' h2').after($(order));
     }
-    
+
     function previousSection(section) {
         if (section === 'submitted-orders') {
             return 'pending-orders';
@@ -136,7 +138,7 @@ appComponents.OrderCatalog.prototype = function () {
         if (section === 'approved-orders') {
             return 'submitted-orders';
         }
-        
+
         return null;
     }
 
@@ -176,5 +178,70 @@ appComponents.OrderCatalog.prototype = function () {
             .unbind('click')
             .remove();
 
+    }
+
+    function formatDate(date) {
+        var weekDayNames = ['Sunday', 'Monday', 'Tuesday',
+            'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        var monthNames = ['January', 'February', 'March',
+            'April', 'May', 'June', 'July', 'August', 'September',
+            'October', 'November', 'December'];
+
+        var day = date.getDate();
+        var sup = '';
+
+        if (day === 1 || day === 21 || day === 31) {
+            sup = 'st';
+        }
+        else if (day === 2 || day === 22) {
+            sup = 'nd';
+        }
+        else if (day === 3 || day === 23) {
+            sup = 'rd';
+        }
+        else {
+            sup = 'th';
+        }
+
+        var weekDay = date.getDay();
+        var month = date.getMonth();
+        var year = date.getFullYear();
+
+        return weekDayNames[weekDay] + ' ' + day + sup + ' ' + monthNames[month] + ' ' + year + ' - ' + formatTime(date);
+    }
+
+    function formatTime(date) {
+        var amPm = '';
+        var hours = date.getHours();
+
+        if (hours < 12) {
+            amPm = 'AM';
+        }
+        else {
+            amPm = 'PM';
+        }
+        if (hours === 0) {
+            hours = 12;
+        }
+        if (hours > 12) {
+            hours = hours - 12;
+        }
+
+        var seconds = prefixZeroAsString(date.getSeconds());        
+        var minutes = prefixZeroAsString(date.getMinutes());
+        hours = prefixZeroAsString(hours);
+
+        return hours + ':' + minutes + ':' + seconds + ' ' + amPm;
+    }
+
+    function prefixZeroAsString(inputNumber) {
+        var inputAsString = inputNumber + '';
+
+        if (inputAsString.length === 1) {
+            return '0' + inputAsString;
+        }
+        
+        return inputAsString;
     }
 } ();
