@@ -1,7 +1,7 @@
-<div class="product-container">
+<div class="product-container col-x-small-12 col-small-6 col-large-4">
     <div class="product">
         <img class="product__image" src="{{image}}" />
-        <p class="product__name">{{name}}</p>
+        <h2 class="product__name">{{name}}</h2>
         <p class="product__producer">by {{producer}}</p>
         <p class="product__description">{{description}}</p>
         {{#ifGreaterThan stock 5}}
@@ -14,15 +14,20 @@
             {{/ifGreaterThan}}
         {{/ifGreaterThan}}
         <p class="product__price">€ {{price}}</p>
-        <button class="product__button -undo remove {{#unless isInPendingOrder}}hide{{/unless}}" data-id="{{id}}">Remove from Cart</button> 
         <select class="product__button -option option {{#if isInPendingOrder}}hide{{/if}}"name="quantityOption-{{id}}" id="quantityOption-{{id}}" data-id="{{id}}">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-        </select>
-        <button class="product__button -action add {{#if isInPendingOrder}}hide{{/if}}" data-id="{{id}}">Add to Cart</button>
+        </select>        
+        <div class="button-placement-container">
+            <div class="button-container">        
+                <button class="product__button button -full-width -undo remove {{#unless isInPendingOrder}}hide{{/unless}}" data-id="{{id}}">Remove from Order</button> 
+                <button class="product__button button -full-width -pull-right -action visible-xs add {{#if isInPendingOrder}}hide{{/if}}" data-id="{{id}}">Add to Order</button>
+                <button class="product__button button -half-width -pull-right -action hidden-xs add {{#if isInPendingOrder}}hide{{/if}}" data-id="{{id}}">Add to Order</button>
+            </div>
+        </div>
     </div>
 </div>
             

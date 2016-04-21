@@ -36,39 +36,30 @@
     }
 }
 
-.product__button {
+.button-placement-container {
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
-    height: 50px;
-    line-height: 50px;    
-    cursor: pointer;
+    width: 100%;
+    height: $button-height;
     
-    &.-action {
-        margin-left: 15%;
-        width: 85%;    
-        background-color: mediumseagreen;
+    & .button-container {
+        position: relative;
         
-        .modal-barcode & {
-            margin-left: 40%;
-            width: 60%;             
+        & .button {
+            position: absolute;
+            
+            &.-pull-right {
+                right: 0;                
+            }
+            
+            &.-pull-left {
+                left: 0;
+            }
         }
-    }
-    
-    &.-option {
-        width: 15%;
-                    
-        .modal-barcode & {
-            width: 40%;             
-        }
-    }    
-    
-    &.-undo {
-        width: 100%;    
-        background-color: dimgray;
-    }       
+    }   
+}
+
+.product__button {
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {

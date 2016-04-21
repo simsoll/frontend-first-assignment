@@ -1,4 +1,5 @@
 $barcode-scanner-height: 4.4rem;
+$product-padding: 1rem;
 
 .product-page {
     width: 100%;
@@ -16,12 +17,8 @@ $barcode-scanner-height: 4.4rem;
 
 .product-container {
     background-color: $color-primary-5;
-    height: 600px;
-    margin: 2% 0 0 2%;
-    width: 96%; /** (100 - (columns + 1)*margin-left) / columns, columns = 1 **/
-    overflow: hidden;
-    float: left;    
-    transition: background-color 0.5s;
+    padding: $product-padding;    
+    margin-bottom: 2%;    
     
     .modal-barcode & {
         height: 100%;
@@ -35,7 +32,7 @@ $barcode-scanner-height: 4.4rem;
     width: 100%;
     height: 100%;    
     position: relative;
-    padding: 0.5rem;
+    padding-bottom: $button-height;
 }
 
 .product__image {
@@ -108,9 +105,7 @@ $barcode-scanner-height: 4.4rem;
 }
 
 @media screen and (min-width: 480px) {
-    .product-container {
-        width: 47%; /** (100 - (columns + 1)*margin-left) / columns, columns = 2 **/
-    }
+
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
@@ -120,10 +115,6 @@ $barcode-scanner-height: 4.4rem;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   
-    .product-container {
-        width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
-    }    
-    
     .product-page {
         width: calc(100% - #{$logo-width});        
     }
@@ -131,7 +122,5 @@ $barcode-scanner-height: 4.4rem;
 
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
-    .product-container {
-        width: 22.5%; /** (100 - (columns + 1)*margin-left) / columns, columns = 4 **/
-    }
+
 }
