@@ -10,9 +10,10 @@ h1 {
     font-size: 2.6rem;
 }
 
-.byline {
-    font-size: 0.75rem;
+small {
+    font-size: 0.85rem;
     margin-bottom: 2rem;
+    display: block;
     
     &.-centered {
         text-align: center;
@@ -20,17 +21,18 @@ h1 {
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 p {
-    line-height: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
     &.centered {
         text-align: center;
     }
     
     .widget & {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
@@ -40,7 +42,7 @@ p {
         font-size: 4rem;        
     }
     
-    .byline {
+    small {
         margin-bottom: 4rem;
     }    
 }

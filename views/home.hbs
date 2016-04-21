@@ -3,21 +3,30 @@
 </header>
 
 <h1>This is build.it</h1>
-<p class="byline -centered">The place to find what you need, quickly</p>    
+<small class="-centered">The place to find what you need, quickly</small>    
 
 <div class="widget-container col-x-small-10 col-x-small-offset-1 visible-xs">
     <div class="widget -barcode">   
         <h2>Want to scan a barcode?</h2>
         <p>If you have that barcode for the product you need, you can take advantage of the easy-to-use Barcode Scanner.</p>
-        <button class="button -half-width">Go to</br>Barcode Scanner</button>
-    </div>
+        <div class="button-placement-container">
+            <div class="button-container">        
+                <button class="button -full-width">Barcode Scanner</button>
+            </div>
+        </div>
+    </div>        
 </div>
 
 <div class="widget-container col-x-small-10 col-x-small-offset-1  col-small-6 col-small-offset-3  col-large-3 col-large-offset-2">
     <div class="widget -products">
         <h2>Want to place a new order?</h2>    
-        <p>{{products.length}} {{#isEqual products.length 1}}product is{{else}}products are{{/isEqual}} available in the product catalog.</p>
-        <button class="button -half-width">Go to</br>Product Catalog</button>
+        <p>{{products.length}} {{#isEqual products.length 1}}product{{else}}products{{/isEqual}} in the product catalog.</p>
+        <div class="button-placement-container">
+            <div class="button-container">
+                <button class="button -half-width hidden-xs">Product Catalog</button>
+                <button class="button -full-width visible-xs">Product Catalog</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -27,6 +36,11 @@
         <p>{{pendingOrder.length}} {{#isEqual pendingOrder.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be submitted.</p>
         <p>{{submittedOrders.length}} {{#isEqual submittedOrders.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be approved.</p>
         <p>{{approvedOrders.length}} {{#isEqual approvedOrders.length 1}}order has{{else}}orders have{{/isEqual}} been approved.</p>        
-        <button class="button -half-width">Go to</br>Order Overview</button>
+        <div class="button-placement-container">
+            <div class="button-container">  
+                <button class="button -haft-width hidden-xs">Order Overview</button>
+                <button class="button -full-width visible-xs">Order Overview</button>
+            </div>
+        </div>
     </div>
 </div>

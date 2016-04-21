@@ -1,5 +1,6 @@
 .button {
-    height: 3.0rem;
+    height: $button-height;
+    font-size: 1.4rem;
     outline: none;
     border: none;
     background-color: $color-complement-3;
@@ -8,7 +9,7 @@
     
     &:hover {
         background-color: $color-complement-4;
-        color: $color-primary-1;
+        color: $color-primary-5;
     }
     
     &:active {
