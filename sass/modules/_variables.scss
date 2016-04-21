@@ -3,10 +3,7 @@ $screen-breakpoint-medium: 992px;
 $screen-breakpoint-large: 1200px;
 
 $logo-width: 300px;
-
-$navigation-background-color: rgb(175,175,175);
-$base-background-color: rgb(150,150,150);
-$product-background-color: gray;
+$navigation-height: 100px;
 
 // Palette color codes */
 // Palette URL: http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2 */
@@ -16,33 +13,33 @@ $product-background-color: gray;
 
 // As hex codes */
 
-$color-primary-0: #2396BC;	// Main Primary color */
 $color-primary-1: #D4EDF5;
 $color-primary-2: #5FB4D1;
-$color-primary-3: #046B8D;
-$color-primary-4: #013C50;
+$color-primary-3: #2396BC;	// Main Primary color */
+$color-primary-4: #046B8D;
+$color-primary-5: #013C50;
 
-$color-complement-0: #FF9627;	// Main Complement color */
 $color-complement-1: #FFEEDB;
 $color-complement-2: #FFB86E;
-$color-complement-3: #E27400;
-$color-complement-4: #804200;
+$color-complement-3: #FF9627;	// Main Complement color */
+$color-complement-4: #E27400;
+$color-complement-5: #804200;
 
 
 
 // As RGBa codes */
 
-$rgba-primary-0: rgba( 35,150,188,1);	// Main Primary color */
 $rgba-primary-1: rgba(212,237,245,1);
 $rgba-primary-2: rgba( 95,180,209,1);
-$rgba-primary-3: rgba(  4,107,141,1);
-$rgba-primary-4: rgba(  1, 60, 80,1);
+$rgba-primary-3: rgba( 35,150,188,1);	// Main Primary color */
+$rgba-primary-4: rgba(  4,107,141,1);
+$rgba-primary-5: rgba(  1, 60, 80,1);
 
-$rgba-complement-0: rgba(255,150, 39,1);	// Main Complement color */
 $rgba-complement-1: rgba(255,238,219,1);
 $rgba-complement-2: rgba(255,184,110,1);
-$rgba-complement-3: rgba(226,116,  0,1);
-$rgba-complement-4: rgba(128, 66,  0,1);
+$rgba-complement-3: rgba(255,150, 39,1);	// Main Complement color */
+$rgba-complement-4: rgba(226,116,  0,1);
+$rgba-complement-5: rgba(128, 66,  0,1);
 
 
 

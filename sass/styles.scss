@@ -2,6 +2,8 @@
 
 @import "modules/utility";
 
+@import "modules/shared";
+
 @import "partials/reset";
 
 @import "partials/typography";
@@ -12,9 +14,9 @@
 
 @import "partials/grid";
 
-@import "partials/widget";
-
 @import "partials/navigation";
+
+@import "partials/home";
 
 @import "partials/categories";
 

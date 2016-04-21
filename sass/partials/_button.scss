@@ -1,16 +1,20 @@
 .button {
-    height: 2.5rem;
-    background-color: inherit;
+    height: 3.0rem;
+    outline: none;
+    border: none;
+    background-color: $color-complement-3;
+    color: $color-primary-5;
     cursor: pointer;
     
-    // &:hover {
-    //     background-color: rgba(0,0,0,0.5);
-    //     color: white;
-    // }
+    &:hover {
+        background-color: $color-complement-4;
+        color: $color-primary-1;
+    }
     
-    // &.-pressed {
-    //     background-color: rgba(0,0,0,1);
-    //     color: white;
+    &:active {
+        background-color: $color-complement-2;
+        color: $color-primary-5;
+    }
         
     //     &:hover {
     //         background-color: rgba(0,0,0,0.5);
@@ -31,8 +35,39 @@
     }
 }
 
-.menu {
+.product__button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    height: 50px;
+    line-height: 50px;    
     cursor: pointer;
+    
+    &.-action {
+        margin-left: 15%;
+        width: 85%;    
+        background-color: mediumseagreen;
+        
+        .modal-barcode & {
+            margin-left: 40%;
+            width: 60%;             
+        }
+    }
+    
+    &.-option {
+        width: 15%;
+                    
+        .modal-barcode & {
+            width: 40%;             
+        }
+    }    
+    
+    &.-undo {
+        width: 100%;    
+        background-color: dimgray;
+    }       
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {

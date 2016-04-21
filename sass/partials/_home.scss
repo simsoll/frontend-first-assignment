@@ -1,7 +1,6 @@
-.widget {
+.widget-container {
     height: 20rem;
     margin-bottom: 4rem;
-    border: 1px solid black;
     
     & .button {
         position: absolute;
@@ -23,7 +22,8 @@
     bottom: -4rem;
 }
 
-.widget-content-container {
+.widget {
+    background-color: $color-primary-5;
     padding: 1rem;
     width: 100%;
     height: 100%;

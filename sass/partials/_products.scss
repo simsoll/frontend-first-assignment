@@ -1,7 +1,6 @@
 $barcode-scanner-height: 4.4rem;
 
-.productCatalog {
-    background-color: $base-background-color;
+.product-page {
     width: 100%;
     float: right;
     margin-bottom: $barcode-scanner-height;    
@@ -16,7 +15,7 @@ $barcode-scanner-height: 4.4rem;
 }
 
 .product-container {
-    background-color: $product-background-color;
+    background-color: $color-primary-5;
     height: 600px;
     margin: 2% 0 0 2%;
     width: 96%; /** (100 - (columns + 1)*margin-left) / columns, columns = 1 **/
@@ -54,42 +53,6 @@ $barcode-scanner-height: 4.4rem;
     &.-alert {
         color: darkred;
     }
-}
-
-.product__button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: $product-background-color;
-    color: white;
-    height: 50px;
-    line-height: 50px;    
-    cursor: pointer;
-    
-    &.-action {
-        margin-left: 15%;
-        width: 85%;    
-        background-color: mediumseagreen;
-        
-        .modal-barcode & {
-            margin-left: 40%;
-            width: 60%;             
-        }
-    }
-    
-    &.-option {
-        width: 15%;
-                    
-        .modal-barcode & {
-            width: 40%;             
-        }
-    }    
-    
-    &.-undo {
-        width: 100%;    
-        background-color: dimgray;
-    }       
 }
 
 .product__description {
@@ -151,7 +114,7 @@ $barcode-scanner-height: 4.4rem;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
-    .productCatalog {
+    .product-page {
         margin-bottom: 0;        
     }
 }
@@ -161,7 +124,7 @@ $barcode-scanner-height: 4.4rem;
         width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
     }    
     
-    .productCatalog {
+    .product-page {
         width: calc(100% - #{$logo-width});        
     }
 }
