@@ -20,7 +20,7 @@ $columns: 12;
 }
 
 $breakpoint-names: ('small', 'medium', 'large');
-$breakpoint-queries: ('min-width: ' + $screen-sm, 'min-width: ' + $screen-md, 'min-width: ' + $screen-md);
+$breakpoint-queries: ('min-width: ' + $screen-breakpoint-small, 'min-width: ' + $screen-breakpoint-medium, 'min-width: ' + $screen-breakpoint-large);
 
 .test-class {
     width: length($breakpoint-names);

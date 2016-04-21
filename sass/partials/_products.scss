@@ -150,13 +150,13 @@ $barcode-scanner-height: 4.4rem;
     }
 }
 
-@media screen and (min-width: #{$screen-sm}) {
+@media screen and (min-width: #{$screen-breakpoint-small}) {
     .productCatalog {
         margin-bottom: 0;        
     }
 }
 
-@media screen and (min-width: #{$screen-md}) {   
+@media screen and (min-width: #{$screen-breakpoint-medium}) {   
     .product-container {
         width: 30.66666666666667%; /** (100 - (columns + 1)*margin-left) / columns, columns = 3 **/
     }    
@@ -167,7 +167,7 @@ $barcode-scanner-height: 4.4rem;
 }
 
 
-@media screen and (min-width: #{$screen-lg}) {
+@media screen and (min-width: #{$screen-breakpoint-large}) {
     .product-container {
         width: 22.5%; /** (100 - (columns + 1)*margin-left) / columns, columns = 4 **/
     }

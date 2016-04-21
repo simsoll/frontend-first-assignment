@@ -35,7 +35,7 @@
     overflow: auto;
 }
 
-@media screen and (min-width: #{$screen-sm}) {
+@media screen and (min-width: #{$screen-breakpoint-small}) {
     .visible-xs {
         display: none;
     }
@@ -55,7 +55,7 @@
     }
 }
 
-@media screen and (min-width: #{$screen-md}) {
+@media screen and (min-width: #{$screen-breakpoint-medium}) {
     .hidden-sm,
     .visible-md {
         display: block;
@@ -71,7 +71,7 @@
     }    
 }
 
-@media screen and (min-width: #{$screen-lg}) {
+@media screen and (min-width: #{$screen-breakpoint-large}) {
     .hidden-md,
     .visible-lg {
         display: block;

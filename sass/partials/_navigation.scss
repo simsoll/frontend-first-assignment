@@ -90,14 +90,14 @@ nav {
     display: inline-block;
 }
 
-@media screen and (min-width: #{$screen-sm}) {
+@media screen and (min-width: #{$screen-breakpoint-small}) {
 }
 
-@media screen and (min-width: #{$screen-md}) {
+@media screen and (min-width: #{$screen-breakpoint-medium}) {
     .navigation-links {
         width: calc(100% - #{$logo-width} - #{$utility-navigation-width});
     }
 }
 
-@media screen and (min-width: #{$screen-lg}) {
+@media screen and (min-width: #{$screen-breakpoint-large}) {
 }

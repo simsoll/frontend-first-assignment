@@ -1,7 +1,6 @@
 .widget {
-    height: 22.5rem;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    height: 20rem;
+    margin-bottom: 4rem;
     border: 1px solid black;
     
     & .button {
@@ -39,6 +38,8 @@
     
     &.-orders:before {
         @include font-awesome-background;
+        left: -1.25rem;
+        bottom: -4.5rem;
         content: "\f15c";        
     }
     
@@ -46,4 +47,16 @@
         @include font-awesome-background;
         content: "\f02a";        
     }
+}
+
+@media screen and (min-width: #{$screen-breakpoint-small}) {
+
+}
+
+@media screen and (min-width: #{$screen-breakpoint-medium}) {   
+
+}
+
+@media screen and (min-width: #{$screen-breakpoint-large}) {
+
 }
