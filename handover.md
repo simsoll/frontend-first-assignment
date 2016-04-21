@@ -87,7 +87,6 @@ Should include
  * Colorcombos.com
  * Colorzilla
 * Base color proposals ([Dukin])
- * Blue (security, truth, stability, loyalty, open communication)
  * White (simplicity, cleanliness, faith)
  * Brown (durability, class, age, stability)
  * Black (power, drama, bold, strong)
@@ -98,14 +97,14 @@ Should include
 * Icons
 
 Consider the follow:
-* Write down an explanation as to why you made these choices.
+* Write down an explanation about why you made these choices.
 
 ### Typeface
-The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very benificial for the construction workers on their smaller screen sizes.
+The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
 
 
 #### Body text
-The body font size is 1.4rem with an appropriate line-height, which will enhance readability on all devices.
+The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
 
 ??? Add body + lorem text
 
@@ -121,32 +120,74 @@ The font size on navigation elements is ???rem to draw more attention than the b
 ??? Add .navigation
 
 ### Colors
-http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
-
-Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs tents to use several different colors, the site goes for a more simple and minimalistic approach by using a blue monochromatic color scheme supporting the rather limited content. The blue color signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
-
-To offset the cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. 
-
-
-Consider the following:
-* What colours are used where and why?
- * How do the colours support the content? How to they set the mood?
- * Use color to create depth (warmer/less cold colors appear nearer (should both be used in navigation and button design))
-* Clear and distinct examples of all the colours
- * #code + CMYK-code
- * A description of where, when and why
-* Background vs links vs text
-
-#### Background
-
-#### Link
+The following two subsections will discuss the choice of typeface color along with the overall color scheme for the site. The color scheme will be applied in later sections presenting buttons, widgets, navigation, etc.
 
 #### Typeface
 * Black text on whit is difficult to read. Text with a boarder can be read on any background (never use black)
 
+#### Color scheme
+http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
+
+Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs tents to use several different colors, the site goes for a more simple and minimalistic approach by using a blue monochromatic color scheme supporting the rather limited content. The blue color signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
+
+To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this goal of this site.
+
+<table class="color-table">
+	<tbody><tr>
+		<th>Primary color:</th>
+		<td class="sample sample-1 primary-1">
+			<div class="white">#D4EDF5</div>
+			<div class="black">#D4EDF5</div>
+		</td>
+		<td class="sample sample-2 primary-2">
+			<div class="white">#5FB4D1</div>
+			<div class="black">#5FB4D1</div>
+		</td>
+		<td class="sample sample-0 primary-0">
+			<div class="white">#2396BC</div>
+			<div class="black">#2396BC</div>
+		</td>
+		<td class="sample sample-3 primary-3">
+			<div class="white">#046B8D</div>
+			<div class="black">#046B8D</div>
+		</td>
+		<td class="sample sample-4 primary-4">
+			<div class="white">#013C50</div>
+			<div class="black">#013C50</div>
+		</td>
+	</tr>
+	<tr>
+		<th>Complement color:</th>
+		<td class="sample sample-1 complement-1">
+			<div class="white">#FFEEDB</div>
+			<div class="black">#FFEEDB</div>
+		</td>
+		<td class="sample sample-2 complement-2">
+			<div class="white">#FFB86E</div>
+			<div class="black">#FFB86E</div>
+		</td>
+		<td class="sample sample-0 complement-0">
+			<div class="white">#FF9627</div>
+			<div class="black">#FF9627</div>
+		</td>
+		<td class="sample sample-3 complement-3">
+			<div class="white">#E27400</div>
+			<div class="black">#E27400</div>
+		</td>
+		<td class="sample sample-4 complement-4">
+			<div class="white">#804200</div>
+			<div class="black">#804200</div>
+		</td>
+	</tr>
+</tbody></table>
+
+Consider the following:
+ * \#code + CMYK-code
+
 ### Buttons
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/buttons/
 Consider
+* Use color to create depth - warmer/less cold colors appear nearer
 * States: default, hover (lighter), active (darker), insensitive/disabled (fully satuated) 
 * User flow: primary, secondary, alert, warning
 
@@ -161,6 +202,7 @@ Consider
 ### Logo & Images
 
 ### Navigation
+* Use color to create depth (warmer/less cold colors appear nearer
 
 ### Grid system
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/grids/
