@@ -53,12 +53,6 @@ nav {
     display: inline-block;
 }
 
-// .navigation-links li {
-//     display: inline-block;
-//     vertical-align: bottom;
-//     float: left;        
-// }
-
 .navigation-link {
     text-align: center;
     display: inline-block;
@@ -70,7 +64,6 @@ nav {
     font-size: $navigation-font-size;   
     background-color: $color-primary-3;
     position: absolute;
-    float: left;
     
     &.title {
         width: $inactive-width;
