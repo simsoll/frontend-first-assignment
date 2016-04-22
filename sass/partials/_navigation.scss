@@ -1,9 +1,46 @@
-$navigation-font-size: 1.4rem;
+@mixin link-positioning($active-width, $inactive-width) {
+    &.home-link {
+        width: $inactive-width;
+        
+        &.-active {
+            width: $active-width;
+        }
+    }  
 
-$active-width: 30%;
-$inactive-width: 20%;
-$utility-navigation-width: 100% - $active-width - 2*$inactive-width;
+    &.products-link {
+        width: $inactive-width;
+        left: $inactive-width;
+            
+        &.-active {
+            width: $active-width;                    
+        }        
+        
+        &.-home {
+            left: $active-width;
+        }    
+    }
 
+    &.orders-link {
+        left: $active-width + $inactive-width;
+        width: $inactive-width;
+        
+        &.-active {
+            left: $inactive-width * 2;
+            width: $active-width;
+        }           
+    }   
+    
+    nav {
+        .button-placement-container {
+            @if $inactive-width == 33.33333% {
+                width: $inactive-width;
+            }
+            @else {
+                width: 100% - $active-width - 2*$inactive-width;                
+            }
+        }           
+    }  
+}
 
 nav {
     background-color: $color-primary-4;
@@ -16,7 +53,6 @@ nav {
      
     .button-placement-container {
         height: $navigation-height/2;   
-        width: $utility-navigation-width;
         right: 0;
     }     
        
@@ -54,16 +90,17 @@ nav {
 }
 
 .navigation-link {
-    text-align: center;
     display: inline-block;
-    height: 100%;
-    width: 10rem;
-    text-decoration: none; 
-    color: rgba(0, 0, 0, 1);
-    line-height: $navigation-height;
-    font-size: $navigation-font-size;   
-    background-color: $color-primary-3;
     position: absolute;
+    height: 100%;
+
+    line-height: $navigation-height;
+    font-size: 0.8rem;   
+
+    background-color: $color-primary-3;
+    color: inherit;
+    text-align: center;
+    text-decoration: none; 
     font-family: 'walkway_boldregular', 'Open Sans', Helvetica, Arial, sans-serif;
        
     &:hover {
@@ -72,55 +109,52 @@ nav {
     
     &.-active {
         background-color: $color-primary-4;      
-        font-size: 2rem;          
+        font-size: 1.0rem;          
     }        
-}
-
-&.home-link {
-    width: $inactive-width;
     
-    &.-active {
-        width: $active-width;
+    &.-inactive {
+        height: 50%;
+        line-height: $navigation-height/2;        
+        margin-top: $navigation-height/2;        
     }
-}  
-
-&.products-link {
-    width: $inactive-width;
-    left: $inactive-width;
-        
-    &.-active {
-        width: $active-width;                    
-    }        
-    
-    &.-home {
-        left: $active-width;
-    }    
 }
 
-&.orders-link {
-    left: $active-width + $inactive-width;
-    width: $inactive-width;
-    
-    &.-active {
-        left: $inactive-width * 2;
-        width: $active-width;
-    }           
-} 
+@include link-positioning(33.33333%, 33.33333%);
 
 .simple-navigation {
     height: $navigation-height;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
+    @include link-positioning(30%, 20%);
 
+    .navigation-link {
+        font-size: 0.9rem;          
+        
+        &.-inactive {
+            height: 100%;
+            line-height: $navigation-height;   
+            margin-top: 0;     
+        }        
+        
+        &.-active {
+            font-size: 1.6rem;   
+        }
+    }     
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {
-
+    .navigation-link {
+        font-size: 1.4rem;
+        
+        &.-active {
+            font-size: 2rem;   
+        }
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
-
+    @include link-positioning(40%, 20%);
 }
 
 @media screen and (min-width: #{$screen-breakpoint-x-large}) {

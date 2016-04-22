@@ -17,32 +17,20 @@ appComponents.Navigation.prototype = function () {
             return;
         }
 
-        initializeNavigationLinks();
         initializeNavigationButtons();
         isInitialized = true;
     }
 
-    function initializeNavigationLinks() {
-        $('.navigation-link').each(function (index, element) {
-            element.onclick = function () {
-                $('.navigation-link').each(function (innerIndex, innerElement) {
-                    $(innerElement).removeClass('-current');
-                });
-
-                $(this).addClass('-current');
-            };
-        });
-    }
-
     function initializeNavigationButtons() {
-        $('#category-button')[0].onclick = function () {
-            $(this).toggleClass('-pressed');
+        //TODO: enable again when categories are implemented
+        // $('.category-button').onclick = function () {
+        //     $(this).toggleClass('-pressed');
 
-            $('.categories').each(function (index, element) {
-                $(element).toggleClass('hide-x-small show-x-small');
-                $(element).toggleClass('hide-small show-small');
-            });
-        };
+        //     $('.categories').each(function (index, element) {
+        //         $(element).toggleClass('hide-x-small show-x-small');
+        //         $(element).toggleClass('hide-small show-small');
+        //     });
+        // };
 
         $('.checkout-button').click(function () {
             window.location.href = '/orders';

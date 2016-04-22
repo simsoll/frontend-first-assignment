@@ -1,3 +1,37 @@
+@mixin pulls {
+    &.-pull-up {
+        top: 0;
+    }
+    
+    &.-pull-right {
+        right: 0;                
+    }
+       
+    &.-pull-down {
+        bottom: 0;        
+    }
+    
+    &.-pull-left {
+        left: 0;
+    }
+    
+    &.-center-horizontal {
+        left: 50%;
+        transform: translateX(-50%);
+    }        
+    
+    &.-center-vertical {
+        top: 50%;
+        transform: translateY(-50%);
+    }    
+    
+    &.-center {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 .button {
     @include label-text;
     height: $button-height;
@@ -41,13 +75,7 @@
     width: 100%;
     height: $button-height;
     
-    &.-pull-down {
-        bottom: 0;        
-    }
-    
-    &.-pull-up {
-        top: 0;
-    }
+    @include pulls;
     
     & .button-container {
         position: relative;
@@ -55,14 +83,8 @@
         & .button {
             position: absolute;
             
-            &.-pull-right {
-                right: 0;                
-            }
-            
-            &.-pull-left {
-                left: 0;
-            }
-            
+            @include pulls;
+                                   
             &.-quarter-width {
                 width: 25%        
             }
