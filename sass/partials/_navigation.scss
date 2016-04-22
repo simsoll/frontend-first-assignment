@@ -64,24 +64,25 @@ nav {
     font-size: $navigation-font-size;   
     background-color: $color-primary-3;
     position: absolute;
-    
-    &.title {
-        width: $inactive-width;
-        font-size: 2rem;
-        
-        &.-active {
-            width: $active-width;
-        }
-    }   
-    
+    font-family: 'walkway_boldregular', 'Open Sans', Helvetica, Arial, sans-serif;
+       
     &:hover {
         background-color: $color-primary-4;
     }   
     
     &.-active {
-        background-color: $color-primary-4;        
+        background-color: $color-primary-4;      
+        font-size: 2rem;          
     }        
 }
+
+&.home-link {
+    width: $inactive-width;
+    
+    &.-active {
+        width: $active-width;
+    }
+}  
 
 &.products-link {
     width: $inactive-width;
