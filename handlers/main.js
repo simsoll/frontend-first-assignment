@@ -1,6 +1,7 @@
 'use strict';
 var purchaseService = require('../services/purchaseService.js');
 var productService = require('../services/productService.js');
+var math = require('../services/mathService.js');
 
 module.exports.home = function(req, res) {
     var products = productService.getAll();
@@ -13,6 +14,7 @@ module.exports.home = function(req, res) {
         approvedPurchases: approvedPurchases,
         pendingPurchase: pendingPurchase,
         products: products,
+        randomProduct: products[math.getRandomIntInclusive(0, products.length - 1)],
         submittedPurchases: submittedPurchases
     };
 

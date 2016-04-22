@@ -25,6 +25,11 @@ appComponents.ProductCatalog.prototype = function () {
 
             var amount = Number($('#quantityOption-' + id + ' :selected').text());
 
+            if ($(this).closest('.modal-barcode').length) {
+                $('.modal-overlay').addClass('hide');
+                $('.modal-barcode').addClass('hide');
+            }
+
             $.ajax({
                 type: 'post',
                 url: '/add',
@@ -47,6 +52,8 @@ appComponents.ProductCatalog.prototype = function () {
 
                 addToElement('.cart__items', 1);
                 updateCheckoutButtonDisabledState();
+                
+                
             });
         });
     }

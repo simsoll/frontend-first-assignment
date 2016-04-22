@@ -24,18 +24,26 @@
             </div>
         </div>
         <div class="show-x-small">
-            <div class="button-placement-container -pull-up {{#isEqual active 'purchases'}}-center-horizontal{{else}}-pull-right{{/isEqual}}">        
-                <div class="button-container">   
-                    <button class="checkout-button button -primary -full-width" {{#unless pendingPurchase.products.length}}disabled{{/unless}}>Checkout ({{#if pendingPurchase.products.length}}<span class="cart__items">{{pendingPurchase.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
+            <div class="button-placement-container -pull-up -pull-left">        
+                <div class="button-container">           
+                    <div class="barcode-scanner">
+                        <input class="barcode-scanner__input" type="file" id="barcode-scanner" accept="image/*">
+                        <label class="barcode-scanner__label button -full-width" for="barcode-scanner">Scan Code</label>
+                    </div>
                 </div>
-            </div>
-            <div class="button-placement-container -pull-up {{#isEqual active 'home'}}-center-horizontal{{else}}-pull-left{{/isEqual}}">        
+            </div>            
+            <div class="button-placement-container -pull-up -center-horizontal">        
                 <div class="button-container">           
                     {{#isEqual active 'products'}}
-                        <button class="category-button button -secondary -full-width">Categories</button>
+                        <button class="category-button button -full-width">Categories</button>
                     {{else}}
                         <button class="login-button button -secondary -full-width">Login</button>
                     {{/isEqual}}
+                </div>
+            </div>
+            <div class="button-placement-container -pull-up -pull-right">        
+                <div class="button-container">   
+                    <button class="checkout-button button -primary -full-width" {{#unless pendingPurchase.products.length}}disabled{{/unless}}>Checkout ({{#if pendingPurchase.products.length}}<span class="cart__items">{{pendingPurchase.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
                 </div>
             </div>
         </div>

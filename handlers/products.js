@@ -1,6 +1,7 @@
 'use strict';
 var productService = require('../services/productService.js');
 var purchaseService = require('../services/purchaseService.js');
+var math = require('../services/mathService.js');
 
 var itemsPerPage = 8; //TODO: move to global config object
 
@@ -49,17 +50,11 @@ function generateContext(req) {
         helpers: {
             generatePages: function (elements) {
                 return generatePages(req.url, elements, itemsPerPage);
-            },
-            ifGreaterThan: function (a, b, options) {
-                if (a > b) {
-                    return options.fn(this);
-                }
-                return options.inverse(this);
             }
         },
         products: products,
         paginatedProducts: paginatedProducts,
-        randomProduct: products[getRandomIntInclusive(0, products.length - 1)]
+        randomProduct: products[math.getRandomIntInclusive(0, products.length - 1)]
     };
 }
 
@@ -109,6 +104,7 @@ function addQueryStringToUrl(url, key, value) {
     return path + '?' + keyValuePairs.join('&');
 }
 
+
 function getPaginated(elements, pageNumber, elementsPerPage) {
     return elements.slice((pageNumber - 1) * elementsPerPage, pageNumber * elementsPerPage);
 }
@@ -119,8 +115,4 @@ function getFiltered(elements) {
 
 function isFiltered(element) {
     return element.isFiltered;
-}
-
-function getRandomIntInclusive(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

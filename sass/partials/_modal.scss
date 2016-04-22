@@ -1,8 +1,12 @@
+.modal {
+    z-index: 2;
+}
+
 .modal-overlay {
     width: 100%;
     height: 100vh;
-    background-color: #fff;
-    opacity: 0.4;
+    background-color: $color-primary-4;
+    opacity: 0.8;
     display: none;
     position: fixed;
     top: 0;
@@ -10,13 +14,22 @@
 }
 
 .modal-barcode {
-  display: none;
-  width: 50vw;
-  height: 70vh;
-  background-color: #fff;
-  position: fixed;
-  top: 1vh;
-  left: 25vw;
+    .product-container {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.modal-barcode {
+    display: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
 }
 
 .modal-barcode_picture {

@@ -1,14 +1,18 @@
 'use strict';
 var purchaseService = require('../services/purchaseService.js');
+var productService = require('../services/productService.js');
+var math = require('../services/mathService.js');
 
 module.exports.list = function (req, res) {
     var pendingPurchase = purchaseService.getByStatus('pending')[0] ? purchaseService.getByStatus('pending')[0] : [];
+    var products = productService.getAll();
 
     var context = {
         active: 'purchases',
         approvedPurchases: purchaseService.getByStatus('approved'),
         pendingPurchase: pendingPurchase,
-        submittedPurchases: purchaseService.getByStatus('submitted')
+        submittedPurchases: purchaseService.getByStatus('submitted'),
+        randomProduct: products[math.getRandomIntInclusive(0, products.length - 1)]
     };
 
     res.render('purchases', context);

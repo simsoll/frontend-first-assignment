@@ -75,6 +75,17 @@ nav {
     }   
 }
 
+.barcode-scanner__input {
+    display: none;
+}
+
+.barcode-scanner__close-button,
+.barcode-scanner__label {
+    text-align: center;
+    height: $navigation-height/2;
+    line-height: $navigation-height/2
+}
+
 .cart__items {
     line-height: 20px;
     text-align: center;
@@ -103,6 +114,10 @@ nav {
     font-family: 'walkway_boldregular', 'Open Sans', Helvetica, Arial, sans-serif;
     letter-spacing: 0.1rem;
        
+    height: 50%;
+    line-height: $navigation-height/2;        
+    margin-top: $navigation-height/2;         
+       
     &:hover {
         background-color: $color-primary-4;
     }   
@@ -111,24 +126,17 @@ nav {
         background-color: $color-primary-4;      
         font-size: 0.9rem;          
     }        
-    
-    &.-inactive {
-        height: 50%;
-        line-height: $navigation-height/2;        
-        margin-top: $navigation-height/2;        
-    }
 }
 
 @include link-positioning(33.33333%, 33.33333%);
 
-.simple-navigation {
-    height: $navigation-height;
-}
-
 @media screen and (min-width: #{$screen-breakpoint-small}) {
     @include link-positioning(30%, 20%);
-
+    
     .navigation-link {
+        height: 100%;
+        line-height: $navigation-height;        
+        margin-top: 0;          
         font-size: 0.9rem;          
         
         &.-inactive {

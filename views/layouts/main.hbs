@@ -19,6 +19,15 @@
 <body>
 
     {{{body}}}
+    
+    <div class="show-x-small"">
+        <div class="modal modal-overlay" data-modal-class=".modal-barcode">
+        </div>
+
+        <div class="modal modal-barcode">
+            {{> product randomProduct}}    
+        </div>
+    </div>    
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
