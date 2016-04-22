@@ -2,8 +2,6 @@ $barcode-scanner-height: 4.4rem;
 $product-padding: 1rem;
 
 .product-page {
-    width: 100%;
-    float: right;
     margin-bottom: $barcode-scanner-height;    
 }
 
@@ -45,14 +43,14 @@ $product-padding: 1rem;
 }
 
 .product__stock {
-    color: #22ff22;
+    color: #55cc55;
     
     &.-warning {
-        color: #ffcc55;
+        color: #eeaa55;
     }
     
     &.-alert {
-        color: #ff5555;
+        color: #ee5555;
     }
 }
 
@@ -133,9 +131,7 @@ $product-padding: 1rem;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   
-    .product-page {
-        width: calc(100% - #{$logo-width});        
-    }
+
 }
 
 
