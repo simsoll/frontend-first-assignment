@@ -33,9 +33,9 @@ p {
 
 .color-table {
 	margin: 2em 2em 5em;
-	bpurchase-collapse:collapse;
-	bpurchase:none;
-	bpurchase-spacing:0;
+	border-collapse:collapse;
+	border:none;
+	border-spacing:0;
 	font-size:100%;
 	}
 .color-table th {
@@ -44,7 +44,7 @@ p {
 	vertical-align: middle;
 	font-size: 100%;
 	font-weight: normal;
-	bpurchase: none;
+	border: none;
 	}
 .color-table td.sample {
 	width:6em; height:6em;
@@ -52,7 +52,7 @@ p {
 	text-align:center;
 	vertical-align:middle;
 	font-size:90%;
-	bpurchase: 1px solid white;
+	border: 1px solid white;
 	white-space:nowrap;
 	}
 .color-table td.sample-0 {
@@ -61,7 +61,7 @@ p {
 .color-table.small td.sample {
 	width:3em; height:3em;
 	padding:0;
-	bpurchase:none;
+	border:none;
 	}
 .color-table.small td.sample-0 {
 	width:9em;
@@ -71,8 +71,8 @@ p {
 
 hr {
 	margin: 2em 0 1em 0;
-	bpurchase:none;
-	bpurchase-bottom:1px solid silver;
+	border:none;
+	border-bottom:1px solid silver;
 	}
 #footer {
 	padding:1em;

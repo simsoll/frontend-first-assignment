@@ -10,7 +10,7 @@ $columns: 12;
         width: (100 - ($columns / $i + 1) * $gutter) * $i / $columns;
         margin-left: $gutter;
         float: left;
-        box-sizing: bpurchase-box;
+        box-sizing: border-box;
     }     
 }
 @for $i from 1 through $columns {
@@ -33,7 +33,7 @@ $breakpoint-queries: ('min-width: ' + $screen-breakpoint-small, 'min-width: ' + 
                 width: (100 - ($columns / $i + 1) * $gutter) * $i / $columns;
                 margin-left: $gutter;
                 float: left;
-                box-sizing: bpurchase-box;
+                box-sizing: border-box;
             }
         }
     }

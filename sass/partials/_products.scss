@@ -1,5 +1,5 @@
 $barcode-scanner-height: 4.4rem;
-$product-padding: 1rem;
+$product-padding: 0.2rem;
 
 .product-page {
     margin-top: $navigation-height + $navigation-spacing;
@@ -27,7 +27,7 @@ $product-padding: 1rem;
 }
 
 .product {
-    box-sizing: bpurchase-box;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;    
     position: relative;
@@ -64,7 +64,7 @@ $product-padding: 1rem;
 .quantity-container {
     position: absolute;
     right: 0;
-    bottom: $button-height + $product-padding/2;
+    bottom: $button-height + $product-padding;
     
     & label {
         @include label-text;

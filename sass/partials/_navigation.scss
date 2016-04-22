@@ -94,13 +94,14 @@ nav {
     height: 100%;
 
     line-height: $navigation-height;
-    font-size: 0.8rem;   
+    font-size: 0.7rem;   
 
     background-color: $color-primary-3;
     color: inherit;
     text-align: center;
     text-decoration: none; 
     font-family: 'walkway_boldregular', 'Open Sans', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.1rem;
        
     &:hover {
         background-color: $color-primary-4;
@@ -108,7 +109,7 @@ nav {
     
     &.-active {
         background-color: $color-primary-4;      
-        font-size: 1.0rem;          
+        font-size: 0.9rem;          
     }        
     
     &.-inactive {

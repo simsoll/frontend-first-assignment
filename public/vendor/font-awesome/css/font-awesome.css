@@ -59,10 +59,10 @@
 .fa-li.fa-lg {
   left: -1.85714286em;
 }
-.fa-bpurchase {
+.fa-border {
   padding: .2em .25em .15em;
-  bpurchase: solid 0.08em #eeeeee;
-  bpurchase-radius: .1em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
 }
 .fa-pull-left {
   float: left;
@@ -2165,7 +2165,7 @@
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  bpurchase: 0;
+  border: 0;
 }
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
