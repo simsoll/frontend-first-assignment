@@ -44,7 +44,7 @@ function generateContext(req) {
     var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
 
     return {
-        active: { products: true },
+        active: 'products',
         pendingOrder: pendingOrder,
         helpers: {
             generatePages: function (elements) {

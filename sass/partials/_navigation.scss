@@ -1,8 +1,8 @@
 $navigation-font-size: 1.4rem;
 
-$title-width: 30%;
-$link-width: 20%;
-$utility-navigation-width: 100% - $title-width - 2*$link-width;
+$active-width: 30%;
+$inactive-width: 20%;
+$utility-navigation-width: 100% - $active-width - 2*$inactive-width;
 
 
 nav {
@@ -53,11 +53,11 @@ nav {
     display: inline-block;
 }
 
-.navigation-links li {
-    display: inline-block;
-    vertical-align: bottom;
-    float: left;        
-}
+// .navigation-links li {
+//     display: inline-block;
+//     vertical-align: bottom;
+//     float: left;        
+// }
 
 .navigation-link {
     text-align: center;
@@ -70,22 +70,16 @@ nav {
     font-size: $navigation-font-size;   
     background-color: $color-primary-3;
     position: absolute;
-    
+    float: left;
     
     &.title {
-        width: $title-width;
+        width: $inactive-width;
         font-size: 2rem;
-    }
-    
-    &.products-link {
-        left: $title-width;
-        width: $link-width;
-    }
-    
-    &.orders-link {
-        left: $title-width + $link-width;
-        width: $link-width;
-    }    
+        
+        &.-active {
+            width: $active-width;
+        }
+    }   
     
     &:hover {
         background-color: $color-primary-4;
@@ -95,6 +89,29 @@ nav {
         background-color: $color-primary-4;        
     }        
 }
+
+&.products-link {
+    width: $inactive-width;
+    left: $inactive-width;
+        
+    &.-active {
+        width: $active-width;                    
+    }        
+    
+    &.-home {
+        left: $active-width;
+    }    
+}
+
+&.orders-link {
+    left: $active-width + $inactive-width;
+    width: $inactive-width;
+    
+    &.-active {
+        left: $inactive-width * 2;
+        width: $active-width;
+    }           
+} 
 
 .simple-navigation {
     height: $navigation-height;

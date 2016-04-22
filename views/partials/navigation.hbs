@@ -1,9 +1,9 @@
 <nav>
-    <ul class="navigation-links pull-left">
-        <li><a href="/" class="navigation-link home-link title {{#if active.home}}-active{{/if}}">ORDERFY</a></li>
-        <li><a href="/products" class="navigation-link products-link {{#if active.products}}-active{{/if}}">Products</a></li>
-        <li><a href="/orders" class="navigation-link orders-link {{#if active.orders}}-active{{/if}}">Orders</a></li>
-    </ul>
+    <div class="navigation-links pull-left">
+        <a href="/" class="navigation-link home-link title {{#isEqual active 'home'}}-active{{/isEqual}}">ORDERFY</a>
+        <a href="/products" class="navigation-link products-link {{#isEqual active 'products'}}-active{{/isEqual}} -{{active}}">Products</a>
+        <a href="/orders" class="navigation-link orders-link {{#isEqual active 'orders'}}-active{{/isEqual}}">Orders</a>
+    </div>
     <div class="button-container">
         <button class="button category -primary pull-right hide" id="category-button">Categories</button>
     </div>

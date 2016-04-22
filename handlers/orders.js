@@ -5,7 +5,7 @@ module.exports.list = function (req, res) {
     var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
 
     var context = {
-        active: { orders: true },
+        active: 'orders',
         approvedOrders: orderService.getByStatus('approved'),
         pendingOrder: pendingOrder,
         submittedOrders: orderService.getByStatus('submitted')

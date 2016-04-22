@@ -9,7 +9,7 @@ module.exports.home = function(req, res) {
     var approvedOrders = orderService.getByStatus('approved');
     
     var context = {
-        active: { home: true },
+        active: 'home',
         approvedOrders: approvedOrders,
         pendingOrder: pendingOrder,
         products: products,
