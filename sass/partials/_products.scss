@@ -57,8 +57,8 @@ $product-padding: 0.2rem;
 
 .product__price {
     margin: 0.5rem 0;
-    line-height: 3rem;
-    font-size: 3rem;
+    line-height: 1.3rem;
+    font-size: 1.3rem;
 }
 
 .quantity-container {
@@ -108,21 +108,8 @@ $product-padding: 0.2rem;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: $barcode-scanner-height;
-    line-height: $barcode-scanner-height;
-    color: white;
-}
-
-.barcode-scanner__close-button {
-    background-color: red;
-}
-
-.barcode-scanner__label {
-    background-color: blue;    
-}
-
-@media screen and (min-width: 480px) {
-
+    height: 80px;
+    line-height: 80px;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
