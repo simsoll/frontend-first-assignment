@@ -11,11 +11,5 @@
     <div class="utility-navigation hide-x-small-inline hide-small-inline">        
         <button class="checkout-button button -primary pull-right" {{#unless pendingOrder.products.length}}disabled{{/unless}}>Checkout ({{#if pendingOrder.products.length}}<span class="cart__items">{{pendingOrder.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
         <button class="button -primary pull-right">Login</button>
-        <div class="search pull-right">
-            <input id="search-input" class="search-input" type="search" placeholder="Search...">
-            <label for="search-input">
-                <i class="fa fa-search"></i>
-            </label>            
-        </div>            
     </div>    
 </nav>
