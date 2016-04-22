@@ -42,17 +42,16 @@ Consider the following:
  * Form Follows Function (Never sacrifice your message for your design. Focus on readability, narrative, and information. Use your design to reinforce your message, never the other way around.
  * Always a Connection Between Color and Shape (Blue correspond with the circle)
  * Clean, Powerful Typography Matters (Be as imaginative with your typography as you are with every other tool in your toolbox, but make sure it never detracts from your message. Remember the styles and values.)
- * You Don't Have to Abolish Capital Letters, But Sometimes It Helps (Make your design accessible. If you’re  hoping to appeal to a wide audience, avoid over-stylizing. Reduce your design to its most essential elements.)
+ * You Don't Have to Abolish Capital Letters, But Sometimes It Helps (Make your design accessible. If you’re  hoping to appeal to a wide audience, avoid over-styling. Reduce your design to its most essential elements.)
  * Imitation is the Highest From of Flattery: Bauhaus is Everywhere (When you see a great graphic idea, be inspired)
  
 Based on the target audience and the primary use of the site, the goal of the design should be to have a simple and intuitive navigation, which enables the user to be productive and quickly solve the task at hand. The design should not draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should take a very short period of time. 
 
 The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers. 
 
-As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. The design will not be adressing these challenges by having different designs for construction workers and administration people, but will be a cohesive across users and devices. However, this will but some constraints on the design possibilities. 
+As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. The design will not be addressing these challenges by having different designs for construction workers and administration people, but will be a cohesive across users and devices. However, this will but some constraints on the design possibilities. 
 
-The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple and clear and in an informative tone. 
-
+The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple, clear and in an informative tone. 
 
 Tone?
 * Casual
@@ -63,45 +62,19 @@ Tone?
 
 ## Style guide
 * Why a style guide? Purpose? What value does it create?
- * Changing the style guide should change the site 
+ * Changing the style guide should change the site
+ * Forces you to define and hone your style, making for a more cohesive design.
+ * Set of rules/guidiance supporting a consistent design - you don't want to confuse the user by having 12 different kinds of button designs. 
 
 ### Styleguide considerations
-Fonts: Geometric fonts (less is more, clear, geometric to support the constructional aspect)
-* Adobe typekit
-* Open Sans
+To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp.  
+
 
 Should include
-* Flat design: simple, quick to grasp
-* Mention that you go for a simple flat design -> works well with Open Sans typeface
-* Spacing
-* Colors: Choose first a base color and thereafter a color scheme. 
  * Use saturation and value to guide the viewer and/or draw attention to something ([Price])
- * Schemes
-    * http://paletton.com/#uid=53s0u0kAjDM00++i4K4HojQ+S0i
-    * http://paletton.com/#uid=23s0u0kAjDM00++i4K4HojQ+S0i
- * Black/white on the entire page and then color the important parts to draw the user toward
- * Book: I send you this cadmium red
- * http://miraclesalad.com/whatthecolor.php
- * Not use black on white (boooring)
- * Alternative to Photoshop: PIXLR.com
- * Colorcombos.com
- * Colorzilla
-* Base color proposals ([Dukin])
- * White (simplicity, cleanliness, faith)
- * Brown (durability, class, age, stability)
- * Black (power, drama, bold, strong)
-* Further resources: https://www.smashingmagazine.com/2010/07/designing-style-guidelines-for-brands-and-websites/
-* Buttons
-* Fonts
-* Layout and grids
-* Icons
-
-Consider the follow:
-* Write down an explanation about why you made these choices.
 
 ### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
-
 
 #### Body text
 The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
@@ -125,9 +98,9 @@ The following two subsections will discuss the choice of the overall color schem
 #### Color scheme
 http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
 
-Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs tents to use several different colors, the site goes for a more simple and minimalistic approach by using a blue monochromatic color scheme supporting the rather limited content. The blue color signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
+Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs tents to use several different colors, the site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
 
-To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this goal of this site.
+To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for the goals of this site.
 
 <table class="color-table">
 	<tbody><tr>
@@ -179,7 +152,7 @@ To offset the primary cold blue monochromatic colors a complementary brown color
 </tbody></table>
 
 #### Typeface
-As black text is difficult to read on a light background the default typeface color will be gray.
+As black text is difficult to read on a light background the default typeface color will be gray color (#5D5D5D).
 
 ??? Body + lorem + css selector
 
@@ -277,7 +250,9 @@ How can we use the color to enhance user experience
  * Users
 * A simple barcode detection algorithm is used by just choosing a random product among the available/filtered products 
 * Interaction triggers both ajax post against back-end and front-end logic to enhance user experience (more fluid experience instead of reloading the page for every interaction)
-** server roundtrip vs instant update in UI
+ * server roundtrip vs instant update in UI (improved responsiveness and user experience)
+* pagination implementation (load everything/long initial load + responsiveness vs load incrementaly vs ajax call/infinity scrolling)
+ * mention that due to the implementation details it is not possible/complicated to go the infinity scrolling route   
 
 ## Technologies, libraries and frameworks
 * Handlebars
