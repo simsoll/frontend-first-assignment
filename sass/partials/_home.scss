@@ -1,5 +1,9 @@
 $widget-padding: 1rem;
 
+.home-page {
+    margin-top: $navigation-height + $navigation-spacing;
+}
+
 .widget-container {
     background-color: $color-primary-5;
     padding: $widget-padding;

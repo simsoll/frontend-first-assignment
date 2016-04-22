@@ -2,6 +2,7 @@ $barcode-scanner-height: 4.4rem;
 $product-padding: 1rem;
 
 .product-page {
+    margin-top: $navigation-height + $navigation-spacing;
     margin-bottom: $barcode-scanner-height;    
 }
 

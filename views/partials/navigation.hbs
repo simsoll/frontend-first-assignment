@@ -1,41 +1,45 @@
 <nav>
-    <div class="navigation-links pull-left">
-        <a href="/" class="navigation-link home-link {{#isEqual active 'home'}}-active{{else}}-inactive{{/isEqual}}">ORDERFY</a>
-        <a href="/products" class="navigation-link products-link {{#isEqual active 'products'}}-active{{else}}-inactive{{/isEqual}} -{{active}}">PRODUCTS</a>
-        <a href="/orders" class="navigation-link orders-link {{#isEqual active 'orders'}}-active{{else}}-inactive{{/isEqual}}">ORDERS</a>
-    </div>
-    <div class="button-container">
-    </div>
-    <div class="hide-x-small">
-        <div class="button-placement-container -pull-up">        
-            <div class="button-container">   
-                <button class="checkout-button button -primary -full-width" {{#unless pendingOrder.products.length}}disabled{{/unless}}>Checkout ({{#if pendingOrder.products.length}}<span class="cart__items">{{pendingOrder.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
+    <div class="navigation-container">
+        <div class="navigation-links pull-left">
+            <a href="/" class="navigation-link home-link {{#isEqual active 'home'}}-active{{else}}-inactive{{/isEqual}}">ORDERFY</a>
+            <a href="/products" class="navigation-link products-link {{#isEqual active 'products'}}-active{{else}}-inactive{{/isEqual}} -{{active}}">PRODUCTS</a>
+            <a href="/orders" class="navigation-link orders-link {{#isEqual active 'orders'}}-active{{else}}-inactive{{/isEqual}}">ORDERS</a>
+        </div>
+        <div class="button-container">
+        </div>
+        <div class="hide-x-small">
+            <div class="button-placement-container -pull-up">        
+                <div class="button-container">   
+                    <button class="checkout-button button -primary -full-width" {{#unless pendingOrder.products.length}}disabled{{/unless}}>Checkout ({{#if pendingOrder.products.length}}<span class="cart__items">{{pendingOrder.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
+                </div>
+            </div>
+            <div class="button-placement-container -pull-down">        
+                <div class="button-container">           
+                    {{#isEqual active 'products'}}
+                        <button class="category-button button -secondary -full-width">Categories</button>
+                    {{else}}
+                        <button class="login-button button -secondary -full-width">Login</button>
+                    {{/isEqual}}
+                </div>
             </div>
         </div>
-        <div class="button-placement-container -pull-down">        
-            <div class="button-container">           
-                {{#isEqual active 'products'}}
-                    <button class="category-button button -secondary -full-width">Categories</button>
-                {{else}}
-                    <button class="login-button button -secondary -full-width">Login</button>
-                {{/isEqual}}
+        <div class="show-x-small">
+            <div class="button-placement-container -pull-up {{#isEqual active 'orders'}}-center-horizontal{{else}}-pull-right{{/isEqual}}">        
+                <div class="button-container">   
+                    <button class="checkout-button button -primary -full-width" {{#unless pendingOrder.products.length}}disabled{{/unless}}>Checkout ({{#if pendingOrder.products.length}}<span class="cart__items">{{pendingOrder.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
+                </div>
+            </div>
+            <div class="button-placement-container -pull-up {{#isEqual active 'home'}}-center-horizontal{{else}}-pull-left{{/isEqual}}">        
+                <div class="button-container">           
+                    {{#isEqual active 'products'}}
+                        <button class="category-button button -secondary -full-width">Categories</button>
+                    {{else}}
+                        <button class="login-button button -secondary -full-width">Login</button>
+                    {{/isEqual}}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="show-x-small">
-        <div class="button-placement-container -pull-up {{#isEqual active 'orders'}}-center-horizontal{{else}}-pull-right{{/isEqual}}">        
-            <div class="button-container">   
-                <button class="checkout-button button -primary -full-width" {{#unless pendingOrder.products.length}}disabled{{/unless}}>Checkout ({{#if pendingOrder.products.length}}<span class="cart__items">{{pendingOrder.products.length}}</span>{{else}}<span class="cart__items">0</span>{{/if}})</button>
-            </div>
-        </div>
-        <div class="button-placement-container -pull-up {{#isEqual active 'home'}}-center-horizontal{{else}}-pull-left{{/isEqual}}">        
-            <div class="button-container">           
-                {{#isEqual active 'products'}}
-                    <button class="category-button button -secondary -full-width">Categories</button>
-                {{else}}
-                    <button class="login-button button -secondary -full-width">Login</button>
-                {{/isEqual}}
-            </div>
-        </div>
-    </div>    
+    </div>   
+    <div class="navigation-spacing">
+    </div> 
 </nav>
