@@ -15,30 +15,39 @@
     &:active {
         background-color: $color-complement-2;
         color: $color-primary-5;
+    }        
+    
+    &:disabled {
+        background-color: lightgrey;        
+        color: #888888;
+        cursor: auto;
     }
+    
+    &.-secondary {
+        background-color: $color-complement-2;
         
-    &.-quarter-width {
-        width: 25%        
-    }
-    
-    &.-half-width {
-        width: 50%
-    }
-    
-    &.-three-quarters {
-        width: 75%;
-    }
-    
-    &.-full-width {
-        width: 100%;
+        &:hover {
+            background-color: $color-complement-3;
+        }
+        
+        &:active {
+            background-color: $color-complement-1;
+        }          
     }
 }
 
 .button-placement-container {
     position: absolute;
-    bottom: 0;
     width: 100%;
     height: $button-height;
+    
+    &.-pull-down {
+        bottom: 0;        
+    }
+    
+    &.-pull-up {
+        top: 0;
+    }
     
     & .button-container {
         position: relative;
@@ -53,6 +62,22 @@
             &.-pull-left {
                 left: 0;
             }
+            
+            &.-quarter-width {
+                width: 25%        
+            }
+
+            &.-half-width {
+                width: 50%
+            }
+
+            &.-three-quarters {
+                width: 75%;
+            }
+
+            &.-full-width {
+                width: 100%;
+            }            
         }
     }   
 }

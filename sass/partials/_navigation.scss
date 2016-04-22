@@ -1,30 +1,28 @@
 $navigation-font-size: 1.4rem;
 
-$utility-navigation-width: 575px;
+$title-width: 30%;
+$link-width: 20%;
+$utility-navigation-width: 100% - $title-width - 2*$link-width;
+
 
 nav {
-    background-color: $color-primary-2;
+    background-color: $color-primary-4;
     height: $navigation-height;
-    
-    .button, .menu, .search, .cart  {
-        @include vertical-align();        
-    }
-    
+    position: relative;
+      
     .menu {
         margin-right: 5%;
     }
-    
-    .button, .search {
-        margin-right: 10px;
+     
+    .button-placement-container {
+        height: $navigation-height/2;   
+        width: $utility-navigation-width;
+        right: 0;
+    }     
+       
+    .button {
+        height: $navigation-height/2;    
     }   
-    
-    .cart {
-        margin-right: 15px;
-    }
-    
-    .button, .search-input {
-        font-size: $navigation-font-size;                
-    }
 }
 
 .cart {
@@ -58,6 +56,7 @@ nav {
 .navigation-links li {
     display: inline-block;
     vertical-align: bottom;
+    float: left;        
 }
 
 .navigation-link {
@@ -66,16 +65,27 @@ nav {
     height: 100%;
     width: 10rem;
     text-decoration: none; 
-    margin-right: 2rem;
     color: rgba(0, 0, 0, 1);
     line-height: $navigation-height;
     font-size: $navigation-font-size;   
     background-color: $color-primary-3;
+    position: absolute;
+    
     
     &.title {
-        width: 20rem;
+        width: $title-width;
         font-size: 2rem;
     }
+    
+    &.products-link {
+        left: $title-width;
+        width: $link-width;
+    }
+    
+    &.orders-link {
+        left: $title-width + $link-width;
+        width: $link-width;
+    }    
     
     &:hover {
         background-color: $color-primary-4;
@@ -90,20 +100,12 @@ nav {
     height: $navigation-height;
 }
 
-.utility-navigation {
-    height: $navigation-height;
-    width: $utility-navigation-width;
-    display: inline-block;
-}
-
 @media screen and (min-width: #{$screen-breakpoint-small}) {
 
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {
-    .navigation-links {
-        width: calc(100% - #{$utility-navigation-width});
-    }
+
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
