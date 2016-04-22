@@ -15,10 +15,6 @@ appComponents.Home.prototype = function () {
     }
 
     function initializeButtons() {
-        $('.widget.-barcode button').click(function () {
-            window.location.href = '/products';
-        });
-        
         $('.widget.-products button').click(function () {
             window.location.href = '/products';
         });
