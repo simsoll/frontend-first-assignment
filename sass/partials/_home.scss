@@ -50,6 +50,12 @@ $widget-padding: 1rem;
     }
 }
 
+.home-page {
+    & small {
+        margin-bottom: 2rem;        
+    }
+}
+
 @media screen and (min-width: #{$screen-breakpoint-small}) {
 
 }
@@ -67,6 +73,12 @@ $widget-padding: 1rem;
             bottom: -4.5rem;
         }
     }
+    
+    .home-page {
+        & small {
+            margin-bottom: 4rem;
+        }   
+    } 
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {

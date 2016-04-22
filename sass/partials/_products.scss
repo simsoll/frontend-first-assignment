@@ -40,6 +40,10 @@ $product-padding: 1rem;
     height: auto;
 }
 
+.product_description {
+    margin-bottom: 0.5rem;
+}
+
 .product__stock {
     color: #22ff22;
     
@@ -52,14 +56,10 @@ $product-padding: 1rem;
     }
 }
 
-.product__description {
-    padding: 0.25rem 0;
-    font-size: 0.8rem;
-}
-
 .product__price {
-    padding: 0.5rem 0;
-    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    line-height: 3rem;
+    font-size: 3rem;
 }
 
 .quantity-container {

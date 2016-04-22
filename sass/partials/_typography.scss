@@ -12,7 +12,7 @@ h1 {
 
 small {
     font-size: 0.85rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: block;
     
     &.-centered {
@@ -36,7 +36,6 @@ p {
 @media screen and (min-width: #{$screen-breakpoint-small}) {
     p {
         font-size: 1rem;    
-        line-height: 2rem;
     }
 }
 
@@ -48,11 +47,7 @@ p {
     
     h2 {
         font-size: 1.7rem;
-    }    
-    
-    small {
-        margin-bottom: 4rem;
-    }
+    }       
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {

@@ -2,8 +2,8 @@
     <div class="product">
         <img class="product__image" src="{{image}}" />
         <h2 class="product__name">{{name}}</h2>
-        <p class="product__producer">by {{producer}}</p>
-        <p class="product__description">{{description}}</p>
+        <small>by {{producer}}</small>
+        <p class="product_description">{{description}}</p>
         {{#ifGreaterThan stock 5}}
             <p class="product__stock">In stock</p>
         {{else}}
