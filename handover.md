@@ -45,7 +45,7 @@ Consider the following:
  * You Don't Have to Abolish Capital Letters, But Sometimes It Helps (Make your design accessible. If you’re  hoping to appeal to a wide audience, avoid over-styling. Reduce your design to its most essential elements.)
  * Imitation is the Highest From of Flattery: Bauhaus is Everywhere (When you see a great graphic idea, be inspired)
  
-Based on the target audience and the primary use of the site, the goal of the design should be to have a simple and intuitive navigation, which enables the user to be productive and quickly solve the task at hand. The design should not draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should take a very short period of time. 
+Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly solve the task at hand. The design should not draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
 
 The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers. 
 
@@ -61,12 +61,13 @@ Tone?
 
 
 ## Style guide
+
 * Why a style guide? Purpose? What value does it create?
  * Changing the style guide should change the site
  * Forces you to define and hone your style, making for a more cohesive design.
  * Set of rules/guidiance supporting a consistent design - you don't want to confuse the user by having 12 different kinds of button designs. 
 
-### Styleguide considerations
+### Style guide considerations
 To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp.  
 
 
@@ -75,6 +76,8 @@ Should include
 
 ### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
+
+Besides the Open Sans typeface the geometric Walkway typeface will be used both when naming the title of the site - as a simple logo - and in the navigation to create contrast and catch attention. The geometric font type also fits in the overall construction-site setting.
 
 * Logo typeface? Find slide which talks about typeface contrasts
 
@@ -90,7 +93,7 @@ As the hierarchical structure of the site is rather shallow only a few different
 
 
 #### Navigation
-The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines.
+The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth.
 
 ??? Add .navigation + css selector
 
@@ -169,6 +172,12 @@ Consider
 * States: default, hover (lighter), active (darker), insensitive/disabled (fully satuated) 
 * User flow: primary, secondary, alert, warning
 
+#### Primary
+
+#### Secondary
+
+#### Disabled
+
 ### Widgets
 
 ### Products
@@ -183,8 +192,17 @@ Consider
 * Use color to create depth (warmer/less cold colors appear nearer
 * All links use the Logo font to signify that these have some special meaning. Font size and width are increased when selected to increase the illusion of depth by putting the other links more in the background. 
 * Fixed positioned to more easily navigate on products and purchases pages and keeps navigation bar connected with the content
+* Can't place navigation elements in bottom of page due to Safari triggers options
 
 ### Grid system
+The site will be using a 12-column grid system with a 2% gutter along with the following break points
+
+* Max-width 479px for mobile
+* Min-width 480px for mobile (horizontal view)
+* Min-width 768px for tablet
+* Min-width 992px for laptop
+* Min-width 1200px for desktop
+
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/grids/
 default: 12 columns at a width of X (X determined by wrapper)
 
@@ -278,3 +296,4 @@ Be cautious when updating font-awesome as it might break the build process as th
 * Add purchase states: reject submitted bids. 
 * Edit submitted purchases
 * Clear all added products
+* close button in top right
