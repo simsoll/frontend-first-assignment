@@ -1,23 +1,23 @@
-<div class="order">
+<div class="purchase">
     {{#if products.length}}            
         {{#isEqual status 'submitted'}}
-            <p>Ordered by: {{creator}}</p>
-            <p>Ordered at: {{createdAt}}</p>        
+            <p>Purchased by: {{creator}}</p>
+            <p>Purchased at: {{createdAt}}</p>        
         {{/isEqual}}
         {{#isEqual status 'approved'}}
             <p>Approved by: {{approver}}</p>
             <p>Approved at: {{approvedAt}}</p>            
-            <p>Ordered by: {{creator}}</p>
-            <p>Ordered at: {{createdAt}}</p>            
+            <p>Purchased by: {{creator}}</p>
+            <p>Purchased at: {{createdAt}}</p>            
         {{/isEqual}}
         <h3>Products</h3>
-        <ul class="order__products">
+        <ul class="purchase__products">
             {{#each products}}
-                <li class="order__products-item"><p>Product description: {{product.description}},</p> 
+                <li class="purchase__products-item"><p>Product description: {{product.description}},</p> 
                 {{#isEqual ../status 'pending'}}                    
-                    <div class="order__products-item-amount">
+                    <div class="purchase__products-item-amount">
                         Amount: <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
-                        <button class="order__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
+                        <button class="purchase__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                     </div>
                 {{else}}
                     <div>Amount: {{amount}}</div> 
@@ -27,10 +27,10 @@
             {{/each}}
         </ul>
         {{#isEqual status 'pending'}}
-            <button class="order__submit-button" data-id={{id}}>Submit</button>
+            <button class="purchase__submit-button" data-id={{id}}>Submit</button>
         {{/isEqual}}        
         {{#isEqual status 'submitted'}}
-            <button class="order__approve-button" data-id={{id}}>Approve</button>
+            <button class="purchase__approve-button" data-id={{id}}>Approve</button>
         {{/isEqual}}
     {{/if}}
 </div>

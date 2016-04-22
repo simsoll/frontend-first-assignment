@@ -23,8 +23,8 @@ appComponents.Home.prototype = function () {
             window.location.href = '/products';
         });
         
-        $('.widget.-orders button').click(function () {
-            window.location.href = '/orders';
+        $('.widget.-purchases button').click(function () {
+            window.location.href = '/purchases';
         });
     }
 } ();

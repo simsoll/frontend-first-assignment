@@ -1,19 +1,19 @@
 'use strict';
-var orderService = require('../services/orderService.js');
+var purchaseService = require('../services/purchaseService.js');
 var productService = require('../services/productService.js');
 
 module.exports.home = function(req, res) {
     var products = productService.getAll();
-    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
-    var submittedOrders = orderService.getByStatus('submitted');
-    var approvedOrders = orderService.getByStatus('approved');
+    var pendingPurchase = purchaseService.getByStatus('pending')[0] ? purchaseService.getByStatus('pending')[0] : [];
+    var submittedPurchases = purchaseService.getByStatus('submitted');
+    var approvedPurchases = purchaseService.getByStatus('approved');
     
     var context = {
         active: 'home',
-        approvedOrders: approvedOrders,
-        pendingOrder: pendingOrder,
+        approvedPurchases: approvedPurchases,
+        pendingPurchase: pendingPurchase,
         products: products,
-        submittedOrders: submittedOrders
+        submittedPurchases: submittedPurchases
     };
 
     res.render('home', context);

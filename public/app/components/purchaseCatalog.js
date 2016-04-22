@@ -1,11 +1,11 @@
 'use strict';
 var appComponents = appComponents || {};
 
-appComponents.OrderCatalog = function () {
+appComponents.PurchaseCatalog = function () {
 
 };
 
-appComponents.OrderCatalog.prototype = function () {
+appComponents.PurchaseCatalog.prototype = function () {
     return {
         initialize: initialize
     };
@@ -21,7 +21,7 @@ appComponents.OrderCatalog.prototype = function () {
     }
 
     function initilizeRemoveButtons() {
-        $('.order__remove-button').click(function () {
+        $('.purchase__remove-button').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/remove',
@@ -29,11 +29,11 @@ appComponents.OrderCatalog.prototype = function () {
                     id: $(this).data('id')
                 }
             }).done(function (id) {
-                if (productsIn('pending-orders') === 1) {
-                    $('.pending-orders').remove();
+                if (productsIn('pending-purchases') === 1) {
+                    $('.pending-purchases').remove();
                 }
                 else {
-                    $('.pending-orders').find('[data-id=' + id + ']').closest('.order__products-item').remove();
+                    $('.pending-purchases').find('[data-id=' + id + ']').closest('.purchase__products-item').remove();
                 }
 
                 addToElement('.cart__items', -1);
@@ -43,10 +43,10 @@ appComponents.OrderCatalog.prototype = function () {
     }
 
     function initializeSubmitButton() {
-        $('.order__submit-button').click(function () {
+        $('.purchase__submit-button').click(function () {
             var amounts = [];
 
-            $('.pending-orders .order__products-item').each(function (index, element) {
+            $('.pending-purchases .purchase__products-item').each(function (index, element) {
                 var inputElement = $(element).find('input');
                 amounts.push(
                     {
@@ -64,13 +64,13 @@ appComponents.OrderCatalog.prototype = function () {
                     timestamp: formatDate(new Date())
                 }
             }).done(function (meta) {
-                var $order = $('.pending-orders .order');
+                var $purchase = $('.pending-purchases .purchase');
 
-                convertPendingOrderToSubmittedOrder($order, meta);
-                moveOrderToSection($order, 'submitted-orders', 'Orders to be Approved');
+                convertPendingPurchaseToSubmittedPurchase($purchase, meta);
+                movePurchaseToSection($purchase, 'submitted-purchases', 'Purchases to be Approved');
 
-                if (ordersIn('pending-orders') === 0) {
-                    $('.pending-orders').remove();
+                if (purchasesIn('pending-purchases') === 0) {
+                    $('.pending-purchases').remove();
                 }
 
                 $('.cart__items').text('0');
@@ -80,7 +80,7 @@ appComponents.OrderCatalog.prototype = function () {
     }
 
     function initializeApproveButtons() {
-        $('.order__approve-button').click(function () {
+        $('.purchase__approve-button').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/approve',
@@ -89,13 +89,13 @@ appComponents.OrderCatalog.prototype = function () {
                     timestamp: formatDate(new Date())
                 }
             }).done(function (data) {
-                var $order = $('.order__approve-button[data-id=' + data.id + ']').closest('.order');
+                var $purchase = $('.purchase__approve-button[data-id=' + data.id + ']').closest('.purchase');
 
-                convertSubmittedOrderToApprovedOrder($order, data.meta);
-                moveOrderToSection($order, 'approved-orders', 'Approved Orders');
+                convertSubmittedPurchaseToApprovedPurchase($purchase, data.meta);
+                movePurchaseToSection($purchase, 'approved-purchases', 'Approved Purchases');
 
-                if (ordersIn('submitted-orders') === 0) {
-                    $('.submitted-orders').remove();
+                if (purchasesIn('submitted-purchases') === 0) {
+                    $('.submitted-purchases').remove();
                 }
             });
         });
@@ -116,65 +116,65 @@ appComponents.OrderCatalog.prototype = function () {
     }
 
     function productsIn(section) {
-        return $('.' + section + ' .order__products-item').length;
+        return $('.' + section + ' .purchase__products-item').length;
     }
 
-    function ordersIn(section) {
-        return $('.' + section + ' .order').length;
+    function purchasesIn(section) {
+        return $('.' + section + ' .purchase').length;
     }
 
-    function moveOrderToSection(order, section, headline) {
+    function movePurchaseToSection(purchase, section, headline) {
         if (!$('.' + section).length) {
             $('.' + previousSection(section)).after('<div class="' + section + '"><h2>' + headline + '</h2></div>');
         }
 
-        $('.' + section + ' h2').after($(order));
+        $('.' + section + ' h2').after($(purchase));
     }
 
     function previousSection(section) {
-        if (section === 'submitted-orders') {
-            return 'pending-orders';
+        if (section === 'submitted-purchases') {
+            return 'pending-purchases';
         }
-        if (section === 'approved-orders') {
-            return 'submitted-orders';
+        if (section === 'approved-purchases') {
+            return 'submitted-purchases';
         }
 
         return null;
     }
 
-    function convertPendingOrderToSubmittedOrder(order, meta) {
+    function convertPendingPurchaseToSubmittedPurchase(purchase, meta) {
         //add timestamp and user name
-        $(order)
-            .prepend('<p>Ordered at: ' + meta.timestamp + '</p>')
-            .prepend('<p>Ordered by: ' + meta.user.name + '</p>');
+        $(purchase)
+            .prepend('<p>Purchased at: ' + meta.timestamp + '</p>')
+            .prepend('<p>Purchased by: ' + meta.user.name + '</p>');
 
         //replace input box with number
-        $(order)
-            .find('.order__products-item-amount')
+        $(purchase)
+            .find('.purchase__products-item-amount')
             .each(function (index, element) {
                 var amount = $(element).find('input').val();
                 $(element).html('Amount: ' + amount);
             });
 
         //change submit button to approve button
-        $(order)
-            .find('.order__submit-button')
+        $(purchase)
+            .find('.purchase__submit-button')
             .unbind('click')
-            .removeClass('order__submit-button')
-            .addClass('order__approve-button')
+            .removeClass('purchase__submit-button')
+            .addClass('purchase__approve-button')
             .html('Approve');
         initializeApproveButtons();
     }
 
-    function convertSubmittedOrderToApprovedOrder(order, meta) {
+    function convertSubmittedPurchaseToApprovedPurchase(purchase, meta) {
         //add timestamp and user name
-        $(order)
+        $(purchase)
             .prepend('<p>Approved at: ' + meta.timestamp + '</p>')
             .prepend('<p>Approved by: ' + meta.user.name + '</p>');
 
         //remove approve button
-        $(order)
-            .find('.order__approve-button')
+        $(purchase)
+            .find('.purchase__approve-button')
             .unbind('click')
             .remove();
 

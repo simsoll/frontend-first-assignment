@@ -33,7 +33,7 @@ appComponents.Navigation.prototype = function () {
         // };
 
         $('.checkout-button').click(function () {
-            window.location.href = '/orders';
+            window.location.href = '/purchases';
         })
     }
 } ();

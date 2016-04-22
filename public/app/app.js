@@ -10,6 +10,6 @@ var appModules = appModules || {};
     (new appComponents.ProductCatalog()).initialize();
     (new appComponents.Camera()).initialize();
     (new appComponents.Modal()).initialize();
-    (new appComponents.OrderCatalog()).initialize();
+    (new appComponents.PurchaseCatalog()).initialize();
 
 })();

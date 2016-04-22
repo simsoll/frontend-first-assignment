@@ -1,17 +1,17 @@
 'use strict';
-var orderService = require('../services/orderService.js');
+var purchaseService = require('../services/purchaseService.js');
 
 module.exports.list = function (req, res) {
-    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
+    var pendingPurchase = purchaseService.getByStatus('pending')[0] ? purchaseService.getByStatus('pending')[0] : [];
 
     var context = {
-        active: 'orders',
-        approvedOrders: orderService.getByStatus('approved'),
-        pendingOrder: pendingOrder,
-        submittedOrders: orderService.getByStatus('submitted')
+        active: 'purchases',
+        approvedPurchases: purchaseService.getByStatus('approved'),
+        pendingPurchase: pendingPurchase,
+        submittedPurchases: purchaseService.getByStatus('submitted')
     };
 
-    res.render('orders', context);
+    res.render('purchases', context);
 };
 
 module.exports.submit = function (req, res) {
@@ -26,7 +26,7 @@ module.exports.submit = function (req, res) {
         timestamp: timestamp
     };
 
-    orderService.submitOrder(id, amounts, meta);
+    purchaseService.submitPurchase(id, amounts, meta);
 
     res.json(meta);
 }
@@ -42,7 +42,7 @@ module.exports.approve = function (req, res) {
         timestamp: timestamp
     };
 
-    orderService.approveOrder(id, meta);
+    purchaseService.approvePurchase(id, meta);
 
     res.json(
         {

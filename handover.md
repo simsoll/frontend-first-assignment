@@ -18,7 +18,7 @@ The site must be responsive and must include:
 products, so there has to be at least two pages with products.
 * Purchase history that lists earlier purchases.
 * Scanning function (on the mobile version) of barcodes or products serial numbers which allow
-for quick order and delivery. You may fake this feature through the camera on the mobile phone,
+for quick purchase and delivery. You may fake this feature through the camera on the mobile phone,
 or you may try out libraries that supports this functionality.
 
 # General considerations
@@ -28,9 +28,9 @@ Consider the following:
  * Age, gender, salary, origins, hobbies, motivations?
 * On what platform and from where might this site be accessed?
 * Should I break any "rules"?
-As the construction workers will be using the website while working in the field and mainly when missing some spare parts, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place orders and to quickly get an overview of already placed orders, which haven't yet been approved. 
+As the construction workers will be using the website while working in the field and mainly when missing some spare parts, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place purchases and to quickly get an overview of already placed purchases, which haven't yet been approved. 
 
-For the administration people in the office it should be easy to get an overview of yet to be approved orders, approve these orders and to see the order history for accounting purposes.
+For the administration people in the office it should be easy to get an overview of yet to be approved purchases, approve these purchases and to see the purchase history for accounting purposes.
 
 Taking both the construction workers and the administration people into account the audience is rather wide-aged, properly aged from around 16 to 60 years of age, and the construction workers will primarily be males. Besides the wide-aged audience we also have some cultural variety with the construction workers on one side and the administration people on the other side. The field workers shouldn’t be thinking the website is clearly made for the administration people back in the office and vice versa. 
 
@@ -75,6 +75,8 @@ Should include
 
 ### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
+
+* Logo typeface? Find slide which talks about typeface contrasts
 
 #### Body text
 The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
@@ -171,7 +173,7 @@ Consider
 
 ### Products
 
-### Orders
+### Purchases
 
 ### Icons
 
@@ -179,6 +181,8 @@ Consider
 
 ### Navigation
 * Use color to create depth (warmer/less cold colors appear nearer
+* All links use the Logo font to signify that these have some special meaning. Font size and width are increased when selected to increase the illusion of depth by putting the other links more in the background. 
+* Fixed positioned to more easily navigate on products and purchases pages and keeps navigation bar connected with the content
 
 ### Grid system
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/grids/
@@ -201,10 +205,10 @@ Widgets
 
 *The construction worker should be able to purchase from t he mobile phone or tablet and rapidly find products while working in the field.* 
 
-When logged in as a worker the product pages should be in focus. However, the order history should still be visible for the worker to see what have previously been ordered and if the orders have been approved. 
+When logged in as a worker the product pages should be in focus. However, the purchase history should still be visible for the worker to see what have previously been purchased and if the purchases have been approved. 
 
 *The target user for the desktop version is administration people in an office who needs to verify and approve purchases.*
- - focus: purchase history (orders need to have states: ordered, confirmed)
+ - focus: purchase history (purchases need to have states: purchased, confirmed)
  - purchase still needs to be possible
  
 ### Responsive design
@@ -246,7 +250,7 @@ How can we use the color to enhance user experience
 ## Technical considerations
 * JSON files are used instead of a database with the following entities
  * Products
- * Orders
+ * Purchases
  * Users
 * A simple barcode detection algorithm is used by just choosing a random product among the available/filtered products 
 * Interaction triggers both ajax post against back-end and front-end logic to enhance user experience (more fluid experience instead of reloading the page for every interaction)
@@ -271,6 +275,6 @@ Be cautious when updating font-awesome as it might break the build process as th
 '''
 
 ## Further development
-* Add order states: reject submitted bids. 
-* Edit submitted orders
+* Add purchase states: reject submitted bids. 
+* Edit submitted purchases
 * Clear all added products

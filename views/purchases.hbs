@@ -1,0 +1,30 @@
+<header>
+    {{> navigation}}
+</header>
+
+<div class="purchase-page">
+    {{#if pendingPurchase.products}}
+        <div class="pending-purchases">
+            <h2>Purchases to be Submitted</h2>
+            {{> purchase pendingPurchase}}
+        </div>
+    {{/if}}
+
+    {{#if submittedPurchases.length}}
+        <div class="submitted-purchases">
+            <h2>Purchases to be Approved</h2>
+            {{#each submittedPurchases}}
+                {{> purchase}}
+            {{/each}}    
+        </div>
+    {{/if}}
+
+    {{#if approvedPurchases.length}}
+        <div class="approved-purchases">
+            <h2>Approved Purchases</h2>
+            {{#each approvedPurchases}}
+                {{> purchase}}
+            {{/each}}    
+        </div>
+    {{/if}}
+</div>

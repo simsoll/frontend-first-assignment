@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (function () {
-    var orders = [
+    var purchases = [
         {
             id: 1,
             creator: 'Simon',
@@ -70,43 +70,43 @@ module.exports = (function () {
 
     return {
         addToPending: addToPending,
-        approveOrder: approveOrder,
+        approvePurchase: approvePurchase,
         getAll: getAll,
         getByStatus: getByStatus,
         removeFromPending: removeFromPending,
-        submitOrder: submitOrder
+        submitPurchase: submitPurchase
     };
 
     function addToPending(product, amount) {
-        var order = getByStatus('pending')[0];
-        var isNewOrder = !order;
+        var purchase = getByStatus('pending')[0];
+        var isNewPurchase = !purchase;
 
-        if (isNewOrder) {
-            order = {
+        if (isNewPurchase) {
+            purchase = {
                 id: generateId(),
                 products: [],
                 status: 'pending'
             };
         }
 
-        order.products.push({
+        purchase.products.push({
             amount: amount,
             product: product
         });
 
-        if (isNewOrder) {
-            orders.push(order);
+        if (isNewPurchase) {
+            purchases.push(purchase);
         }
     }
 
     function removeFromPending(productId) {
-        var order = getByStatus('pending')[0];
+        var purchase = getByStatus('pending')[0];
 
-        if (!order) {
+        if (!purchase) {
             return;
         }
 
-        var products = order.products;
+        var products = purchase.products;
 
         var index = products.map(function (item) {
             return item.product.id;
@@ -117,74 +117,74 @@ module.exports = (function () {
         }
     }
 
-    function submitOrder(id, amounts, meta) {
-        var order = getById(id);
+    function submitPurchase(id, amounts, meta) {
+        var purchase = getById(id);
 
-        if (!order) {
+        if (!purchase) {
             return;
         }
 
-        if (order.status !== 'pending') {
+        if (purchase.status !== 'pending') {
             return;
         }
 
-        for (var i = 0; i < order.products.length; i++) {
-            var productItem = order.products[i];
+        for (var i = 0; i < purchase.products.length; i++) {
+            var productItem = purchase.products[i];
 
             var amount = amounts.filter(function (element) {
                 return element.id === productItem.product.id;
             })[0].amount;
 
-            productItem.product.isInPendingOrder = false;
+            productItem.product.isInPendingPurchase = false;
             productItem.amount = amount;
         }
 
-        order.status = 'submitted';
-        order.creator = meta.user.name;
-        order.createdAt = meta.timestamp;
+        purchase.status = 'submitted';
+        purchase.creator = meta.user.name;
+        purchase.createdAt = meta.timestamp;
     }
 
-    function approveOrder(id, meta) {
-        var order = getById(id);
+    function approvePurchase(id, meta) {
+        var purchase = getById(id);
 
-        if (!order) {
+        if (!purchase) {
             return;
         }
 
-        if (order.status !== 'submitted') {
+        if (purchase.status !== 'submitted') {
             return;
         }
 
-        order.status = 'approved';
-        order.approver = meta.user.name;
-        order.approvedAt = meta.timestamp;
+        purchase.status = 'approved';
+        purchase.approver = meta.user.name;
+        purchase.approvedAt = meta.timestamp;
     }
 
     function getAll() {
-        return orders;
+        return purchases;
     }
 
     function getByStatus(status) {
-        return orders.filter(function (order) {
-            return order.status === status;
+        return purchases.filter(function (purchase) {
+            return purchase.status === status;
         }).sort(compareByCreatedAtDesc);
     }
 
     function getById(id) {
-        return orders.filter(function (order) {
-            return order.id === id;
+        return purchases.filter(function (purchase) {
+            return purchase.id === id;
         })[0];
     }
 
     function generateId() {
-        if (orders.length === 0) {
+        if (purchases.length === 0) {
             return 1;
         }
-        var maxId = orders[0].id;
+        var maxId = purchases[0].id;
 
-        for (var i = 1; i < orders.length; i++) {
-            if (maxId < orders[i].id) {
-                maxId = orders[i].id;
+        for (var i = 1; i < purchases.length; i++) {
+            if (maxId < purchases[i].id) {
+                maxId = purchases[i].id;
             }
         }
 

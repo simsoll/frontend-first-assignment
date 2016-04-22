@@ -2,7 +2,7 @@
 
 var main = require('./handlers/main.js');
 var product = require('./handlers/products.js');
-var order = require('./handlers/orders.js');
+var purchase = require('./handlers/purchases.js');
 
 module.exports = function(app) {
     app.get('/', main.home);
@@ -13,8 +13,8 @@ module.exports = function(app) {
     app.post('/add', product.add);
     app.post('/remove', product.remove);
     
-    // order routes
-    app.get('/orders', order.list);
-    app.post('/submit', order.submit);
-    app.post('/approve', order.approve);
+    // purchase routes
+    app.get('/purchases', purchase.list);
+    app.post('/submit', purchase.submit);
+    app.post('/approve', purchase.approve);
 };

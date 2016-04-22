@@ -3,8 +3,8 @@
 </header>
 
 <div class="home-page">
-    <h1>Welcome to <span class="title">ORDERFY</span></h1>
-    <small class="-centered">The place to order the construction tools and equipment you need, quickly.</small>    
+    <h1>Welcome to <span class="title">ORDERBY</span></h1>
+    <small class="-centered">The place to purchase the construction tools and equipment you need, quickly.</small>    
 
     <div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 show-x-small show-small">
         <div class="widget -barcode">   
@@ -20,7 +20,7 @@
 
     <div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-medium-6 col-medium-offset-3 col-x-large-3 col-x-large-offset-2">
         <div class="widget -products">
-            <h2>Place an order?</h2>    
+            <h2>Make a purchase?</h2>    
             <p>{{products.length}} {{#isEqual products.length 1}}product{{else}}products{{/isEqual}} in the product catalog.</p>
             <div class="button-placement-container -pull-down">
                 <div class="button-container">
@@ -32,15 +32,15 @@
     </div>
 
     <div class="widget-container col-x-small-10 col-x-small-offset-1 col-small-8 col-small-offset-2 col-medium-6 col-medium-offset-3 col-x-large-3 col-x-large-offset-2">
-        <div class="widget -orders">
-            <h2>See all orders?</h2>
-            <p>{{pendingOrder.length}} {{#isEqual pendingOrder.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be submitted.</p>
-            <p>{{submittedOrders.length}} {{#isEqual submittedOrders.length 1}}order is{{else}}orders are{{/isEqual}} waiting to be approved.</p>
-            <p>{{approvedOrders.length}} {{#isEqual approvedOrders.length 1}}order has{{else}}orders have{{/isEqual}} been approved.</p>        
+        <div class="widget -purchases">
+            <h2>See all purchases?</h2>
+            <p>{{pendingPurchase.length}} {{#isEqual pendingPurchase.length 1}}purchase is{{else}}purchases are{{/isEqual}} waiting to be submitted.</p>
+            <p>{{submittedPurchases.length}} {{#isEqual submittedPurchases.length 1}}purchase is{{else}}purchases are{{/isEqual}} waiting to be approved.</p>
+            <p>{{approvedPurchases.length}} {{#isEqual approvedPurchases.length 1}}purchase has{{else}}purchases have{{/isEqual}} been approved.</p>        
             <div class="button-placement-container -pull-down">
                 <div class="button-container">  
-                    <button class="button -half-width -pull-right hide-x-small hide-small">Order Overview</button>
-                    <button class="button -full-width show-x-small show-small">Order Overview</button>
+                    <button class="button -half-width -pull-right hide-x-small hide-small">Purchase Overview</button>
+                    <button class="button -full-width show-x-small show-small">Purchase Overview</button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 'use strict';
 var productService = require('../services/productService.js');
-var orderService = require('../services/orderService.js');
+var purchaseService = require('../services/purchaseService.js');
 
 var itemsPerPage = 8; //TODO: move to global config object
 
@@ -14,8 +14,8 @@ module.exports.add = function (req, res) {
     var id = Number(req.body.id);
     var product = productService.getById(id);
 
-    orderService.addToPending(product, amount);
-    product.isInPendingOrder = true;
+    purchaseService.addToPending(product, amount);
+    product.isInPendingPurchase = true;
 
     res.end(req.body.id);
 };
@@ -24,8 +24,8 @@ module.exports.remove = function (req, res) {
     var id = Number(req.body.id);
     var product = productService.getById(id);
 
-    orderService.removeFromPending(product.id);
-    product.isInPendingOrder = false;
+    purchaseService.removeFromPending(product.id);
+    product.isInPendingPurchase = false;
 
     res.end(req.body.id);
 };
@@ -41,11 +41,11 @@ function generateContext(req) {
     var filteredProducts = getFiltered(products);
     var paginatedProducts = getPaginated(filteredProducts, pageNumber, itemsPerPage);
 
-    var pendingOrder = orderService.getByStatus('pending')[0] ? orderService.getByStatus('pending')[0] : [];
+    var pendingPurchase = purchaseService.getByStatus('pending')[0] ? purchaseService.getByStatus('pending')[0] : [];
 
     return {
         active: 'products',
-        pendingOrder: pendingOrder,
+        pendingPurchase: pendingPurchase,
         helpers: {
             generatePages: function (elements) {
                 return generatePages(req.url, elements, itemsPerPage);

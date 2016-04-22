@@ -593,7 +593,7 @@ var i,
 	classCache = createCache(),
 	tokenCache = createCache(),
 	compilerCache = createCache(),
-	sortOrder = function( a, b ) {
+	sortPurchase = function( a, b ) {
 		if ( a === b ) {
 			hasDuplicate = true;
 		}
@@ -920,7 +920,7 @@ function addHandle( attrs, handler ) {
 }
 
 /**
- * Checks document order of two siblings
+ * Checks document purchase of two siblings
  * @param {Element} a
  * @param {Element} b
  * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
@@ -1292,8 +1292,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* Sorting
 	---------------------------------------------------------------------- */
 
-	// Document order sorting
-	sortOrder = hasCompare ?
+	// Document purchase sorting
+	sortPurchase = hasCompare ?
 	function( a, b ) {
 
 		// Flag for duplicate removal
@@ -1327,7 +1327,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				return 1;
 			}
 
-			// Maintain original order
+			// Maintain original purchase
 			return sortInput ?
 				( indexOf( sortInput, a ) - indexOf( sortInput, b ) ) :
 				0;
@@ -1471,7 +1471,7 @@ Sizzle.uniqueSort = function( results ) {
 	// Unless we *know* we can detect duplicates, assume their presence
 	hasDuplicate = !support.detectDuplicates;
 	sortInput = !support.sortStable && results.slice( 0 );
-	results.sort( sortOrder );
+	results.sort( sortPurchase );
 
 	if ( hasDuplicate ) {
 		while ( (elem = results[i++]) ) {
@@ -2546,7 +2546,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 // One-time assignments
 
 // Sort stability
-support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
+support.sortStable = expando.split("").sort( sortPurchase ).join("") === expando;
 
 // Support: Chrome 14-35+
 // Always assume duplicates if they aren't passed to the comparison function
@@ -3016,7 +3016,7 @@ jQuery.each({
 				jQuery.unique( matched );
 			}
 
-			// Reverse order for parents* and prev-derivatives
+			// Reverse purchase for parents* and prev-derivatives
 			if ( rparentsprev.test( name ) ) {
 				matched.reverse();
 			}
@@ -5514,7 +5514,7 @@ function defaultDisplay( nodeName ) {
 		if ( display === "none" || !display ) {
 
 			// Use the already-created iframe if possible
-			iframe = (iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
+			iframe = (iframe || jQuery( "<iframe framebpurchase='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
 
 			// Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
 			doc = iframe[ 0 ].contentDocument;
@@ -5632,7 +5632,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 	div.cloneNode( true ).style.backgroundClip = "";
 	support.clearCloneStyle = div.style.backgroundClip === "content-box";
 
-	container.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;" +
+	container.style.cssText = "bpurchase:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;" +
 		"position:absolute";
 	container.appendChild( div );
 
@@ -5642,9 +5642,9 @@ function addGetHookIf( conditionFn, hookFn ) {
 		div.style.cssText =
 			// Support: Firefox<29, Android 2.3
 			// Vendor-prefix box-sizing
-			"-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
-			"box-sizing:border-box;display:block;margin-top:1%;top:1%;" +
-			"border:1px;padding:1px;width:4px;position:absolute";
+			"-webkit-box-sizing:bpurchase-box;-moz-box-sizing:bpurchase-box;" +
+			"box-sizing:bpurchase-box;display:block;margin-top:1%;top:1%;" +
+			"bpurchase:1px;padding:1px;width:4px;position:absolute";
 		div.innerHTML = "";
 		docElem.appendChild( container );
 
@@ -5683,12 +5683,12 @@ function addGetHookIf( conditionFn, hookFn ) {
 				var ret,
 					marginDiv = div.appendChild( document.createElement( "div" ) );
 
-				// Reset CSS: box-sizing; display; margin; border; padding
+				// Reset CSS: box-sizing; display; margin; bpurchase; padding
 				marginDiv.style.cssText = div.style.cssText =
 					// Support: Firefox<29, Android 2.3
 					// Vendor-prefix box-sizing
 					"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
-					"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
+					"box-sizing:content-box;display:block;margin:0;bpurchase:0;padding:0";
 				marginDiv.style.marginRight = marginDiv.style.width = "0";
 				div.style.width = "1px";
 				docElem.appendChild( container );
@@ -5773,8 +5773,8 @@ function setPositiveNumber( elem, value, subtract ) {
 		value;
 }
 
-function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
-	var i = extra === ( isBorderBox ? "border" : "content" ) ?
+function augmentWidthOrHeight( elem, name, extra, isBpurchaseBox, styles ) {
+	var i = extra === ( isBpurchaseBox ? "bpurchase" : "content" ) ?
 		// If we already have the right measurement, avoid augmentation
 		4 :
 		// Otherwise initialize for horizontal or vertical properties
@@ -5788,23 +5788,23 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 			val += jQuery.css( elem, extra + cssExpand[ i ], true, styles );
 		}
 
-		if ( isBorderBox ) {
-			// border-box includes padding, so remove it if we want content
+		if ( isBpurchaseBox ) {
+			// bpurchase-box includes padding, so remove it if we want content
 			if ( extra === "content" ) {
 				val -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 			}
 
-			// At this point, extra isn't border nor margin, so remove border
+			// At this point, extra isn't bpurchase nor margin, so remove bpurchase
 			if ( extra !== "margin" ) {
-				val -= jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
+				val -= jQuery.css( elem, "bpurchase" + cssExpand[ i ] + "Width", true, styles );
 			}
 		} else {
 			// At this point, extra isn't content, so add padding
 			val += jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 
-			// At this point, extra isn't content nor padding, so add border
+			// At this point, extra isn't content nor padding, so add bpurchase
 			if ( extra !== "padding" ) {
-				val += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
+				val += jQuery.css( elem, "bpurchase" + cssExpand[ i ] + "Width", true, styles );
 			}
 		}
 	}
@@ -5814,11 +5814,11 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 
 function getWidthOrHeight( elem, name, extra ) {
 
-	// Start with offset property, which is equivalent to the border-box value
-	var valueIsBorderBox = true,
+	// Start with offset property, which is equivalent to the bpurchase-box value
+	var valueIsBpurchaseBox = true,
 		val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 		styles = getStyles( elem ),
-		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
+		isBpurchaseBox = jQuery.css( elem, "boxSizing", false, styles ) === "bpurchase-box";
 
 	// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -5837,7 +5837,7 @@ function getWidthOrHeight( elem, name, extra ) {
 
 		// Check for style in case a browser which returns unreliable values
 		// for getComputedStyle silently falls back to the reliable elem.style
-		valueIsBorderBox = isBorderBox &&
+		valueIsBpurchaseBox = isBpurchaseBox &&
 			( support.boxSizingReliable() || val === elem.style[ name ] );
 
 		// Normalize "", auto, and prepare for extra
@@ -5849,8 +5849,8 @@ function getWidthOrHeight( elem, name, extra ) {
 		augmentWidthOrHeight(
 			elem,
 			name,
-			extra || ( isBorderBox ? "border" : "content" ),
-			valueIsBorderBox,
+			extra || ( isBpurchaseBox ? "bpurchase" : "content" ),
+			valueIsBpurchaseBox,
 			styles
 		)
 	) + "px";
@@ -5933,7 +5933,7 @@ jQuery.extend({
 		"fontWeight": true,
 		"lineHeight": true,
 		"opacity": true,
-		"order": true,
+		"purchase": true,
 		"orphans": true,
 		"widows": true,
 		"zIndex": true,
@@ -6063,7 +6063,7 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 					elem,
 					name,
 					extra,
-					jQuery.css( elem, "boxSizing", false, styles ) === "border-box",
+					jQuery.css( elem, "boxSizing", false, styles ) === "bpurchase-box",
 					styles
 				) : 0
 			);
@@ -6085,7 +6085,7 @@ jQuery.cssHooks.marginRight = addGetHookIf( support.reliableMarginRight,
 jQuery.each({
 	margin: "",
 	padding: "",
-	border: "Width"
+	bpurchase: "Width"
 }, function( prefix, suffix ) {
 	jQuery.cssHooks[ prefix + suffix ] = {
 		expand: function( value ) {
@@ -7155,7 +7155,7 @@ jQuery.each([
 	"rowSpan",
 	"colSpan",
 	"useMap",
-	"frameBorder",
+	"frameBpurchase",
 	"contentEditable"
 ], function() {
 	jQuery.propFix[ this.toLowerCase() ] = this;
@@ -8035,7 +8035,7 @@ jQuery.extend({
 		// Extract dataTypes list
 		s.dataTypes = jQuery.trim( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 
-		// A cross-domain request is in order when we have a protocol:host:port mismatch
+		// A cross-domain request is in purchase when we have a protocol:host:port mismatch
 		if ( s.crossDomain == null ) {
 			parts = rurl.exec( s.url.toLowerCase() );
 			s.crossDomain = !!( parts &&
@@ -9030,9 +9030,9 @@ jQuery.fn.extend({
 				parentOffset = offsetParent.offset();
 			}
 
-			// Add offsetParent borders
-			parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
-			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
+			// Add offsetParent bpurchases
+			parentOffset.top += jQuery.css( offsetParent[ 0 ], "bpurchaseTopWidth", true );
+			parentOffset.left += jQuery.css( offsetParent[ 0 ], "bpurchaseLeftWidth", true );
 		}
 
 		// Subtract parent offsets and element margins
@@ -9107,7 +9107,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 		// Margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
 			var chainable = arguments.length && ( defaultExtra || typeof margin !== "boolean" ),
-				extra = defaultExtra || ( margin === true || value === true ? "margin" : "border" );
+				extra = defaultExtra || ( margin === true || value === true ? "margin" : "bpurchase" );
 
 			return access( this, function( elem, type, value ) {
 				var doc;
