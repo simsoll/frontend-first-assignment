@@ -52,25 +52,30 @@ nav {
 }
 
 .navigation-links {
-    width: calc(100% - #{$logo-width});
-    text-align: center;
     display: inline-block;
 }
 
 .navigation-links li {
-    display: inline;    
+    display: inline-block;
+    vertical-align: bottom;
 }
 
-.navigation-links a {
+.navigation-link {
+    text-align: center;
     display: inline-block;
     height: 100%;
     width: 10rem;
     text-decoration: none; 
+    margin-right: 2rem;
     color: rgba(0, 0, 0, 1);
     line-height: $navigation-height;
     font-size: $navigation-font-size;   
-    margin: 0 2rem;
     background-color: $color-primary-3;
+    
+    &.title {
+        width: 20rem;
+        font-size: 2rem;
+    }
     
     &:hover {
         background-color: $color-primary-4;
@@ -97,7 +102,7 @@ nav {
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {
     .navigation-links {
-        width: calc(100% - #{$logo-width} - #{$utility-navigation-width});
+        width: calc(100% - #{$utility-navigation-width});
     }
 }
 

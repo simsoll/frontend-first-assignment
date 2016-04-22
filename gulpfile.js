@@ -119,10 +119,11 @@ gulp.task('inject-js', ['templates', 'bower-to-vendor'], function() {
 
 gulp.task('inject-css', ['bower-to-vendor'], function() {
     var css = gulp.src(config.css, { read: false });
+    var cssFonts = gulp.src('./public/fonts/*.css', { read: false });
     var cssVendor = gulp.src(config.cssVendor, { read: false });
 
     return gulp.src(config.index)
-        .pipe(inject(series(css, cssVendor)))
+        .pipe(inject(series(css, cssFonts, cssVendor)))
         .pipe(gulp.dest(config.layouts));
 });
 
