@@ -1,6 +1,6 @@
 .button {
+    @include label-text;
     height: $button-height;
-    font-size: 1.4rem;
     outline: none;
     border: none;
     background-color: $color-complement-3;
@@ -17,18 +17,16 @@
         color: $color-primary-5;
     }
         
-    //     &:hover {
-    //         background-color: rgba(0,0,0,0.5);
-    //         color: white;
-    //     }        
-    // }    
-    
     &.-quarter-width {
         width: 25%        
     }
     
     &.-half-width {
         width: 50%
+    }
+    
+    &.-three-quarters {
+        width: 75%;
     }
     
     &.-full-width {
@@ -57,9 +55,6 @@
             }
         }
     }   
-}
-
-.product__button {
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {

@@ -41,14 +41,14 @@ $product-padding: 1rem;
 }
 
 .product__stock {
-    color: limegreen;
+    color: #22ff22;
     
     &.-warning {
-        color: orange;
+        color: #ffcc55;
     }
     
     &.-alert {
-        color: darkred;
+        color: #ff5555;
     }
 }
 
@@ -60,6 +60,24 @@ $product-padding: 1rem;
 .product__price {
     padding: 0.5rem 0;
     font-size: 1.5rem;
+}
+
+.quantity-container {
+    position: absolute;
+    right: 0;
+    bottom: $button-height + $product-padding/2;
+    
+    & label {
+        @include label-text;
+        padding-right: $product-padding/2;
+    }
+
+    & select{
+        cursor: pointer;
+        height: $button-height;
+        width: $button-height;
+    }    
+    
 }
 
 .pagination {

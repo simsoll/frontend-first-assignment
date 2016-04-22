@@ -20,7 +20,7 @@ appComponents.ProductCatalog.prototype = function () {
     }
 
     function initializeAddButtons() {
-        $('.product__button.add').click(function () {
+        $('.button-container .add').click(function () {
             var id = $(this).data('id');
 
             var amount = Number($('#quantityOption-' + id + ' :selected').text());
@@ -33,15 +33,15 @@ appComponents.ProductCatalog.prototype = function () {
                     id: id
                 }
             }).done(function (id) {
-                $('.product__button.add').filter(function (index, element) {
+                $('.button-container .add').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
-                $('.product__button.option').filter(function (index, element) {
+                $('.quantity-container').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
-                $('.product__button.remove').filter(function (index, element) {
+                $('.button-container .remove').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
@@ -52,7 +52,7 @@ appComponents.ProductCatalog.prototype = function () {
     }
 
     function initializeRemoveButtons() {
-        $('.product__button.remove').click(function () {
+        $('.button-container .remove').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/remove',
@@ -60,15 +60,15 @@ appComponents.ProductCatalog.prototype = function () {
                     id: $(this).data('id')
                 }
             }).done(function (id) {
-                $('.product__button.add').filter(function (index, element) {
+                $('.button-container .add').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
-                $('.product__button.option').filter(function (index, element) {
+                $('.quantity-container').filter(function (index, element) {
                     return hasId(element, id);
                 }).removeClass('hide');
 
-                $('.product__button.remove').filter(function (index, element) {
+                $('.button-container .remove').filter(function (index, element) {
                     return hasId(element, id);
                 }).addClass('hide');
 
