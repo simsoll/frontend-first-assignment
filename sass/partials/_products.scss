@@ -1,22 +1,13 @@
 $product-padding: 0.2rem;
 
 .product-page {
-    margin-top: $navigation-height + $navigation-spacing;
-}
-
-.products {
-    &:after {
-        clear: both;
-        display: block;
-        content: "";
-    }    
+    margin-top: $navigation-height + $navigation-spacing;   
 }
 
 .product-container {
     background-color: $color-primary-5;
     padding: $product-padding;    
-    margin-bottom: 2%;    
-    
+    margin-bottom: 2%;        
 }
 
 .product {

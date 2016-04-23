@@ -21,7 +21,7 @@ appComponents.PurchaseCatalog.prototype = function () {
     }
 
     function initilizeRemoveButtons() {
-        $('.purchase__remove-button').click(function () {
+        $('.button.remove-product').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/remove',
@@ -33,7 +33,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                     $('.pending-purchases').remove();
                 }
                 else {
-                    $('.pending-purchases').find('[data-id=' + id + ']').closest('.purchase__products-item').remove();
+                    $('.pending-purchases').find('[data-id=' + id + ']').closest('.purchase__product').remove();
                 }
 
                 addToElement('.cart__items', -1);
@@ -43,10 +43,10 @@ appComponents.PurchaseCatalog.prototype = function () {
     }
 
     function initializeSubmitButton() {
-        $('.purchase__submit-button').click(function () {
+        $('.button.submit').click(function () {
             var amounts = [];
 
-            $('.pending-purchases .purchase__products-item').each(function (index, element) {
+            $('.pending-purchases .purchase__product').each(function (index, element) {
                 var inputElement = $(element).find('input');
                 amounts.push(
                     {
@@ -64,7 +64,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                     timestamp: formatDate(new Date())
                 }
             }).done(function (meta) {
-                var $purchase = $('.pending-purchases .purchase');
+                var $purchase = $('.pending-purchases .purchase-container');
 
                 convertPendingPurchaseToSubmittedPurchase($purchase, meta);
                 movePurchaseToSection($purchase, 'submitted-purchases', 'Purchases to be Approved');
@@ -80,7 +80,7 @@ appComponents.PurchaseCatalog.prototype = function () {
     }
 
     function initializeApproveButtons() {
-        $('.purchase__approve-button').click(function () {
+        $('.button.approve').click(function () {
             $.ajax({
                 type: 'post',
                 url: '/approve',
@@ -89,7 +89,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                     timestamp: formatDate(new Date())
                 }
             }).done(function (data) {
-                var $purchase = $('.purchase__approve-button[data-id=' + data.id + ']').closest('.purchase');
+                var $purchase = $('.button.approve[data-id=' + data.id + ']').closest('.purchase-container');
 
                 convertSubmittedPurchaseToApprovedPurchase($purchase, data.meta);
                 movePurchaseToSection($purchase, 'approved-purchases', 'Approved Purchases');
@@ -116,7 +116,7 @@ appComponents.PurchaseCatalog.prototype = function () {
     }
 
     function productsIn(section) {
-        return $('.' + section + ' .purchase__products-item').length;
+        return $('.' + section + ' .purchase__product').length;
     }
 
     function purchasesIn(section) {
@@ -125,10 +125,10 @@ appComponents.PurchaseCatalog.prototype = function () {
 
     function movePurchaseToSection(purchase, section, headline) {
         if (!$('.' + section).length) {
-            $('.' + previousSection(section)).after('<div class="' + section + '"><h2>' + headline + '</h2></div>');
+            $('.' + previousSection(section)).after('<div class="' + section + '"><h1>' + headline + '</h1></div>');
         }
 
-        $('.' + section + ' h2').after($(purchase));
+        $('.' + section + ' h1').after($(purchase));
     }
 
     function previousSection(section) {
@@ -143,25 +143,27 @@ appComponents.PurchaseCatalog.prototype = function () {
     }
 
     function convertPendingPurchaseToSubmittedPurchase(purchase, meta) {
-        //add timestamp and user name
+        //add timestamp and user name after products section
         $(purchase)
-            .prepend('<p>Purchased at: ' + meta.timestamp + '</p>')
-            .prepend('<p>Purchased by: ' + meta.user.name + '</p>');
+            .find('.purchase__products')
+            .append('<h2>Timeline</h2>')
+            .append('<p>Purchased by: ' + meta.user.name + '</p>')
+            .append('<p>Purchased at: ' + meta.timestamp + '</p>');
 
         //replace input box with number
         $(purchase)
-            .find('.purchase__products-item-amount')
+            .find('.purchase__product-amount')
             .each(function (index, element) {
                 var amount = $(element).find('input').val();
-                $(element).html('Amount: ' + amount);
+                $(element).html('Qty: ' + amount);
             });
 
         //change submit button to approve button
         $(purchase)
-            .find('.purchase__submit-button')
+            .find('.button.submit')
             .unbind('click')
-            .removeClass('purchase__submit-button')
-            .addClass('purchase__approve-button')
+            .removeClass('submit')
+            .addClass('approve')
             .html('Approve');
         initializeApproveButtons();
     }
@@ -169,12 +171,14 @@ appComponents.PurchaseCatalog.prototype = function () {
     function convertSubmittedPurchaseToApprovedPurchase(purchase, meta) {
         //add timestamp and user name
         $(purchase)
-            .prepend('<p>Approved at: ' + meta.timestamp + '</p>')
-            .prepend('<p>Approved by: ' + meta.user.name + '</p>');
+            .find('.purchase')
+            .addClass('-approved')
+            .append('<p>Approved by: ' + meta.user.name + '</p>')
+            .append('<p>Approved at: ' + meta.timestamp + '</p>');
 
         //remove approve button
         $(purchase)
-            .find('.purchase__approve-button')
+            .find('.button.approve')
             .unbind('click')
             .remove();
 

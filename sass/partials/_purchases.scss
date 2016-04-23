@@ -1,9 +1,26 @@
+$purchase-padding: 1rem;
+
 .purchase-page {
     margin-top: $navigation-height + $navigation-spacing;
+      
+}
+
+.purchase-container {
+    background-color: $color-primary-5;
+    padding: $purchase-padding;    
+    margin-bottom: 2%;        
 }
 
 .purchase {
-    margin: 0.5rem 0 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;    
+    position: relative;
+    padding-bottom: $button-height;
+    
+    &.-approved {
+        padding-bottom: $purchase-padding;        
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {

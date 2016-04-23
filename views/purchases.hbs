@@ -3,28 +3,30 @@
 </header>
 
 <div class="purchase-page">
+
     {{#if pendingPurchase.products}}
-        <div class="pending-purchases">
-            <h2>Purchases to be Submitted</h2>
+        <div class="row pending-purchases">
+            <h1>Purchases to be Submitted</h1>
             {{> purchase pendingPurchase}}
         </div>
     {{/if}}
-
+    
     {{#if submittedPurchases.length}}
-        <div class="submitted-purchases">
-            <h2>Purchases to be Approved</h2>
+        <div class="row submitted-purchases">
+            <h1>Purchases to be Approved</h1>
             {{#each submittedPurchases}}
                 {{> purchase}}
             {{/each}}    
         </div>
-    {{/if}}
-
+    {{/if}}   
+ 
     {{#if approvedPurchases.length}}
-        <div class="approved-purchases">
-            <h2>Approved Purchases</h2>
+        <div class="row approved-purchases">
+            <h1>Approved Purchases</h1>
             {{#each approvedPurchases}}
                 {{> purchase}}
             {{/each}}    
         </div>
     {{/if}}
+    
 </div>

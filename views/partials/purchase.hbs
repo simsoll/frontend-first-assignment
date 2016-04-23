@@ -1,36 +1,49 @@
-<div class="purchase">
-    {{#if products.length}}            
-        {{#isEqual status 'submitted'}}
-            <p>Purchased by: {{creator}}</p>
-            <p>Purchased at: {{createdAt}}</p>        
-        {{/isEqual}}
-        {{#isEqual status 'approved'}}
-            <p>Approved by: {{approver}}</p>
-            <p>Approved at: {{approvedAt}}</p>            
-            <p>Purchased by: {{creator}}</p>
-            <p>Purchased at: {{createdAt}}</p>            
-        {{/isEqual}}
-        <h3>Products</h3>
-        <ul class="purchase__products">
-            {{#each products}}
-                <li class="purchase__products-item"><p>Product description: {{product.description}},</p> 
-                {{#isEqual ../status 'pending'}}                    
-                    <div class="purchase__products-item-amount">
-                        Amount: <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
-                        <button class="purchase__remove-button" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
+<div class="purchase-container col-x-small-12 col-small-12 col-large-4 col-x-large-3">
+    <div class="purchase {{#isEqual status 'approved'}}-approved{{/isEqual}}">
+        {{#if products.length}}            
+            <h2>Products</h2>
+            <ul class="purchase__products">
+                {{#each products}}
+                    <li class="purchase__product">
+                        <p>{{product.name}}</p> 
+                        <div>€ {{product.price}}</div>                  
+                        {{#isEqual ../status 'pending'}}                    
+                            <div class="purchase__product-amount">
+                                Qty: <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
+                                <button class="button remove-product" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
+                            </div>
+                        {{else}}
+                            <div>Qty: {{amount}}</div> 
+                        {{/isEqual}}      
+                    </li>
+                {{/each}}
+            </ul>
+            {{#isEqual status 'pending'}}
+                <div class="button-placement-container -pull-down">
+                    <div class="button-container">                 
+                        <button class="button -full-width submit show-x-small show-small" data-id={{id}}>Submit</button>
+                        <button class="button -half-width -pull-right submit hide-x-small hide-small" data-id={{id}}>Submit</button>
                     </div>
-                {{else}}
-                    <div>Amount: {{amount}}</div> 
-                {{/isEqual}}      
-                <div>Price: {{product.price}}</div>                  
-                </li>
-            {{/each}}
-        </ul>
-        {{#isEqual status 'pending'}}
-            <button class="purchase__submit-button" data-id={{id}}>Submit</button>
-        {{/isEqual}}        
-        {{#isEqual status 'submitted'}}
-            <button class="purchase__approve-button" data-id={{id}}>Approve</button>
-        {{/isEqual}}
-    {{/if}}
+                </div>      
+            {{else}}
+            <h2>Timeline</h2>                      
+            {{/isEqual}}     
+            {{#isEqual status 'submitted'}}
+                <p>Purchased by: {{creator}}</p>
+                <p>Purchased at: {{createdAt}}</p>        
+                <div class="button-placement-container -pull-down">
+                    <div class="button-container">                 
+                    <button class="button -full-width approve show-x-small show-small" data-id={{id}}>Approve</button>
+                    <button class="button -half-width -pull-right approve hide-x-small hide-small" data-id={{id}}>Approve</button>
+                    </div>
+                </div>                
+            {{/isEqual}}
+            {{#isEqual status 'approved'}}
+                <p>Purchased by: {{creator}}</p>
+                <p>Purchased at: {{createdAt}}</p>            
+                <p>Approved by: {{approver}}</p>
+                <p>Approved at: {{approvedAt}}</p>            
+            {{/isEqual}}     
+        {{/if}}
+    </div>
 </div>
