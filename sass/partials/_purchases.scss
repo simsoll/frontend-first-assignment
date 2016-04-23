@@ -23,10 +23,19 @@ $purchase-padding: 1rem;
     height: 100%;    
     position: relative;
     padding-bottom: $button-height;
+    overflow: hidden;      
     
     &.-approved {
         padding-bottom: $purchase-padding;        
     }
+    
+    &:before {
+        @include font-awesome-background;
+        left: -3rem;
+        bottom: -2rem;        
+        content: "\f15c";
+        font-size: 20rem;
+    }     
 }
 .purchase__table {
     width: 100%;
@@ -35,10 +44,6 @@ $purchase-padding: 1rem;
 .purchase__product {
     height: $button-height;
        
-    p {
-        font-size: 1.2rem;
-    }
-    
     button {
         width: $button-height;
         vertical-align: middle;
@@ -57,7 +62,7 @@ $purchase-padding: 1rem;
 
 .purchase-details {
     line-height: $button-height;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     vertical-align: middle; 
     
     &.-heading {
@@ -79,7 +84,10 @@ $purchase-padding: 1rem;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
-
+    .purchase-details {
+        line-height: $button-height;
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   

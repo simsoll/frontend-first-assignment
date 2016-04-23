@@ -16,13 +16,6 @@ $widget-padding: 1rem;
     }        
 }
 
-@mixin font-awesome-background {
-    position: absolute;
-    font-family: 'FontAwesome';
-    font-size: 15rem;   
-    opacity: 0.25;    
-}
-
 .widget {
     background-color: $color-primary-5;
     position: relative;    

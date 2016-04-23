@@ -29,7 +29,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                     id: $(this).data('id')
                 }
             }).done(function (id) {
-                if (productsIn('pending-purchases') === 1) {
+                if (productsIn('pending-purchases') === 2) {
                     $('.pending-purchases').remove();
                 }
                 else {
