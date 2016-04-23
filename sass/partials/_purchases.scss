@@ -28,13 +28,12 @@ $purchase-padding: 1rem;
         padding-bottom: $purchase-padding;        
     }
 }
-.purchase__products {
+.purchase__table {
     width: 100%;
 }
 
 .purchase__product {
     height: $button-height;
-
        
     p {
         font-size: 1.2rem;
@@ -56,11 +55,7 @@ $purchase-padding: 1rem;
     }
 }
 
-.purchase__product-amount {
-    float: right;
-}
-
-.purchase__product-details {
+.purchase-details {
     line-height: $button-height;
     font-size: 0.9rem;
     vertical-align: middle; 
@@ -77,13 +72,10 @@ $purchase-padding: 1rem;
         text-align: right;
     } 
     
+    .purchase__event.-pending &,
     .purchase__product.-pending & {
         padding-bottom: $purchase-padding;         
     }                 
-}
-
-.purchase__product-amount {
-    display: inline-block;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {

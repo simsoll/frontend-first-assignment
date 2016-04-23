@@ -67,7 +67,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                 var $purchase = $('.pending-purchases .purchase-container');
 
                 convertPendingPurchaseToSubmittedPurchase($purchase, meta);
-                movePurchaseToSection($purchase, 'submitted-purchases', 'Purchases to be Approved');
+                movePurchaseToSection($purchase, 'submitted-purchases', 'To be approved');
 
                 if (purchasesIn('pending-purchases') === 0) {
                     $('.pending-purchases').remove();
@@ -92,7 +92,7 @@ appComponents.PurchaseCatalog.prototype = function () {
                 var $purchase = $('.button.approve[data-id=' + data.id + ']').closest('.purchase-container');
 
                 convertSubmittedPurchaseToApprovedPurchase($purchase, data.meta);
-                movePurchaseToSection($purchase, 'approved-purchases', 'Approved Purchases');
+                movePurchaseToSection($purchase, 'approved-purchases', 'Approved');
 
                 if (purchasesIn('submitted-purchases') === 0) {
                     $('.submitted-purchases').remove();
@@ -145,19 +145,32 @@ appComponents.PurchaseCatalog.prototype = function () {
     function convertPendingPurchaseToSubmittedPurchase(purchase, meta) {
         //add timestamp and user name after products section
         $(purchase)
-            .find('.purchase__products')
-            .append('<h2>Timeline</h2>')
-            .append('<p>Purchased by: ' + meta.user.name + '</p>')
-            .append('<p>Purchased at: ' + meta.timestamp + '</p>');
+            .find('.purchase-section.products')
+            .after('<div class="purchase-section events">' +
+                        '<h2>Timeline</h2>' +
+                        '<table class="purchase__table events">' +
+                            '<tr class="purchase__event">' +
+                                purchaseDetailsTableRow('Who', 'left', true) +
+                                purchaseDetailsTableRow('What', 'right', true) +
+                                purchaseDetailsTableRow('When', 'right', true) +
+                            '</tr>' +
+                            '<tr class="purchase__event">' +
+                                purchaseDetailsTableRow(meta.user.name, 'left') +
+                                purchaseDetailsTableRow('Submitted', 'right') +
+                                purchaseDetailsTableRow(meta.timestamp, 'right') +
+                            '</tr>' +
+                        '</table>' +
+                    '</div>');
 
         //replace input box with number
         $(purchase)
-            .find('.purchase__product-amount')
+            .find('.purchase-details.amounts')
             .each(function (index, element) {
                 var amount = $(element).find('input').val();
                 $(element)
-                    .removeClass('purchase__product-amount')
-                    .addClass('purchase__product-details -align-right')
+                    .removeClass('amount')
+                    .remove('input')
+                    .remove('button')
                     .html(amount);
             });
         
@@ -176,46 +189,31 @@ appComponents.PurchaseCatalog.prototype = function () {
         $(purchase)
             .find('.purchase')
             .addClass('-approved')
-            .append('<p>Approved by: ' + meta.user.name + '</p>')
-            .append('<p>Approved at: ' + meta.timestamp + '</p>');
+            .find('.purchase__table.events tbody')
+            .append(purchaseDetailsTableRow(meta.user.name, 'left'))
+            .append(purchaseDetailsTableRow('Approved', 'right'))
+            .append(purchaseDetailsTableRow(meta.timestamp, 'right'));
 
         //remove approve button
         $(purchase)
             .find('.button.approve')
             .unbind('click')
             .remove();
-
+    }
+    
+    function purchaseDetailsTableRow(innerHtml, alignment, isHeading) {
+        if (isHeading) {
+            return '<td class="purchase-details -align-' + alignment + ' -heading">' + innerHtml + '</td>';            
+        }
+        return '<td class="purchase-details -align-' + alignment + '">' + innerHtml + '</td>';
     }
 
     function formatDate(date) {
-        var weekDayNames = ['Sunday', 'Monday', 'Tuesday',
-            'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-        var monthNames = ['January', 'February', 'March',
-            'April', 'May', 'June', 'July', 'August', 'September',
-            'October', 'November', 'December'];
-
         var day = date.getDate();
-        var sup = '';
-
-        if (day === 1 || day === 21 || day === 31) {
-            sup = 'st';
-        }
-        else if (day === 2 || day === 22) {
-            sup = 'nd';
-        }
-        else if (day === 3 || day === 23) {
-            sup = 'rd';
-        }
-        else {
-            sup = 'th';
-        }
-
-        var weekDay = date.getDay();
         var month = date.getMonth();
         var year = date.getFullYear();
 
-        return weekDayNames[weekDay] + ' ' + day + sup + ' ' + monthNames[month] + ' ' + year + ' - ' + formatTime(date);
+        return year + '-' + prefixZeroAsString(month) + '-' + prefixZeroAsString(day) + ' ' + formatTime(date);
     }
 
     function formatTime(date) {
@@ -235,7 +233,7 @@ appComponents.PurchaseCatalog.prototype = function () {
             hours = hours - 12;
         }
 
-        var seconds = prefixZeroAsString(date.getSeconds());        
+        var seconds = prefixZeroAsString(date.getSeconds());
         var minutes = prefixZeroAsString(date.getMinutes());
         hours = prefixZeroAsString(hours);
 

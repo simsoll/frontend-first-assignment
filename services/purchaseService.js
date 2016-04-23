@@ -4,9 +4,13 @@ module.exports = (function () {
     var purchases = [
         {
             id: 1,
-            creator: 'Simon',
-            createdAt: 'Thursday 21st April 2016 - 02:57:42 PM',
             status: 'submitted',
+            events: [
+                {
+                    who: 'Simon',
+                    what: 'Submitted',
+                    when: '2016-04-21 02:57:42 PM'
+                }],
             products: [
                 {
                     amount: 3,
@@ -35,11 +39,18 @@ module.exports = (function () {
         },
         {
             id: 2,
-            creator: 'John',
-            createdAt: 'Thursday 16th April 2016 - 09:42:13 AM',
-            approver: 'Admin',
-            approvedAt: 'Thursday 16th April 2016 - 03:17:19 PM',
             status: 'approved',
+            events: [
+                {
+                    who: 'John',
+                    what: 'Submitted',
+                    when: '2016-04-16 09:42:13 AM'
+                },
+                {
+                    who: 'Admin',
+                    what: 'Approved',
+                    when: '2016-04-16 03:17:19 PM'
+                }],
             products: [
                 {
                     amount: 1,
@@ -85,7 +96,8 @@ module.exports = (function () {
             purchase = {
                 id: generateId(),
                 products: [],
-                status: 'pending'
+                status: 'pending',
+                events: []
             };
         }
 
@@ -93,7 +105,7 @@ module.exports = (function () {
             amount: amount,
             product: product
         });
-
+        
         if (isNewPurchase) {
             purchases.push(purchase);
         }
@@ -140,8 +152,12 @@ module.exports = (function () {
         }
 
         purchase.status = 'submitted';
-        purchase.creator = meta.user.name;
-        purchase.createdAt = meta.timestamp;
+
+        purchase.events.push({
+            who: meta.user.name,
+            what: 'Submitted',
+            when: meta.timestamp
+        });
     }
 
     function approvePurchase(id, meta) {
@@ -156,8 +172,12 @@ module.exports = (function () {
         }
 
         purchase.status = 'approved';
-        purchase.approver = meta.user.name;
-        purchase.approvedAt = meta.timestamp;
+
+        purchase.events.push({
+            who: meta.user.name,
+            what: 'Approved',
+            when: meta.timestamp
+        });
     }
 
     function getAll() {

@@ -1,25 +1,25 @@
 <div class="purchase-container col-x-small-12 col-small-12 col-large-6 col-large-offset-3">
     <div class="purchase {{#isEqual status 'approved'}}-approved{{/isEqual}}">
         {{#if products.length}}   
-            <div class="purchase-section">         
+            <div class="purchase-section products">         
                 <h2>Products</h2>
-                <table class="purchase__products">
+                <table class="purchase__table products">
                     <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
-                        <td class="purchase__product-details -align-left -heading">Name</td> 
-                        <td class="purchase__product-details -align-right -heading">Price</td>
-                        <td class="purchase__product-details -align-right -heading">Qty</td>
+                        <td class="purchase-details -align-left -heading">Name</td> 
+                        <td class="purchase-details -align-right -heading">Price</td>
+                        <td class="purchase-details -align-right -heading">Qty</td>
                     </tr>                                                
                     {{#each products}}                    
                         <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
-                            <td class="purchase__product-details -align-left">{{product.name}}</td> 
-                            <td class="purchase__product-details -align-right">€{{product.price}}</td>             
+                            <td class="purchase-details -align-left">{{product.name}}</td> 
+                            <td class="purchase-details -align-right">€{{product.price}}</td>             
                             {{#isEqual ../status 'pending'}}       
-                                <td class="purchase__product-amount">
+                                <td class="purchase-details amounts -align-right">
                                     <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
                                     <button class="button remove-product" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                                 </td>
                             {{else}}
-                                <td class="purchase__product-details -align-right">{{amount}}</td> 
+                                <td class="purchase-details -align-right">{{amount}}</td> 
                             {{/isEqual}}      
                         </tr>
                     {{/each}}
@@ -33,26 +33,33 @@
                     </div>      
                 {{/isEqual}}
             </div>
-            <div class="purchase-section">            
+            {{#if events.length}}               
+                <div class="purchase-section events">
+                    <h2>Timeline</h2>
+                    <table class="purchase__table events">
+                        <tr class="purchase__event">                                        
+                            <td class="purchase-details -align-left -heading">Who</td> 
+                            <td class="purchase-details -align-right -heading">What</td>
+                            <td class="purchase-details -align-right -heading">When</td>
+                        </tr>                                                
+                        {{#each events}}                    
+                            <tr class="purchase__event">                                        
+                                <td class="purchase-details -align-left">{{who}}</td> 
+                                <td class="purchase-details -align-right">{{what}}</td>             
+                                <td class="purchase-details -align-right">{{when}}</td> 
+                            </tr>
+                        {{/each}}
+                    </table>                                           
+                </div>
                 {{#isEqual status 'submitted'}}
-                    <h2>Timeline</h2>                      
-                    <p>Purchased by: {{creator}}</p>
-                    <p>Purchased at: {{createdAt}}</p>        
                     <div class="button-placement-container -pull-down">
                         <div class="button-container">                 
                         <button class="button -full-width approve show-x-small show-small" data-id={{id}}>Approve</button>
                         <button class="button -half-width -pull-right approve hide-x-small hide-small" data-id={{id}}>Approve</button>
                         </div>
                     </div>                
-                {{/isEqual}}
-                {{#isEqual status 'approved'}}
-                    <h2>Timeline</h2>                      
-                    <p>Purchased by: {{creator}}</p>
-                    <p>Purchased at: {{createdAt}}</p>            
-                    <p>Approved by: {{approver}}</p>
-                    <p>Approved at: {{approvedAt}}</p>            
-                {{/isEqual}}
-            </div>
+                {{/isEqual}}                
+            {{/if}}
         {{/if}}
     </div>
 </div>
