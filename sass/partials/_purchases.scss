@@ -13,16 +13,16 @@ $purchase-padding: 1rem;
     margin-bottom: 2%;        
 }
 
+.purchase-section {
+    padding-bottom: $purchase-padding;
+}
+
 .purchase {
     box-sizing: border-box;
     width: 100%;
     height: 100%;    
     position: relative;
     padding-bottom: $button-height;
-    
-    .products-section {
-        padding-bottom: $purchase-padding;
-    }
     
     &.-approved {
         padding-bottom: $purchase-padding;        

@@ -6,14 +6,14 @@
 
     {{#if pendingPurchase.products}}
         <div class="row pending-purchases">
-            <h1>Purchases to be Submitted</h1>
+            <h1>To be Submitted</h1>
             {{> purchase pendingPurchase}}
         </div>
     {{/if}}
     
     {{#if submittedPurchases.length}}
         <div class="row submitted-purchases">
-            <h1>Purchases to be Approved</h1>
+            <h1>To be Approved</h1>
             {{#each submittedPurchases}}
                 {{> purchase}}
             {{/each}}    
@@ -22,7 +22,7 @@
  
     {{#if approvedPurchases.length}}
         <div class="row approved-purchases">
-            <h1>Approved Purchases</h1>
+            <h1>Approved</h1>
             {{#each approvedPurchases}}
                 {{> purchase}}
             {{/each}}    

@@ -155,9 +155,12 @@ appComponents.PurchaseCatalog.prototype = function () {
             .find('.purchase__product-amount')
             .each(function (index, element) {
                 var amount = $(element).find('input').val();
-                $(element).html('Qty: ' + amount);
+                $(element)
+                    .removeClass('purchase__product-amount')
+                    .addClass('purchase__product-details -align-right')
+                    .html(amount);
             });
-
+        
         //change submit button to approve button
         $(purchase)
             .find('.button.submit')
