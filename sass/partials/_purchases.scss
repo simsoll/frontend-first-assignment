@@ -28,13 +28,14 @@ $purchase-padding: 1rem;
         padding-bottom: $purchase-padding;        
     }
 }
+.purchase__products {
+    width: 100%;
+    table-layout: fixed;    
+}
 
 .purchase__product {
     height: $button-height;
 
-    &.-pending {
-        padding-bottom: $purchase-padding;         
-    }
        
     p {
         font-size: 1.2rem;
@@ -58,9 +59,26 @@ $purchase-padding: 1rem;
 }
 
 .purchase__product-details {
+    width: 33%;
     font-size: 1.4rem;
     line-height: 3rem;
-    vertical-align: middle;    
+    vertical-align: middle; 
+    
+    &.-name {
+        text-align: left;
+    }
+    
+    &.-price {
+        text-align: right;
+    }   
+    
+    &.-amount {
+        text-align: right;
+    } 
+    
+    .purchase__product.-pending & {
+        padding-bottom: $purchase-padding;         
+    }                 
 }
 
 .purchase__product-amount {

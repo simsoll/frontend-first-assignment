@@ -2,23 +2,28 @@
     <div class="purchase {{#isEqual status 'approved'}}-approved{{/isEqual}}">
         {{#if products.length}}   
             <div class="products-section">         
-                <h2>Products</h2>
-                <ul class="purchase__products">
-                    {{#each products}}
-                        <li class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
-                            <span class="purchase__product-details">{{product.name}} - €{{product.price}}</span>             
+                <h2>Purchase</h2>
+                <table class="purchase__products">
+                    <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
+                        <td class="purchase__product-details -name">Name</td> 
+                        <td class="purchase__product-details -price">Price</td>
+                        <td class="purchase__product-details -amount">Qty</td>
+                    </tr>                                                
+                    {{#each products}}                    
+                        <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
+                            <td class="purchase__product-details -name">{{product.name}}</td> 
+                            <td class="purchase__product-details -price">€{{product.price}}</td>             
                             {{#isEqual ../status 'pending'}}       
-                                <span class="purchase__product-amount">
-                                    <span class="purchase__product-details">Qty: </span>
+                                <td class="purchase__product-amount">
                                     <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
                                     <button class="button remove-product" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
-                                </span>
+                                </td>
                             {{else}}
-                                <span class="purchase__product-details">- Qty: {{amount}}</span> 
+                                <td class="purchase__product-details -amount">{{amount}}</td> 
                             {{/isEqual}}      
-                        </li>
+                        </tr>
                     {{/each}}
-                </ul>
+                </table>
                 {{#isEqual status 'pending'}}
                     <div class="button-placement-container -pull-down">
                         <div class="button-container">                 
