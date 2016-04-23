@@ -13,7 +13,7 @@
                 <p class="product__stock -alert">Out of stock</p>                
             {{/ifGreaterThan}}
         {{/ifGreaterThan}}
-        <p class="product__price">€ {{price}}</p>
+        <p class="product__price">€{{price}}</p>
         <div class="quantity-container {{#if isInPendingPurchase}}hide{{/if}}" data-id="{{id}}">
             <label for="quantityOption-{{id}}">Qty:</label>
             <select class="option" name="quantityOption-{{id}}" id="quantityOption-{{id}}">

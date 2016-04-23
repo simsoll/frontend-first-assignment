@@ -1,5 +1,7 @@
 $purchase-padding: 1rem;
 
+
+
 .purchase-page {
     margin-top: $navigation-height + $navigation-spacing;
       
@@ -18,9 +20,51 @@ $purchase-padding: 1rem;
     position: relative;
     padding-bottom: $button-height;
     
+    .products-section {
+        padding-bottom: $purchase-padding;
+    }
+    
     &.-approved {
         padding-bottom: $purchase-padding;        
     }
+}
+
+.purchase__product {
+    height: $button-height;
+
+    &.-pending {
+        padding-bottom: $purchase-padding;         
+    }
+       
+    p {
+        font-size: 1.2rem;
+    }
+    
+    button {
+        width: $button-height;
+        vertical-align: middle;
+    }
+    
+    input {
+        width: $button-height;
+        height: $button-height;     
+        box-sizing: border-box;
+        vertical-align: middle;   
+    }
+}
+
+.purchase__product-amount {
+    float: right;
+}
+
+.purchase__product-details {
+    font-size: 1.4rem;
+    line-height: 3rem;
+    vertical-align: middle;    
+}
+
+.purchase__product-amount {
+    display: inline-block;
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
