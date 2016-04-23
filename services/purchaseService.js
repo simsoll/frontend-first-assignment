@@ -15,6 +15,7 @@ module.exports = (function () {
                 {
                     amount: 3,
                     product: {
+                        name: 'Product 1',
                         filtered: true,
                         description: 'Product description 1',
                         price: 39.95
@@ -23,6 +24,7 @@ module.exports = (function () {
                 {
                     amount: 2,
                     product: {
+                        name: 'Product 4',
                         filtered: true,
                         description: 'Product description 4',
                         price: 9.75
@@ -31,6 +33,7 @@ module.exports = (function () {
                 {
                     amount: 6,
                     product: {
+                        name: 'Product 5',
                         filtered: true,
                         description: 'Product description 5',
                         price: 10.25
@@ -55,22 +58,25 @@ module.exports = (function () {
                 {
                     amount: 1,
                     product: {
+                        name: 'Product 1',
                         filtered: true,
                         description: 'Product description 1',
-                        price: 12.25
+                        price: 39.95
                     }
                 },
                 {
                     amount: 4,
                     product: {
+                        name: 'Product 3',
                         filtered: true,
                         description: 'Product description 3',
-                        price: 59.95
+                        price: 9.75
                     }
                 },
                 {
                     amount: 2,
                     product: {
+                        name: 'Product 9',
                         filtered: true,
                         description: 'Product description 9',
                         price: 45.25

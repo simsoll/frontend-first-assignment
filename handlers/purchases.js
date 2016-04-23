@@ -41,7 +41,7 @@ module.exports.approve = function (req, res) {
     
     var meta = {
         user: {
-            name: 'Admin 1'
+            name: 'Admin'
         },
         timestamp: timestamp
     };

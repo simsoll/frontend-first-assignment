@@ -10,7 +10,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 1',
-            price: 50.3,
+            price: 39.95,
             producer: 'Craftsman',
             stock: 15
         },
@@ -46,7 +46,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 4',
-            price: 50.3,
+            price: 9.75,
             producer: 'Craftsman',
             stock: 15
         },
@@ -58,7 +58,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 5',
-            price: 50.3,
+            price: 10.25,
             producer: 'Craftsman',
             stock: 15
         },
@@ -106,7 +106,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 9',
-            price: 50.3,
+            price: 45.25,
             producer: 'Craftsman',
             stock: 15
         },
