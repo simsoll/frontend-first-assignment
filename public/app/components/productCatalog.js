@@ -17,6 +17,18 @@ appComponents.ProductCatalog.prototype = function () {
         initializeAddButtons();
         initializeRemoveButtons();
         initializeBarCodeScannerCloseButton();
+        
+        setActivePaginationItem();
+    }
+    
+    function setActivePaginationItem() {
+        var page = getUrlQueryValue('page');
+        
+        if (!page) {
+            page = 1
+        } 
+        
+        $('.pagination a[href="/products?page=' + page + '"]').addClass('-active');
     }
 
     function initializeAddButtons() {
@@ -109,4 +121,18 @@ appComponents.ProductCatalog.prototype = function () {
             $('.modal-barcode').removeClass('show');
         });
     }
+    
+    function getUrlQueryValue(key)
+    {
+        var pairs = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < pairs.length; i++)
+        {
+            var pair = pairs[i].split('=');
+            
+            if (pair[0] === key) {
+                return pair[1]
+            }
+        }
+        return null;
+    }    
 } ();

@@ -4,6 +4,11 @@ $product-padding: 0.2rem;
     margin-top: $navigation-height + $navigation-spacing;   
 }
 
+.products {
+    clear: both;
+    overflow: hidden;
+}
+
 .product-container {
     background-color: $color-primary-5;
     padding: $product-padding;    
@@ -60,23 +65,35 @@ $product-padding: 0.2rem;
         height: $button-height;
         width: 2rem;
     }    
-    
 }
 
 .pagination {
     display: block;
     text-align: center;
+    margin-bottom: 2%;        
     
     & li {
         display: inline;
     }
     
-    &.-top {
-        margin-top: 2%;        
-    }
-    
-    &.-bottom {
-        margin: 2% 0;
+    & a {
+        background-color: $color-primary-5;                    
+        text-decoration: none;
+        display: inline-block;
+        height: $button-height;
+        width: $button-height;
+        line-height: $button-height;        
+        color: $color-complement-1;  
+        margin: 0.5rem;     
+        font-size: 1.5rem;
+        
+        &:hover {
+            background-color: $color-primary-3;                                
+        }
+        
+        &.-active {
+            background-color: $color-primary-3;                    
+        } 
     }
 }
 

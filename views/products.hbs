@@ -20,7 +20,7 @@
    <ul class="pagination -bottom">
         <!--<li><a href="{{products.[0].link}}">First</a></li>-->
         {{#each (generatePages products)}}
-            <li><a href="{{link}}">{{number}}</a></li>
+            <li><a href="{{{link}}}">{{number}}</a></li>
         {{/each}}
         <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
     </ul>

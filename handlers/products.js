@@ -3,7 +3,7 @@ var productService = require('../services/productService.js');
 var purchaseService = require('../services/purchaseService.js');
 var math = require('../services/mathService.js');
 
-var itemsPerPage = 8; //TODO: move to global config object
+var itemsPerPage = 6; //TODO: move to global config object
 
 module.exports.list = function (req, res) {
     var context = generateContext(req);
