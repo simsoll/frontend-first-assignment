@@ -30,7 +30,6 @@ $purchase-padding: 1rem;
 }
 .purchase__products {
     width: 100%;
-    table-layout: fixed;    
 }
 
 .purchase__product {
@@ -51,6 +50,9 @@ $purchase-padding: 1rem;
         height: $button-height;     
         box-sizing: border-box;
         vertical-align: middle;   
+        border-radius: 0;
+        border: none;
+        text-align: center;
     }
 }
 
@@ -59,20 +61,19 @@ $purchase-padding: 1rem;
 }
 
 .purchase__product-details {
-    width: 33%;
-    font-size: 1.4rem;
-    line-height: 3rem;
+    line-height: $button-height;
+    font-size: 0.9rem;
     vertical-align: middle; 
     
-    &.-name {
+    &.-heading {
+        font-size: 1.4rem;        
+    }
+    
+    &.-align-left {
         text-align: left;
     }
     
-    &.-price {
-        text-align: right;
-    }   
-    
-    &.-amount {
+    &.-align-right {
         text-align: right;
     } 
     

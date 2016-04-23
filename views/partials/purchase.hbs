@@ -5,21 +5,21 @@
                 <h2>Purchase</h2>
                 <table class="purchase__products">
                     <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
-                        <td class="purchase__product-details -name">Name</td> 
-                        <td class="purchase__product-details -price">Price</td>
-                        <td class="purchase__product-details -amount">Qty</td>
+                        <td class="purchase__product-details -align-left -heading">Name</td> 
+                        <td class="purchase__product-details -align-right -heading">Price</td>
+                        <td class="purchase__product-details -align-right -heading">Qty</td>
                     </tr>                                                
                     {{#each products}}                    
                         <tr class="purchase__product {{#isEqual ../status 'pending'}}-pending{{/isEqual}}">                                        
-                            <td class="purchase__product-details -name">{{product.name}}</td> 
-                            <td class="purchase__product-details -price">€{{product.price}}</td>             
+                            <td class="purchase__product-details -align-left">{{product.name}}</td> 
+                            <td class="purchase__product-details -align-right">€{{product.price}}</td>             
                             {{#isEqual ../status 'pending'}}       
                                 <td class="purchase__product-amount">
                                     <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
                                     <button class="button remove-product" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                                 </td>
                             {{else}}
-                                <td class="purchase__product-details -amount">{{amount}}</td> 
+                                <td class="purchase__product-details -align-right">{{amount}}</td> 
                             {{/isEqual}}      
                         </tr>
                     {{/each}}
