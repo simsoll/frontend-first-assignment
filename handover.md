@@ -22,13 +22,7 @@ for quick purchase and delivery. You may fake this feature through the camera on
 or you may try out libraries that supports this functionality.
 
 # General considerations
-Consider the following:
-* Goal? What are the sites intent?
-* Who are the sites users?
- * Age, gender, salary, origins, hobbies, motivations?
-* On what platform and from where might this site be accessed?
-* Should I break any "rules"?
-As the construction workers will be using the website while working in the field and mainly when missing some spare parts, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place purchases and to quickly get an overview of already placed purchases, which haven't yet been approved. 
+As the construction workers will be using the website while working in the field and mainly when missing tools or building material, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place purchases and to quickly get an overview of already placed purchases, which haven't yet been approved. 
 
 For the administration people in the office it should be easy to get an overview of yet to be approved purchases, approve these purchases and to see the purchase history for accounting purposes.
 
@@ -45,30 +39,19 @@ Consider the following:
  * You Don't Have to Abolish Capital Letters, But Sometimes It Helps (Make your design accessible. If you’re  hoping to appeal to a wide audience, avoid over-styling. Reduce your design to its most essential elements.)
  * Imitation is the Highest From of Flattery: Bauhaus is Everywhere (When you see a great graphic idea, be inspired)
  
-Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly solve the task at hand. The design should not draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
+Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly find the needed tools or materials. The goal of the design should not be to draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
 
-The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers. 
+The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers and of course using mobile devices with smaller screen sizes. 
 
-As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. The design will not be addressing these challenges by having different designs for construction workers and administration people, but will be a cohesive across users and devices. However, this will but some constraints on the design possibilities. 
+As for the wide-age audience and cultural variety the design style cannot be too fancy but should instead support the functional goals of the website to be productive and enabling completion of the task at hand as quickly as possible. The design will not be addressing these challenges by having different designs for construction workers and administration people, but will be a consistent across users and devices. However, this will put some constraints on the design possibilities. 
 
 The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple, clear and in an informative tone. 
 
-Tone?
-* Casual
-* Friendly
-* Formal 
-* Fun
-
-
 ## Style guide
-
-* Why a style guide? Purpose? What value does it create?
- * Changing the style guide should change the site
- * Forces you to define and hone your style, making for a more cohesive design.
- * Set of rules/guidiance supporting a consistent design - you don't want to confuse the user by having 12 different kinds of button designs. 
+The style guide descripted in this section will be a guidance and a set of rules for a constent design on the webpage.
 
 ### Style guide considerations
-To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp.  
+To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user.  
 
 
 Should include
@@ -219,7 +202,8 @@ navigation possibilities related to literature from Frost, Krug, etc.*
 Widgets
 * figure/ground + closure creates some depth in an overall flat-designed page. It makes the call-to-action (the button) stand out.
 * symmetry: 
- 
+
+* similarity: buttons, icons on purchases-widgets and purchases 
 
 *The construction worker should be able to purchase from t he mobile phone or tablet and rapidly find products while working in the field.* 
 
