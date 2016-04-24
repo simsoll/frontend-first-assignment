@@ -70,7 +70,7 @@ module.exports = (function () {
                         name: 'Product 3',
                         filtered: true,
                         description: 'Product description 3',
-                        price: 9.75
+                        price: 13.00
                     }
                 },
                 {

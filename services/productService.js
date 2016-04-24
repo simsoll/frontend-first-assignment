@@ -22,7 +22,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 2',
-            price: 45.3,
+            price: 45.50,
             producer: 'Craftsman',
             stock: 1
         },
@@ -34,7 +34,7 @@ module.exports = (function() {
             isFiltered: true,
             isInPendingPurchase: false,
             name: 'Product 3',
-            price: 13.0,
+            price: 13.00,
             producer: 'Craftsman',
             stock: 0
         },

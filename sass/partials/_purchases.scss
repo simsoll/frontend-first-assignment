@@ -31,8 +31,8 @@ $purchase-padding: 1rem;
     
     &:before {
         @include font-awesome-background;
-        left: -3rem;
-        bottom: -2rem;        
+        left: -5rem;
+        top: 2rem;        
         content: "\f15c";
         font-size: 20rem;
     }     
