@@ -20,14 +20,28 @@
 
     {{{body}}}
     
-    <div class="show-x-small"">
-        <div class="modal modal-overlay" data-modal-class=".modal-barcode">
-        </div>
+    <div class="modal-overlay -global hide" data-modal-class=".modal-barcode">
+    </div>
 
-        <div class="modal modal-barcode">
-            {{> product randomProduct}}    
-        </div>
-    </div>    
+    <div class="modal-barcode hide">
+        {{> product randomProduct}}    
+    </div>
+    
+    <div class="modal-overlay hide" data-modal-class=".modal-categories">
+    </div>
+
+    <div class="modal-categories hide">
+        <p>Categories</p>
+        <p>Placeholder</p>    
+    </div>                
+
+    <div class="modal-overlay hide" data-modal-class=".modal-login">
+    </div>
+
+    <div class="modal-login hide">
+        <p>Login</p>
+        <p>Placeholder</p>    
+    </div>                
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->

@@ -11,10 +11,33 @@ appComponents.Modal.prototype = function () {
     };
 
     function initialize() {
+        initializeModalOverlay();
+        initializeModalCategories();
+        initializeModelLogin();
+    }
+
+    function initializeModalOverlay() {
         $('.modal-overlay').click(function () {
-            $(this).removeClass('show');
+            $(this).toggleClass('hide');
             
-            $($(this).data('modal-class')).removeClass('show');
+            $($(this).data('modal-class')).toggleClass('hide');
         });
+    }
+    
+    function initializeModalCategories() {
+        $('.category-button').click(function() {
+            toggleModal('modal-categories', 'hide');
+        });
+    }
+    
+    function initializeModelLogin() {
+        $('.login-button').click(function() {
+            toggleModal('modal-login', 'hide');
+        });
+    }
+    
+    function toggleModal(modalClass, toggledClass) {
+        $('.modal-overlay[data-modal-class=".' + modalClass + '"]').toggleClass(toggledClass);
+        $('.' + modalClass).toggleClass(toggledClass);
     }
 } ();
