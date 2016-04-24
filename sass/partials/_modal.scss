@@ -39,7 +39,7 @@
     transform: translateY(-50%); 
     width: 50%;
     height: 50vh;
-    background-color: $color-primary-4;
+    background-color: $color-primary-5;
     margin: 0 auto;
     right: 0;
     left: 0;    
@@ -47,6 +47,7 @@
     & p {
         height: 10vh;
         display: inline-block;        
+        margin-top: 2rem;
     }
 }
 
