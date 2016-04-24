@@ -2,7 +2,7 @@
     {{> navigation}}
 </header>
 
-<div class="product-page">
+<main class="product-page">
     <h1>Product Catalog</h1>
     <ul class="pagination -top">
             <!--<li><a href="{{products.[0].link}}">First</a></li>-->
@@ -11,11 +11,11 @@
             {{/each}}
             <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
    </ul>
-   <div class="products">
+   <section class="products">
         {{#each paginatedProducts}}
             {{> product}}
         {{/each}}
-   </div>
+   </section>
     
    <ul class="pagination -bottom">
         <!--<li><a href="{{products.[0].link}}">First</a></li>-->
@@ -24,4 +24,4 @@
         {{/each}}
         <!--<li><a href="{{products.[products.length-1].link}}">Last</a></li>-->
     </ul>
-</div>
+</main>

@@ -2,31 +2,31 @@
     {{> navigation}}
 </header>
 
-<div class="purchase-page">
+<main class="purchase-page">
 
     {{#if pendingPurchase.products}}
-        <div class="row pending-purchases">
+        <section class="row pending-purchases">
             <h1>To be submitted</h1>
             {{> purchase pendingPurchase}}
-        </div>
+        </section>
     {{/if}}
     
     {{#if submittedPurchases.length}}
-        <div class="row submitted-purchases">
+        <section class="row submitted-purchases">
             <h1>To be approved</h1>
             {{#each submittedPurchases}}
                 {{> purchase}}
             {{/each}}    
-        </div>
+        </section>
     {{/if}}   
  
     {{#if approvedPurchases.length}}
-        <div class="row approved-purchases">
+        <section class="row approved-purchases">
             <h1>Approved</h1>
             {{#each approvedPurchases}}
                 {{> purchase}}
             {{/each}}    
-        </div>
+        </section>
     {{/if}}
     
-</div>
+</main>
