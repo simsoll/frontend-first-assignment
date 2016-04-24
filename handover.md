@@ -32,12 +32,7 @@ Both the design and the technical implementation will try to address these consi
 
 # Design part
 Consider the following:
-* Lessons from Bauhaus?
  * Form Follows Function (Never sacrifice your message for your design. Focus on readability, narrative, and information. Use your design to reinforce your message, never the other way around.
- * Always a Connection Between Color and Shape (Blue correspond with the circle)
- * Clean, Powerful Typography Matters (Be as imaginative with your typography as you are with every other tool in your toolbox, but make sure it never detracts from your message. Remember the styles and values.)
- * You Don't Have to Abolish Capital Letters, But Sometimes It Helps (Make your design accessible. If you’re  hoping to appeal to a wide audience, avoid over-styling. Reduce your design to its most essential elements.)
- * Imitation is the Highest From of Flattery: Bauhaus is Everywhere (When you see a great graphic idea, be inspired)
  
 Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly find the needed tools or materials. The goal of the design should not be to draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
 
@@ -48,10 +43,10 @@ As for the wide-age audience and cultural variety the design style cannot be too
 The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple, clear and in an informative tone. 
 
 ## Style guide
-The style guide descripted in this section will be a guidance and a set of rules for a constent design on the webpage.
+The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage.
 
 ### Style guide considerations
-To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user.  
+To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
 
 
 Should include
@@ -60,9 +55,7 @@ Should include
 ### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
 
-Besides the Open Sans typeface the geometric Walkway typeface will be used both when naming the title of the site - as a simple logo - and in the navigation to create contrast and catch attention. The geometric font type also fits in the overall construction-site setting.
-
-* Logo typeface? Find slide which talks about typeface contrasts
+Besides the Open Sans typeface the geometric Walkway typeface will also be used both when naming the title of the site - as a simple logo - and in the navigation using capital letters to create contrast and catch attention applying the principle of decisive contrast. The geometric font type also fits in the overall construction-site setting.
 
 #### Body text
 The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
@@ -70,13 +63,13 @@ The body font size is 1.4 rem with an appropriate line-height, which will enhanc
 ??? Add body + lorem text + css selector
 
 #### Headings
-As the hierarchical structure of the site is rather shallow only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
+As the hierarchical structure of the site is not that deep only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
 
 ??? Add h1, h2, small/byline + css selectors
 
 
 #### Navigation
-The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth.
+The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth. As mentioned before the Walkway typeface will be used in the navigation - again to catch attention and to stand out.
 
 ??? Add .navigation + css selector
 
@@ -86,9 +79,9 @@ The following two subsections will discuss the choice of the overall color schem
 #### Color scheme
 http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
 
-Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs tents to use several different colors, the site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
+Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs often use several different colors, this site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
 
-To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for the goals of this site.
+To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this site.
 
 <table class="color-table">
 	<tbody><tr>
@@ -140,13 +133,11 @@ To offset the primary cold blue monochromatic colors a complementary brown color
 </tbody></table>
 
 #### Typeface
-As black text is difficult to read on a light background the default typeface color will be gray color (#5D5D5D).
-
-??? Body + lorem + css selector
-
-In situations where the background color is a dark blue or brown color, a light brown or light blue color will be used instead to increase the contract between the background color and the typeface color.
+The background color of the site will be using the primary blue color, where the black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
 
 ??? Examples
+
+On call-to-action elements using a brown background color a dark blue typeface will be used - again to increase the contrast. 
 
 ### Buttons
 https://www.mozilla.org/en-US/styleguide/websites/sandstone/buttons/
@@ -280,4 +271,5 @@ Be cautious when updating font-awesome as it might break the build process as th
 * Add purchase states: reject submitted bids. 
 * Edit submitted purchases
 * Clear all added products
-* close button in top right
+* Close button in top right corner on modal windows
+* User authentication and authorization
