@@ -48,13 +48,14 @@ $modal-padding: 1rem;
 .modal-login {
     & input {
         width: 100%;
-        margin-bottom: $modal-padding;        
+        margin-bottom: 0.2rem;  
+        box-sizing: border-box;      
     }
     
     & label {
-        font-size: 1.2rem;
+        font-size: 1rem;
         display: inline-block;
-        margin-bottom: $modal-padding/2;        
+        margin-bottom: 0.4rem;        
     }
 }
 
@@ -66,37 +67,50 @@ $modal-padding: 1rem;
     margin: 0 auto;
     right: 0;
     left: 0;    
-    width: 50vw;
     
     &.login {
-        height: 25vh;                
+        width: 60vw;
+        height: 50vh;                
     }
     
     &.categories {
+        width: 50vw;
         height: 25vh;                        
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
-    .modal-container {
-        width: 35vw;
+    .modal-container {    
+        top: 70%;
+        &.login {
+            height: 60vh;
+        }
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   
     .modal-container {
-        width: 25vw;
+        top: 50%;
+        
+        &.login {        
+            width: 25vw;
+            height: 25vh;
+        } 
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
     .modal-container {
-        width: 20vw;
+        &.login {        
+            width: 20vw;
+        }
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-x-large}) {
     .modal-container {
-        width: 15vw;
+        &.login {        
+            width: 15vw;
+        }
     }
 }

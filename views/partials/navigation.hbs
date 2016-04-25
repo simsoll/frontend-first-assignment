@@ -16,7 +16,8 @@
             <div class="button-placement-container -pull-down">        
                 <div class="button-container">           
                     {{#isEqual active 'products'}}
-                        <button class="category-button button -utility -full-width">Categories</button>
+                        <button class="category-button button -utility -full-width show-x-small">Filter</button>
+                        <button class="category-button button -utility -full-width hide-x-small">Filter Products</button>
                     {{else}}
                         <button class="login-button button -utility -full-width">Login</button>
                     {{/isEqual}}
@@ -28,14 +29,14 @@
                 <div class="button-container">           
                     <div class="barcode-scanner">
                         <input class="barcode-scanner__input" type="file" id="barcode-scanner" accept="image/*">
-                        <label class="barcode-scanner__label button -full-width" for="barcode-scanner">Scan Code</label>
+                        <label class="barcode-scanner__label button -full-width" for="barcode-scanner">Scan</label>
                     </div>
                 </div>
             </div>            
             <div class="button-placement-container -pull-up -center-horizontal">        
                 <div class="button-container">           
                     {{#isEqual active 'products'}}
-                        <button class="category-button button -full-width">Categories</button>
+                        <button class="category-button button -full-width">Filter</button>
                     {{else}}
                         <button class="login-button button -utility -full-width">Login</button>
                     {{/isEqual}}

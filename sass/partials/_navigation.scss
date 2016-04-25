@@ -105,7 +105,7 @@ nav {
     height: 100%;
 
     line-height: $navigation-height;
-    font-size: 0.7rem;   
+    font-size: 0.5rem;   
 
     background-color: $color-primary-3;
     color: inherit;
@@ -124,7 +124,7 @@ nav {
     
     &.-active {
         background-color: $color-primary-4;      
-        font-size: 0.9rem;          
+        font-size: 0.7rem;          
     }        
 }
 
@@ -153,16 +153,25 @@ nav {
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {
     .navigation-link {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         
         &.-active {
-            font-size: 2rem;   
+            font-size: 1.5rem;   
         }
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
     @include link-positioning(40%, 20%);
+
+    .navigation-link {
+        font-size: 1.4rem;
+        
+        &.-active {
+            font-size: 2rem;   
+        }
+    }
+
 }
 
 @media screen and (min-width: #{$screen-breakpoint-x-large}) {
