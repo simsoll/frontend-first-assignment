@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="handover.css">
 
-# Introduction
-This document is part of the first mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
+# Mandatory Assignment in Front-end Development
+This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
 
-# Project description
+## Project description
 Develop a prototype of a website for construction workers and reflect upon the design
 decisions made. The prototype shall work on both mobile phones, tablets and
 desktop computers. The construction worker should be able to purchase from the mobile phone or
 tablet and rapidly find products while working in the field. The target user for the desktop version is
 administration people in an office who needs to verify and approve purchases. 
 
-## Functional requirements
+### Functional requirements
 The website shall contain the following pages and features:
 The site must be responsive and must include: 
 * Front page.
@@ -21,16 +21,18 @@ products, so there has to be at least two pages with products.
 for quick purchase and delivery. You may fake this feature through the camera on the mobile phone,
 or you may try out libraries that supports this functionality.
 
-# General considerations
+## General considerations
 As the construction workers will be using the website while working in the field and mainly when missing tools or building material, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place purchases and to quickly get an overview of already placed purchases, which haven't yet been approved. 
 
 For the administration people in the office it should be easy to get an overview of yet to be approved purchases, approve these purchases and to see the purchase history for accounting purposes.
 
 Taking both the construction workers and the administration people into account the audience is rather wide-aged, properly aged from around 16 to 60 years of age, and the construction workers will primarily be males. Besides the wide-aged audience we also have some cultural variety with the construction workers on one side and the administration people on the other side. The field workers shouldn’t be thinking the website is clearly made for the administration people back in the office and vice versa. 
 
+As the users are going to access the website using both smartphones, tablets and desktop computers the website will need to be responsive adjusting the content based on the available screen dimensions. This is done using the aforementioned fluid grid system along with flexible images and media queries in a mobile-first approach.
+
 Both the design and the technical implementation will try to address these considerations.
 
-# Design part
+## Design part
 Consider the following:
  * Form Follows Function (Never sacrifice your message for your design. Focus on readability, narrative, and information. Use your design to reinforce your message, never the other way around.
  
@@ -42,27 +44,22 @@ As for the wide-age audience and cultural variety the design style cannot be too
 
 The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple, clear and in an informative tone. 
 
-## Style guide
-The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage.
-
-### Style guide considerations
-To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
+### Style guide
+The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage. To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
 
 
 Should include
  * Use saturation and value to guide the viewer and/or draw attention to something ([Price])
 
-### Typeface
+#### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
 
 Besides the Open Sans typeface the geometric Walkway typeface will also be used both when naming the title of the site - as a simple logo - and in the navigation using capital letters to create contrast and catch attention applying the principle of decisive contrast. The geometric font type also fits in the overall construction-site setting.
 
-#### Body text
 The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
 
 ??? Add body + lorem text + css selector
 
-#### Headings
 As the hierarchical structure of the site is not that deep only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
 
 ??? Add h1, h2, small/byline + css selectors
@@ -73,10 +70,9 @@ The font size on navigation elements is ???rem to draw more attention than the b
 
 ??? Add .navigation + css selector
 
-### Colors
+#### Colors
 The following two subsections will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation, etc.
 
-#### Color scheme
 http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
 
 Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs often use several different colors, this site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
@@ -132,44 +128,43 @@ To offset the primary cold blue monochromatic colors a complementary brown color
 	</tr>
 </tbody></table>
 
-#### Typeface
-The background color of the site will be using the primary blue color, where the black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
+The background color of the site will be using the primary blue color, where black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
 
 ??? Examples
 
 On call-to-action elements using a brown background color a dark blue typeface will be used - again to increase the contrast. 
 
-### Buttons
-https://www.mozilla.org/en-US/styleguide/websites/sandstone/buttons/
-Consider
-* Use color to create depth - warmer/less cold colors appear nearer
-* States: default, hover (lighter), active (darker), insensitive/disabled (fully satuated) 
-* User flow: primary, secondary, alert, warning
+#### Buttons
+The site used a limited amount of different buttons to keep the design simple and consistent across the different pages.  
 
-#### Primary
+The buttons will most often be placed on a blue background, so using the warmer brown color will increase the sense of depth putting the button in focus.
 
-#### Secondary
+The default buttons will have a darker tone of brown in all its states compared to the utility buttons (Login and Categories buttons) to enhance separation of default and utility buttons in the navigation bar. On hover the background color will be darken (compared to its initial background color) to make the button pop-out and when pushed the button will be lighten (compared to its initial background color) to give a pushed down effect.
 
-#### Disabled
+Furthermore, buttons can also have a disabled state - e.g. the Checkout button when no products have been added - which are visualized by a gray background color with no states or changing cursor on hover.
 
-### Widgets
+The buttons used for pagination will have a lighter blue background color when active to signify that the button is in the background and has been pushed-down in comparison to inactive pagination buttons, which have a darker blue background color to signify that these buttons are inactive and can be pushed down/activated. The hover effect on inactive pagination buttons has a lighter blue background color telling the user what to expect if the button is pressed.
 
-### Products
+??? Examples on default, utility, disabled and pagination (+ hover states)
 
-### Purchases
+#### Widgets, Products and Purchases
+The widgets on the front-page along with the products and purchases on the two other pages all follows the same design. Having a darker blue background makes these elements stand out and create a sense of depth the call-to-action button in the bottom right corner function as an naturally-placed action on each element. 
 
-### Icons
+For the products a classic three-way traffic-light combination is used to signal the availability of the product - a red color typeface are used for products out of stock, yellow when only few are in stock and green when the are plenty items left in stock.
 
-### Logo & Images
+??? Example on 
 
-### Navigation
-* Use color to create depth (warmer/less cold colors appear nearer
-* All links use the Logo font to signify that these have some special meaning. Font size and width are increased when selected to increase the illusion of depth by putting the other links more in the background. 
-* Fixed positioned to more easily navigate on products and purchases pages and keeps navigation bar connected with the content
-* Can't place navigation elements in bottom of page due to Safari triggers options
+#### Navigation
+The navigation uses a tab-approach thereby connecting the navigation bar with the content. To signify the active navigation tab a larger font-size is used in combination with an increased tab width (this feature is not available on vertical held mobiles due to screen width limitations). The brand-logo is used as the first tab naturally integrating the logo with the navigation bar. This helps creating a consistent experience across devices as the navigation become light on content - going from mobile to tablet (or even desktop) only slightly changes the navigation composition.
 
-### Grid system
-The site will be using a 12-column grid system with a 2% gutter along with the following break points
+Due to a small screen width on vertical held mobiles the navigation-utility elements are put above the navigation tabs. As there are four utility elements (Scan, Login, Categories and Checkout) compared with only three navigation tabs, the Categories utility button is only visible on the Product page replacing the Login utility button. This can be done as the Categories button only makes sense on the Product page and the Login button is not necessary until the purchase needs to be submitted or approved on the Purchases page.
+
+The navigation bar is fixed to the top of the screen, so the user always have a sense of where they are and can always navigate between pages even when deep down a page. This is especially helpful for the construction workers when they have added the final product to their purchase and quickly want to checkout. Furthermore, a small part of the content background is reserved for the fixed positioned navigation preventing the content to scroll up "into" the navigation bar. 
+
+?? Example on both mobile vertical and "default"
+ 
+#### Grid system
+The site is using a 12-column grid system with a 2% gutter and the following set of break points
 
 * Max-width 479px for mobile
 * Min-width 480px for mobile (horizontal view)
@@ -177,16 +172,9 @@ The site will be using a 12-column grid system with a 2% gutter along with the f
 * Min-width 992px for laptop
 * Min-width 1200px for desktop
 
-https://www.mozilla.org/en-US/styleguide/websites/sandstone/grids/
-default: 12 columns at a width of X (X determined by wrapper)
+The min-width 480px break point is added to have better control over the design when using the mobile in a horizontal view. The extra width compared to a mobile in a vertical view has a rather significant impact on the design - especially in relation to the range of valid font-sizes, the number of grid columns the different components span and the navigation. 
 
-Screenformat: (mobile, mobile horizon, tablet, desktop)
-Page width: 320px, ...
-Column width: x%, ...
-Gutter: x%, ...
-'# of columns: 5, ...
-
-## Design choices and composition
+### Using Gestalt Principles
 *Commented gestalt sketch that arguments for the choices made for the composition. Choice of
 navigation possibilities related to literature from Frost, Krug, etc.*
 
@@ -194,71 +182,23 @@ Widgets
 * figure/ground + closure creates some depth in an overall flat-designed page. It makes the call-to-action (the button) stand out.
 * symmetry: 
 
-* similarity: buttons, icons on purchases-widgets and purchases 
-
-*The construction worker should be able to purchase from t he mobile phone or tablet and rapidly find products while working in the field.* 
-
-When logged in as a worker the product pages should be in focus. However, the purchase history should still be visible for the worker to see what have previously been purchased and if the purchases have been approved. 
-
-*The target user for the desktop version is administration people in an office who needs to verify and approve purchases.*
- - focus: purchase history (purchases need to have states: purchased, confirmed)
- - purchase still needs to be possible
+* similarity: 
+** widgets, button and purchases follows the same design
+** buttons, icons on purchases-widgets and purchases 
  
-### Responsive design
-As the users are going to access the website using both smartphones, tablets and desktop computers the website will need to be responsive adjusting the content based on the available screen dimensions.
- 
-### Navigation
-Use tabs instead of a navigation bar. Why? Found out where in [Krug] this is mentioned!
+## Technical part
+The site is using a Node.js with Express to easily setup and have a web server running. Using CSS frameworks or any MV* JavaScript framework has not been allowed. Instead the web server is using node-sass-middleware, which automatically compiles Sass files. Furthermore, Express Handlebars is used, which is a Handlebars view engine for Express that is circumventing a lot of repetition in the mark-up source files.
 
- * Should be connected with the content  
- * Brand logo as escape hatch
- * Search box, as some people will only use search boxes for navigation (or if they are in a hurry)
-    * Don’t make it hard for the user – stick to the formula
- * Users should always have a sense of where they are
-    * Logo in top left should get people back to the home page (gives a fresh start)
-    * Highlight navigation bars indicating the current location (“You are here”). Can be used in combination with tabs both from primary (top) navigation and secondary (left) navigation thereby improving the visual cues.
- * Don’t invent the wheel – people expect navigation to be in standard places
- * Lower-level navigation should get the same attention when designing as the top-level
- * Every page needs a name. Page names are the street signs of the Web.
- * Whatever page the users is on, he/she should always be able to answer (the gangster/trunk test)
-    * What site is this? (Site ID)
-    * What page am I on? (Page name)
-    * What are the major sections of this site? (Sections)
-    * What are my options at this level?  (Local navigation)
-    * Where am I in the scheme of things? (“You are here” indicators)
-    * How can I search?
+The web server is not connected to any database, but is using two services that serve the product catalog and a few pre-made purchases, so the Purchase page is not completely empty. These two services also handle state changes when adding purchases, but be aware that restarting the web server will also reset these services to their initial state. 
 
-### User variety
+The barcode scanner is implemented by picking a random product from the product catalog and applying the picture from the Camera API.
 
-## Choice of colours and fonts
-*You have to balance these elements and your choices shall spring from a knowledge of user
-profile, context of use, and content.*
+To have a more fluent user experience every interaction on the site triggers a post request to the web server updating the current state on the server. Client-side JavaScript is afterwards updating the UI instantly mitigating re-rendering of the whole page after every interaction.    
 
-How can we use the color to enhance user experience 
-* in the field?
-* in the office?
- 
-# Technical part
+The product catalog pagination on the Product page is solved using url's with query strings containing the page number. The pressing the pagination buttons triggers a get request containing the page number which is processed by the web server which then responds by serving a page with products corresponding to the requested page.  
 
-## Technical considerations
-* JSON files are used instead of a database with the following entities
- * Products
- * Purchases
- * Users
-* A simple barcode detection algorithm is used by just choosing a random product among the available/filtered products 
-* Interaction triggers both ajax post against back-end and front-end logic to enhance user experience (more fluid experience instead of reloading the page for every interaction)
- * server roundtrip vs instant update in UI (improved responsiveness and user experience)
-* pagination implementation (load everything/long initial load + responsiveness vs load incrementaly vs ajax call/infinity scrolling)
- * mention that due to the implementation details it is not possible/complicated to go the infinity scrolling route   
-
-## Technologies, libraries and frameworks
-* Handlebars
-
-## Setting up
-
-
-## Build process
-Be cautious when updating font-awesome as it might break the build process as the appropiate css and font files are not copied to the ./public/vendor folder. The "main" property in .bower.json file should look like the following to insure with css and font files are copied correctly to the ./public/vendor/ folder
+### Build process
+Be aware that updating font-awesome might prevent the web server from running as the necessary css and font files are not copied to the ./public/vendor folder. The "main" property in .bower.json file should look like the following to insure the css and font files are copied correctly to the ./public/vendor/ folder
 
 '''javascript
   "main": [
