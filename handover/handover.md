@@ -31,9 +31,6 @@ As the users are going to access the website using both smartphones, tablets and
 Both the design and the technical implementation will try to address these considerations.
 
 ## Design part
-Consider the following:
- * Form Follows Function (Never sacrifice your message for your design. Focus on readability, narrative, and information. Use your design to reinforce your message, never the other way around.
- 
 Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly find the needed tools or materials. The goal of the design should not be to draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
 
 The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers and of course using mobile devices with smaller screen sizes. 
@@ -45,25 +42,6 @@ The design should send the message that this a trustworthy and reliable website 
 ### Style guide
 The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage. To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
 
-#### Typeface
-The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
-
-Besides the Open Sans typeface the geometric Walkway typeface will also be used both when naming the title of the site - as a simple logo - and in the navigation using capital letters to create contrast and catch attention applying the principle of decisive contrast. The geometric font type also fits in the overall construction-site setting.
-
-The body font size is 1.4 rem with an appropriate line-height, which will enhance readability on all devices.
-
-??? Add body + lorem text + css selector
-
-As the hierarchical structure of the site is not that deep only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
-
-??? Add h1, h2, small/byline + css selectors
-
-
-#### Navigation
-The font size on navigation elements is ???rem to draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth. As mentioned before the Walkway typeface will be used in the navigation - again to catch attention and to stand out.
-
-??? Add .navigation + css selector
-
 #### Colors
 This section will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation and other components
 
@@ -71,13 +49,29 @@ Color schemes for flat designs are often brighter and more colorful than those f
 
 To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this site. The color scheme can be found in figure \ref{color-scheme}.
 
-![Color scheme\label{color-scheme}](./images/color-scheme.jpg)
+![The color scheme showing the primary and complementary colors.\label{color-scheme}](./images/color-scheme.jpg)
 
-The background color of the site will be using the primarily blue color, where black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
-
-??? Examples
+The background color of the site will be using the primarily blue color, where black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color.
 
 On call-to-action elements using a brown background color a dark blue typeface will be used - again to increase the contrast. 
+
+#### Typeface
+The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
+
+Besides the Open Sans typeface the geometric Walkway typeface will also be used both when naming the title of the site - as a simple logo - and in the navigation using capital letters to create contrast and catch attention applying the principle of decisive contrast. The geometric font type also fits in the overall construction-site setting.
+
+The body font size and line-height is chosen so that  readability is enhance on all devices.
+
+As the hierarchical structure of the site is not that deep only a few different headings are needed. The focus here is to create a typographical scale which enables the user to easily visualize the hierarchical structure and to let the headings stand out compared to the body text.
+
+![Text elements showing the chosen primary typeface \label{text-elements}](./images/typeface.jpg)
+
+![Head line showing the chosen primary typeface in combination with secondary typeface  \label{head-line}](./images/head-line.jpg)
+
+
+
+#### Navigation
+The font size on navigation elements is chosen so that the navigation draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth. As mentioned before the Walkway typeface will be used in the navigation - again to catch attention and to stand out.
 
 #### Buttons
 The site used a limited amount of different buttons to keep the design simple and consistent across the different pages.  
@@ -90,14 +84,12 @@ Furthermore, buttons can also have a disabled state - e.g. the Checkout button w
 
 The buttons used for pagination will have a lighter blue background color when active to signify that the button is in the background and has been pushed-down in comparison to inactive pagination buttons, which have a darker blue background color to signify that these buttons are inactive and can be pushed down/activated. The hover effect on inactive pagination buttons has a lighter blue background color telling the user what to expect if the button is pressed.
 
-??? Examples on default, utility, disabled and pagination (+ hover states)
+![Default button states. From top to button; default, hover, active and disabled.\label{button-states}](./images/button-states.jpg)
 
 #### Widgets, Products and Purchases
 The widgets on the front-page along with the products and purchases on the two other pages all follows the same design. Having a darker blue background makes these elements stand out and create a sense of depth the call-to-action button in the bottom right corner function as an naturally-placed action on each element. 
 
 For the products a classic three-way traffic-light combination is used to signal the availability of the product - a red color typeface are used for products out of stock, yellow when only few are in stock and green when the are plenty items left in stock.
-
-??? Example on 
 
 #### Navigation
 The navigation uses a tab-approach thereby connecting the navigation bar with the content. To signify the active navigation tab a larger font-size is used in combination with an increased tab width (this feature is not available on vertical held mobiles due to screen width limitations). The brand-logo is used as the first tab naturally integrating the logo with the navigation bar. This helps creating a consistent experience across devices as the navigation become light on content - going from mobile to tablet (or even desktop) only slightly changes the navigation composition.
@@ -106,7 +98,10 @@ Due to a small screen width on vertical held mobiles the navigation-utility elem
 
 The navigation bar is fixed to the top of the screen, so the user always have a sense of where they are and can always navigate between pages even when deep down a page. This is especially helpful for the construction workers when they have added the final product to their purchase and quickly want to checkout. Furthermore, a small part of the content background is reserved for the fixed positioned navigation preventing the content to scroll up "into" the navigation bar. 
 
-?? Example on both mobile vertical and "default"
+
+![Small width navigation bar\label{navigation-small-width}](./images/navigation-small-width.jpg)
+
+![Medium width navigation bar\label{navigation-medium-width}](./images/navigation-medium-width.jpg)
  
 #### Grid system
 The site is using a 12-column grid system with a 2% gutter and the following set of break points
@@ -175,12 +170,10 @@ The product catalog pagination on the Product page is solved using url's with qu
 ### Build process
 Be aware that updating font-awesome might prevent the web server from running as the necessary css and font files are not copied to the ./public/vendor folder. The "main" property in .bower.json file should look like the following to insure the css and font files are copied correctly to the ./public/vendor/ folder
 
-'''javascript
-  "main": [
-    "css/font-awesome.css",
-    "fonts/*.*"
-  ],
-'''
+	"main": [
+		"css/font-awesome.css",
+		"fonts/*.*"
+	],
 
 ## Further development
 * Add purchase states: reject submitted bids. 
