@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="handover.css">
+<link rel="stylesheet" href="/styles/handover.css">
+
 
 # Mandatory Assignment in Front-end Development
 This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
@@ -8,7 +9,7 @@ Develop a prototype of a website for construction workers and reflect upon the d
 decisions made. The prototype shall work on both mobile phones, tablets and
 desktop computers. The construction worker should be able to purchase from the mobile phone or
 tablet and rapidly find products while working in the field. The target user for the desktop version is
-administration people in an office who needs to verify and approve purchases. 
+administration people in an office who needs to verify and approve purchases.
 
 ### Functional requirements
 The website shall contain the following pages and features:
@@ -47,10 +48,6 @@ The design should send the message that this a trustworthy and reliable website 
 ### Style guide
 The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage. To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
 
-
-Should include
- * Use saturation and value to guide the viewer and/or draw attention to something ([Price])
-
 #### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
 
@@ -71,64 +68,15 @@ The font size on navigation elements is ???rem to draw more attention than the b
 ??? Add .navigation + css selector
 
 #### Colors
-The following two subsections will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation, etc.
-
-http://paletton.com/#uid=23p0u0kr7EB4wXHicLyChsjL3g2
+This section will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation and other components
 
 Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs often use several different colors, this site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
 
-To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this site.
+To offset the primary cold blue monochromatic colors a complementary brown color is added to the final color scheme to help create more depth in the site and will be used to catch the users attention on call-to-action elements by standing out with the blue background colors. The brown color signals durability and stability, which - as the blue color - is well suited for this site. The color scheme can be found in figure \ref{color-scheme}.
 
-<table class="color-table">
-	<tbody><tr>
-		<th>Primary color:</th>
-		<td class="sample sample-1 primary-1">
-			<div class="white">#D4EDF5</div>
-			<div class="black">#D4EDF5</div>
-		</td>
-		<td class="sample sample-2 primary-2">
-			<div class="white">#5FB4D1</div>
-			<div class="black">#5FB4D1</div>
-		</td>
-		<td class="sample sample-0 primary-0">
-			<div class="white">#2396BC</div>
-			<div class="black">#2396BC</div>
-		</td>
-		<td class="sample sample-3 primary-3">
-			<div class="white">#046B8D</div>
-			<div class="black">#046B8D</div>
-		</td>
-		<td class="sample sample-4 primary-4">
-			<div class="white">#013C50</div>
-			<div class="black">#013C50</div>
-		</td>
-	</tr>
-	<tr>
-		<th>Complement color:</th>
-		<td class="sample sample-1 complement-1">
-			<div class="white">#FFEEDB</div>
-			<div class="black">#FFEEDB</div>
-		</td>
-		<td class="sample sample-2 complement-2">
-			<div class="white">#FFB86E</div>
-			<div class="black">#FFB86E</div>
-		</td>
-		<td class="sample sample-0 complement-0">
-			<div class="white">#FF9627</div>
-			<div class="black">#FF9627</div>
-		</td>
-		<td class="sample sample-3 complement-3">
-			<div class="white">#E27400</div>
-			<div class="black">#E27400</div>
-		</td>
-		<td class="sample sample-4 complement-4">
-			<div class="white">#804200</div>
-			<div class="black">#804200</div>
-		</td>
-	</tr>
-</tbody></table>
+![Color scheme\label{color-scheme}](./images/color-scheme.jpg)
 
-The background color of the site will be using the primary blue color, where black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
+The background color of the site will be using the primarily blue color, where black or gray typeface colors can be quite hard to read. Instead a very light complementary brown color (almost white) will be used as the default typeface color, thereby increasing the contrast between the background color and the typeface color..
 
 ??? Examples
 
@@ -175,16 +123,38 @@ The site is using a 12-column grid system with a 2% gutter and the following set
 The min-width 480px break point is added to have better control over the design when using the mobile in a horizontal view. The extra width compared to a mobile in a vertical view has a rather significant impact on the design - especially in relation to the range of valid font-sizes, the number of grid columns the different components span and the navigation. 
 
 ### Using Gestalt Principles
-*Commented gestalt sketch that arguments for the choices made for the composition. Choice of
-navigation possibilities related to literature from Frost, Krug, etc.*
+The following subsections will discuss how the Gestalt Principles have been applied to the different parts of the site  
 
-Widgets
-* figure/ground + closure creates some depth in an overall flat-designed page. It makes the call-to-action (the button) stand out.
-* symmetry: 
+#### Navigation
+![Gestalt sketch of the navigation bar\label{gestalt-navigation}](./images/navigation.jpg)
+Figure \ref{gestalt-navigation} has been marked two points of interest
+1. Similarity: The inactive navigation tabs look similar and will be perceived as similar.
+2. Proximity: The utility buttons follows both the similarity and and the proximity principles and as the navigation tabs perceived as similar.
 
-* similarity: 
-** widgets, button and purchases follows the same design
-** buttons, icons on purchases-widgets and purchases 
+#### Front page 
+![Gestalt sketch the front page \label{gestalt-front-page}](./images/front-page.jpg)
+Figure \ref{gestalt-front-page} has been marked five points of interest
+1. Closure: The icons used in the widgets are cut off put due to the closure principle we can still visualize the full icon.
+2. Figure and ground: The widgets (figures) are stading out because of the darker background compared to the lighter page background (ground).
+3. Symmetry: The page is symmetric which creates a pleasant balance.
+4. Similarity: The widgets follows the same design template making them recognizable. 
+5. Cross-site similarity: The purchase icon is also used on the Purchase page on the purchase components linking the them together.
+
+#### Product page
+![Gestalt sketch of the product page\label{gestalt-product-page}](./images/product-page.jpg)
+Figure \ref{gestalt-product-page} has been marked four points of interest
+1. Figure and ground: As for the widgets, each product stands out by having a different  background color than the background color of the page.
+2. Similarity: The product share the same design template.
+3. Proximity: The pagination buttons are both similar and in close proximity to each other, so we likely perceive them as one group.
+4. Symmetry: The product page is symmetric. 
+
+#### Purchase page
+![Gestalt sketch of the product page\label{gestalt-purchase-page}](./images/purchase-page.jpg)
+Figure \ref{gestalt-purchase-page} has been marked five points of interest
+1. Similarity: The purchase elements follows the same pattern as the widgets and products by following a design template.
+2. Cross-site similarity: The purchase icon is shared between the purchase elements and the purchase widget on the front page.
+3. Symmetry: The purchase page is symmetric. 
+
  
 ## Technical part
 The site is using a Node.js with Express to easily setup and have a web server running. Using CSS frameworks or any MV* JavaScript framework has not been allowed. Instead the web server is using node-sass-middleware, which automatically compiles Sass files. Furthermore, Express Handlebars is used, which is a Handlebars view engine for Express that is circumventing a lot of repetition in the mark-up source files.
