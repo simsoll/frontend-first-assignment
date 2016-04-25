@@ -27,21 +27,37 @@
         {{> product randomProduct}}    
     </div>
     
-    <div class="modal-overlay hide" data-modal-class=".modal-categories">
+    <div class="modal-overlay hide" data-modal-class=".modal-container.categories">
     </div>
 
-    <div class="modal-categories hide">
-        <p>Categories</p>
-        <p>Placeholder</p>    
+    <div class="modal-container categories hide">
+        <div class="modal-categories">
+            <p>Categories</p>
+            <p>Placeholder</p>    
+        </div>                
     </div>                
 
-    <div class="modal-overlay hide" data-modal-class=".modal-login">
+    <div class="modal-overlay hide" data-modal-class=".modal-container.login">
     </div>
 
-    <div class="modal-login hide">
-        <p>Login</p>
-        <p>Placeholder</p>    
-    </div>                
+    <div class="modal-container login hide">
+        <div class="modal-login">
+            <div class="input login">
+                <label for="login">Login</label>
+                <input type="text" id="login"></input>
+            </div>
+            <div class="input password">
+                <label for="password">Password</label>
+                <input type="password" id="password"></input>
+            </div>
+            <div class="button-placement-container -pull-down">
+                <div class="button-container">                 
+                    <button class="button -full-width submit show-x-small show-small" data-id={{id}}>Confirm</button>
+                    <button class="button -half-width -pull-right submit hide-x-small hide-small" data-id={{id}}>Confirm</button>
+                </div>
+            </div>          
+        </div>     
+    </div>           
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->

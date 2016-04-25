@@ -1,3 +1,5 @@
+$modal-padding: 1rem;
+
 .modal-overlay {
     width: 100%;
     height: 100vh;
@@ -21,48 +23,80 @@
 }
 
 .modal-barcode {
-    position: fixed;
-    top: 50%;
     transform: translateY(-50%);
+    top: 50%;
     width: 50%;
+    position: fixed;
     margin: 0 auto;
     right: 0;
     left: 0;
     z-index: 1;
 }
 
+.modal-container {
+    background-color: $color-primary-5;
+    padding: $modal-padding;          
+}
+
 .modal-login,
 .modal-categories {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.modal-login {
+    & input {
+        width: 100%;
+        margin-bottom: $modal-padding;        
+    }
+    
+    & label {
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-bottom: $modal-padding/2;        
+    }
+}
+
+.modal-container {
     position: fixed;
-    text-align: center;
     top: 50%;
     transform: translateY(-50%); 
-    width: 50%;
-    height: 50vh;
     background-color: $color-primary-5;
     margin: 0 auto;
     right: 0;
     left: 0;    
+    width: 50vw;
     
-    & p {
-        height: 10vh;
-        display: inline-block;        
-        margin-top: 2rem;
+    &.login {
+        height: 25vh;                
+    }
+    
+    &.categories {
+        height: 25vh;                        
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
-
+    .modal-container {
+        width: 35vw;
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   
-
+    .modal-container {
+        width: 25vw;
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
-
+    .modal-container {
+        width: 20vw;
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-x-large}) {
-
+    .modal-container {
+        width: 15vw;
+    }
 }

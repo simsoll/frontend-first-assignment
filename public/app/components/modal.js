@@ -26,18 +26,18 @@ appComponents.Modal.prototype = function () {
     
     function initializeModalCategories() {
         $('.category-button').click(function() {
-            toggleModal('modal-categories', 'hide');
+            toggleModal('.modal-container.categories', 'hide');
         });
     }
     
     function initializeModelLogin() {
         $('.login-button').click(function() {
-            toggleModal('modal-login', 'hide');
+            toggleModal('.modal-container.login', 'hide');
         });
     }
     
     function toggleModal(modalClass, toggledClass) {
-        $('.modal-overlay[data-modal-class=".' + modalClass + '"]').toggleClass(toggledClass);
-        $('.' + modalClass).toggleClass(toggledClass);
+        $('.modal-overlay[data-modal-class="' + modalClass + '"]').toggleClass(toggledClass);
+        $(modalClass).toggleClass(toggledClass);
     }
 } ();
