@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="/styles/handover.css">
-
-
 # Mandatory Assignment in Front-end Development
 This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
 
@@ -127,13 +124,17 @@ The following subsections will discuss how the Gestalt Principles have been appl
 
 #### Navigation
 ![Gestalt sketch of the navigation bar\label{gestalt-navigation}](./images/navigation.jpg)
+
 Figure \ref{gestalt-navigation} has been marked two points of interest
+
 1. Similarity: The inactive navigation tabs look similar and will be perceived as similar.
 2. Proximity: The utility buttons follows both the similarity and and the proximity principles and as the navigation tabs perceived as similar.
 
 #### Front page 
-![Gestalt sketch the front page \label{gestalt-front-page}](./images/front-page.jpg)
+![Gestalt sketch of the front page \label{gestalt-front-page}](./images/front-page.jpg)
+
 Figure \ref{gestalt-front-page} has been marked five points of interest
+
 1. Closure: The icons used in the widgets are cut off put due to the closure principle we can still visualize the full icon.
 2. Figure and ground: The widgets (figures) are stading out because of the darker background compared to the lighter page background (ground).
 3. Symmetry: The page is symmetric which creates a pleasant balance.
@@ -142,7 +143,9 @@ Figure \ref{gestalt-front-page} has been marked five points of interest
 
 #### Product page
 ![Gestalt sketch of the product page\label{gestalt-product-page}](./images/product-page.jpg)
+
 Figure \ref{gestalt-product-page} has been marked four points of interest
+
 1. Figure and ground: As for the widgets, each product stands out by having a different  background color than the background color of the page.
 2. Similarity: The product share the same design template.
 3. Proximity: The pagination buttons are both similar and in close proximity to each other, so we likely perceive them as one group.
@@ -150,7 +153,9 @@ Figure \ref{gestalt-product-page} has been marked four points of interest
 
 #### Purchase page
 ![Gestalt sketch of the product page\label{gestalt-purchase-page}](./images/purchase-page.jpg)
-Figure \ref{gestalt-purchase-page} has been marked five points of interest
+
+Figure \ref{gestalt-purchase-page} has been marked three points of interest
+
 1. Similarity: The purchase elements follows the same pattern as the widgets and products by following a design template.
 2. Cross-site similarity: The purchase icon is shared between the purchase elements and the purchase widget on the front page.
 3. Symmetry: The purchase page is symmetric. 
