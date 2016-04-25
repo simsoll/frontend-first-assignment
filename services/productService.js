@@ -60,7 +60,7 @@ module.exports = (function() {
             name: 'Product 5',
             price: 10.25,
             producer: 'Craftsman',
-            stock: 15
+            stock: 4
         },
         {
             description: 'Product description 6',
@@ -72,7 +72,7 @@ module.exports = (function() {
             name: 'Product 6',
             price: 50.3,
             producer: 'Craftsman',
-            stock: 15
+            stock: 6
         },
         {
             description: 'Product description 7',
@@ -84,7 +84,7 @@ module.exports = (function() {
             name: 'Product 7',
             price: 50.3,
             producer: 'Craftsman',
-            stock: 15
+            stock: 3
         },
         {
             description: 'Product description 8',

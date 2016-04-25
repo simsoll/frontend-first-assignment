@@ -1,7 +1,7 @@
 <nav>
     <div class="navigation-container">
         <div class="navigation-links pull-left">
-            <a href="/" class="navigation-link home-link {{#isEqual active 'home'}}-active{{else}}-inactive{{/isEqual}}">ORDERBY</a>
+            <a href="/" class="navigation-link home-link {{#isEqual active 'home'}}-active{{else}}-inactive{{/isEqual}}">CONSTRUCTLY</a>
             <a href="/products" class="navigation-link products-link {{#isEqual active 'products'}}-active{{else}}-inactive{{/isEqual}} -{{active}}">PRODUCTS</a>
             <a href="/purchases" class="navigation-link purchases-link {{#isEqual active 'purchases'}}-active{{else}}-inactive{{/isEqual}}">PURCHASES</a>
         </div>
@@ -16,9 +16,9 @@
             <div class="button-placement-container -pull-down">        
                 <div class="button-container">           
                     {{#isEqual active 'products'}}
-                        <button class="category-button button -secondary -full-width">Categories</button>
+                        <button class="category-button button -utility -full-width">Categories</button>
                     {{else}}
-                        <button class="login-button button -secondary -full-width">Login</button>
+                        <button class="login-button button -utility -full-width">Login</button>
                     {{/isEqual}}
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     {{#isEqual active 'products'}}
                         <button class="category-button button -full-width">Categories</button>
                     {{else}}
-                        <button class="login-button button -secondary -full-width">Login</button>
+                        <button class="login-button button -utility -full-width">Login</button>
                     {{/isEqual}}
                 </div>
             </div>
