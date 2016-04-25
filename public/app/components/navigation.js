@@ -22,16 +22,6 @@ appComponents.Navigation.prototype = function () {
     }
 
     function initializeNavigationButtons() {
-        //TODO: enable again when categories are implemented
-        // $('.category-button').onclick = function () {
-        //     $(this).toggleClass('-pressed');
-
-        //     $('.categories').each(function (index, element) {
-        //         $(element).toggleClass('hide-x-small show-x-small');
-        //         $(element).toggleClass('hide-small show-small');
-        //     });
-        // };
-
         $('.checkout-button').click(function () {
             window.location.href = '/purchases';
         })
