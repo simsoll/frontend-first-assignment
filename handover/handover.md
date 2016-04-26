@@ -5,7 +5,10 @@ date: 2016-04-26
 ---
 
 # Introduction
-This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
+This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. The source code can be found on GitHub and the web application is running on Heroku
+
+* Source code: https://github.com/simsoll/frontendfirstassignment/tree/handover
+* Web application: https://constructly.herokuapp.com/
 
 # Project description
 Develop a prototype of a website for construction workers and reflect upon the design
