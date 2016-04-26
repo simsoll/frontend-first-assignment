@@ -20,6 +20,7 @@ administration people in an office who needs to verify and approve purchases.
 ## Functional requirements
 The website shall contain the following pages and features:
 The site must be responsive and must include: 
+
 * Front page.
 * Product catalogue with a gallery/list of minimum 32 products. The product page can hold 16
 products, so there has to be at least two pages with products.
