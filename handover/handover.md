@@ -1,14 +1,20 @@
-# Mandatory Assignment in Front-end Development
+---
+title: Mandatory Assignment in Front-end Development
+author: Simon Søllingvraa
+date: 2016-04-26
+---
+
+# Introduction
 This document is part of the mandatory assignment in the course Front-end Development held in Spring 2016 at BAAA - Business Academy Aarhus. 
 
-## Project description
+# Project description
 Develop a prototype of a website for construction workers and reflect upon the design
 decisions made. The prototype shall work on both mobile phones, tablets and
 desktop computers. The construction worker should be able to purchase from the mobile phone or
 tablet and rapidly find products while working in the field. The target user for the desktop version is
 administration people in an office who needs to verify and approve purchases.
 
-### Functional requirements
+## Functional requirements
 The website shall contain the following pages and features:
 The site must be responsive and must include: 
 * Front page.
@@ -19,7 +25,7 @@ products, so there has to be at least two pages with products.
 for quick purchase and delivery. You may fake this feature through the camera on the mobile phone,
 or you may try out libraries that supports this functionality.
 
-## General considerations
+# General considerations
 As the construction workers will be using the website while working in the field and mainly when missing tools or building material, the website should accommodate their needs in a fast, simple and intuitive way, so they the can get back to the work that really matters as quickly as possible. Their three main goals of using the website will be to easily find the needed products, place purchases and to quickly get an overview of already placed purchases, which haven't yet been approved. 
 
 For the administration people in the office it should be easy to get an overview of yet to be approved purchases, approve these purchases and to see the purchase history for accounting purposes.
@@ -30,7 +36,7 @@ As the users are going to access the website using both smartphones, tablets and
 
 Both the design and the technical implementation will try to address these considerations.
 
-## Design part
+# Design considerations
 Based on the target audience and the primary use of the site, the goal of the design will be to have a simple and intuitive navigation, which enables the user to be productive and quickly find the needed tools or materials. The goal of the design should not be to draw the user in and keep him/her on the site, as both the construction workers and administration people main tasks using the website should not take very long time. 
 
 The design should also support that the construction workers often will be outdoors when using the website - sometimes maybe in under bad weather conditions and while having cold, dirty or wet fingers and of course using mobile devices with smaller screen sizes. 
@@ -39,10 +45,10 @@ As for the wide-age audience and cultural variety the design style cannot be too
 
 The design should send the message that this a trustworthy and reliable website that will solve the users needs. The language should be simple, clear and in an informative tone. 
 
-### Style guide
+## Style guide
 The style guide described in this section will be a guidance and a set of rules for a consistent design on the webpage. To address the mentioned design goals and considerations from last section the choice of design will be flat and simple and thereby quick to grasp by the user. It will not be over-styled in order to better appeal to the wide audience.
 
-#### Colors
+### Colors
 This section will discuss the choice of the overall color scheme for the site along with the typeface colors. The color scheme will be applied in later sections presenting buttons, widgets, navigation and other components
 
 Color schemes for flat designs are often brighter and more colorful than those for other sites. Even though flat designs often use several different colors, this site goes for a more simple and minimalistic approach by using a monochromatic color scheme supporting the rather limited content. The base color will be blue as it signals security, truth, stability, loyalty and open communication, which assists the overall goal of the site. 
@@ -55,7 +61,7 @@ The background color of the site will be using the primarily blue color, where b
 
 On call-to-action elements using a brown background color a dark blue typeface will be used - again to increase the contrast. 
 
-#### Typeface
+### Typeface
 The website uses the Open Sans typeface - a humanist sans-serif typeface - as it's well suited for the flat design supporting the design target and it works well on both web and mobile. It makes the content easily readable even in small sizes, which will be very beneficial for the construction workers on their smaller screen sizes.
 
 Besides the Open Sans typeface the geometric Walkway typeface will also be used both when naming the title of the site - as a simple logo - and in the navigation using capital letters to create contrast and catch attention applying the principle of decisive contrast. The geometric font type also fits in the overall construction-site setting.
@@ -68,12 +74,9 @@ As the hierarchical structure of the site is not that deep only a few different 
 
 ![Head line showing the chosen primary typeface in combination with secondary typeface  \label{head-line}](./images/head-line.jpg)
 
-
-
-#### Navigation
 The font size on navigation elements is chosen so that the navigation draw more attention than the body text, but still not taking focus away from the largest headlines. The font-size on the active navigation link will be slightly larger in order to catch attention and create a sense of depth. As mentioned before the Walkway typeface will be used in the navigation - again to catch attention and to stand out.
 
-#### Buttons
+### Buttons
 The site used a limited amount of different buttons to keep the design simple and consistent across the different pages.  
 
 The buttons will most often be placed on a blue background, so using the warmer brown color will increase the sense of depth putting the button in focus.
@@ -86,12 +89,12 @@ The buttons used for pagination will have a lighter blue background color when a
 
 ![Default button states. From top to button; default, hover, active and disabled.\label{button-states}](./images/button-states.jpg)
 
-#### Widgets, Products and Purchases
+### Widgets, Products and Purchases
 The widgets on the front-page along with the products and purchases on the two other pages all follows the same design. Having a darker blue background makes these elements stand out and create a sense of depth the call-to-action button in the bottom right corner function as an naturally-placed action on each element. 
 
 For the products a classic three-way traffic-light combination is used to signal the availability of the product - a red color typeface are used for products out of stock, yellow when only few are in stock and green when the are plenty items left in stock.
 
-#### Navigation
+### Navigation
 The navigation uses a tab-approach thereby connecting the navigation bar with the content. To signify the active navigation tab a larger font-size is used in combination with an increased tab width (this feature is not available on vertical held mobiles due to screen width limitations). The brand-logo is used as the first tab naturally integrating the logo with the navigation bar. This helps creating a consistent experience across devices as the navigation become light on content - going from mobile to tablet (or even desktop) only slightly changes the navigation composition.
 
 Due to a small screen width on vertical held mobiles the navigation-utility elements are put above the navigation tabs. As there are four utility elements (Scan, Login, Categories and Checkout) compared with only three navigation tabs, the Categories utility button is only visible on the Product page replacing the Login utility button. This can be done as the Categories button only makes sense on the Product page and the Login button is not necessary until the purchase needs to be submitted or approved on the Purchases page.
@@ -103,7 +106,7 @@ The navigation bar is fixed to the top of the screen, so the user always have a 
 
 ![Medium width navigation bar\label{navigation-medium-width}](./images/navigation-medium-width.jpg)
  
-#### Grid system
+### Grid system
 The site is using a 12-column grid system with a 2% gutter and the following set of break points
 
 * Max-width 479px for mobile
@@ -114,10 +117,10 @@ The site is using a 12-column grid system with a 2% gutter and the following set
 
 The min-width 480px break point is added to have better control over the design when using the mobile in a horizontal view. The extra width compared to a mobile in a vertical view has a rather significant impact on the design - especially in relation to the range of valid font-sizes, the number of grid columns the different components span and the navigation. 
 
-### Using Gestalt Principles
+## Using Gestalt Principles
 The following subsections will discuss how the Gestalt Principles have been applied to the different parts of the site  
 
-#### Navigation
+### Navigation
 ![Gestalt sketch of the navigation bar\label{gestalt-navigation}](./images/navigation.jpg)
 
 Figure \ref{gestalt-navigation} has been marked two points of interest
@@ -125,7 +128,7 @@ Figure \ref{gestalt-navigation} has been marked two points of interest
 1. Similarity: The inactive navigation tabs look similar and will be perceived as similar.
 2. Proximity: The utility buttons follows both the similarity and and the proximity principles and as the navigation tabs perceived as similar.
 
-#### Front page 
+### Front page 
 ![Gestalt sketch of the front page \label{gestalt-front-page}](./images/front-page.jpg)
 
 Figure \ref{gestalt-front-page} has been marked five points of interest
@@ -136,7 +139,7 @@ Figure \ref{gestalt-front-page} has been marked five points of interest
 4. Similarity: The widgets follows the same design template making them recognizable. 
 5. Cross-site similarity: The purchase icon is also used on the Purchase page on the purchase components linking the them together.
 
-#### Product page
+### Product page
 ![Gestalt sketch of the product page\label{gestalt-product-page}](./images/product-page.jpg)
 
 Figure \ref{gestalt-product-page} has been marked four points of interest
@@ -146,7 +149,7 @@ Figure \ref{gestalt-product-page} has been marked four points of interest
 3. Proximity: The pagination buttons are both similar and in close proximity to each other, so we likely perceive them as one group.
 4. Symmetry: The product page is symmetric. 
 
-#### Purchase page
+### Purchase page
 ![Gestalt sketch of the product page\label{gestalt-purchase-page}](./images/purchase-page.jpg)
 
 Figure \ref{gestalt-purchase-page} has been marked three points of interest
@@ -156,7 +159,7 @@ Figure \ref{gestalt-purchase-page} has been marked three points of interest
 3. Symmetry: The purchase page is symmetric. 
 
  
-## Technical part
+# Technical considerations
 The site is using a Node.js with Express to easily setup and have a web server running. Using CSS frameworks or any MV* JavaScript framework has not been allowed. Instead the web server is using node-sass-middleware, which automatically compiles Sass files. Furthermore, Express Handlebars is used, which is a Handlebars view engine for Express that is circumventing a lot of repetition in the mark-up source files.
 
 The web server is not connected to any database, but is using two services that serve the product catalog and a few pre-made purchases, so the Purchase page is not completely empty. These two services also handle state changes when adding purchases, but be aware that restarting the web server will also reset these services to their initial state. 
@@ -167,17 +170,10 @@ To have a more fluent user experience every interaction on the site triggers a p
 
 The product catalog pagination on the Product page is solved using url's with query strings containing the page number. The pressing the pagination buttons triggers a get request containing the page number which is processed by the web server which then responds by serving a page with products corresponding to the requested page.  
 
-### Build process
+## Build process
 Be aware that updating font-awesome might prevent the web server from running as the necessary css and font files are not copied to the ./public/vendor folder. The "main" property in .bower.json file should look like the following to insure the css and font files are copied correctly to the ./public/vendor/ folder
 
 	"main": [
 		"css/font-awesome.css",
 		"fonts/*.*"
 	],
-
-## Further development
-* Add purchase states: reject submitted bids. 
-* Edit submitted purchases
-* Clear all added products
-* Close button in top right corner on modal windows
-* User authentication and authorization
