@@ -33,13 +33,18 @@
     <div class="modal-container categories hide">
         <div class="modal-categories">
             <div class="input tools">
-                <input type="checkbox" id="tools" value="tools-checkbox"> 
+                <input type="checkbox" id="tools" value="tools-checkbox" checked onclick="return false;"> 
                 <label for="tools">Tools</label>
             </div>
             <div class="input materials">
-                <input type="checkbox" id="materials" value="materials_checkbox"> 
+                <input type="checkbox" id="materials" value="materials_checkbox" checked onclick="return false;"> 
                 <label for="materials">Materials</label>
-            </div>            
+            </div>    
+            <div class="button-placement-container -pull-down">
+                <div class="button-container">                 
+                    <button class="button -full-width" data-id={{id}}>Apply</button>
+                </div>
+            </div>                     
         </div>                
     </div>                
 
@@ -58,8 +63,8 @@
             </div>
             <div class="button-placement-container -pull-down">
                 <div class="button-container">                 
-                    <button class="button -full-width submit show-x-small show-small" data-id={{id}}>Confirm</button>
-                    <button class="button -half-width -pull-right submit hide-x-small hide-small" data-id={{id}}>Confirm</button>
+                    <button class="button -full-width show-x-small show-small" data-id={{id}}>Confirm</button>
+                    <button class="button -half-width -pull-right hide-x-small hide-small" data-id={{id}}>Confirm</button>
                 </div>
             </div>          
         </div>     

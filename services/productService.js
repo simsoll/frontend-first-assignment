@@ -88,7 +88,7 @@ module.exports = (function () {
         },
         { description: 'Product description 8', filters: ['tool'], id: 8, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 8', price: 59.95, producer: 'Craftsman', stock: 15 },
         { description: 'Product description 9', filters: ['tool'], id: 9, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 9', price: 59.95, producer: 'Craftsman', stock: 15 },
-        { description: 'Product description 10', filters: ['tool'], id: 10, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 10', price: 59.95, producer: 'Craftsman', stock: 15 },
+        { description: 'Product description 10', filters: ['tool'], id: 10, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 10', price: 59.95, producer: 'Craftsman', stock: 0 },
         { description: 'Product description 11', filters: ['tool'], id: 11, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 11', price: 59.95, producer: 'Craftsman', stock: 15 },
         { description: 'Product description 12', filters: ['tool'], id: 12, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 12', price: 59.95, producer: 'Craftsman', stock: 15 },
         { description: 'Product description 13', filters: ['tool'], id: 13, image: 'http://lorempixel.com/g/600/600/technics', isFiltered: true, isInPendingPurchase: false, name: 'Product 13', price: 59.95, producer: 'Craftsman', stock: 15 },

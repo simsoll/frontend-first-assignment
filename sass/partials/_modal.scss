@@ -45,6 +45,17 @@ $modal-padding: 1rem;
     position: relative;
 }
 
+.modal-categories {   
+    & input {
+        vertical-align: middle;
+    }
+    
+    & label {
+        vertical-align: middle;
+        font-size: 1rem;
+    }
+}
+
 .modal-login {
     & input {
         width: 100%;
@@ -69,22 +80,22 @@ $modal-padding: 1rem;
     left: 0;    
     
     &.login {
-        width: 60vw;
-        height: 50vh;                
+        width: 250px;
+        height: 190px;                
     }
     
     &.categories {
-        width: 50vw;
-        height: 25vh;                        
+        width: 150px;
+        height: 125px;                        
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
     .modal-container {    
-        top: 70%;
-        &.login {
-            height: 60vh;
-        }
+        top: 65%;
+        // &.login {
+        //     height: 60vh;
+        // }
     }
 }
 
@@ -92,25 +103,16 @@ $modal-padding: 1rem;
     .modal-container {
         top: 50%;
         
-        &.login {        
-            width: 25vw;
-            height: 25vh;
-        } 
+        // &.login {        
+        //     height: 25vh;
+        // } 
     }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-large}) {
-    .modal-container {
-        &.login {        
-            width: 20vw;
-        }
-    }
+    
 }
 
 @media screen and (min-width: #{$screen-breakpoint-x-large}) {
-    .modal-container {
-        &.login {        
-            width: 15vw;
-        }
-    }
+
 }
