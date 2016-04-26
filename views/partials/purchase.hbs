@@ -15,7 +15,7 @@
                             <td class="purchase-details -align-right">€{{product.price}}</td>             
                             {{#isEqual ../status 'pending'}}       
                                 <td class="purchase-details amounts -align-right">
-                                    <input type="number" min="0" data-id="{{product.id}}" value="{{amount}}"></input>
+                                    <input type="number" min="1" data-id="{{product.id}}" value="{{amount}}"></input>
                                     <button class="button remove-product" data-id="{{product.id}}"><i class="fa fa-times"></i></button>
                                 </td>
                             {{else}}
