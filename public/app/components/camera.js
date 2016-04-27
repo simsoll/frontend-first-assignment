@@ -11,14 +11,17 @@ appComponents.Camera.prototype = function () {
     };
 
     function initialize() {
-        $('.barcode-scanner').on('change', '#barcode-scanner', function (event) {
-            var applyTo = $('.modal-barcode .product__image');//.attr('src', imgURL);
-                        
-            injectPicture(event, applyTo);
-            
-            $('.modal-overlay[data-modal-class=".modal-barcode"]').toggleClass('hide');
-            $('.modal-barcode').toggleClass('hide');
-        });
+        $('.barcode-scanner').on('change', '#barcode-scanner', eventHandler);
+        $('.barcode-scanner-widget').on('change', '#barcode-scanner-widget', eventHandler);
+    }
+
+    function eventHandler(event) {
+        var applyTo = $('.modal-barcode .product__image');//.attr('src', imgURL);
+
+        injectPicture(event, applyTo);
+
+        $('.modal-overlay[data-modal-class=".modal-barcode"]').toggleClass('hide');
+        $('.modal-barcode').toggleClass('hide');
     }
 
     function injectPicture(event, applyTo) {

@@ -56,7 +56,8 @@ $product-padding: 0.2rem;
     bottom: $button-height + $product-padding;
     
     & label {
-        @include label-text;
+        font-size: 1.2em;
+        font-weight: 600;  
         padding-right: $product-padding/2;
     }
 

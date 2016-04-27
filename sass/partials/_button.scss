@@ -33,7 +33,8 @@
 }
 
 .button {
-    @include label-text;
+    font-size: 0.6rem;
+    font-weight: 600;  
     height: $button-height;
     outline: none;
     border: none;
@@ -105,7 +106,10 @@
 }
 
 @media screen and (min-width: #{$screen-breakpoint-small}) {
-
+    .button {
+        font-size: 1.2em;
+        font-weight: 600;  
+    }
 }
 
 @media screen and (min-width: #{$screen-breakpoint-medium}) {   
